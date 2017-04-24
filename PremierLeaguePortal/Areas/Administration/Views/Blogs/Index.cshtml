@@ -23,10 +23,17 @@
         <th>
             @Html.DisplayNameFor(model => model.CreatedOn)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaderImage.ImageName)@*TODO*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaderImage.Type)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Header)
@@ -39,6 +46,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeaderImage.ImageName)
+        </td>
+        <td>
+            <img class="img-fluid image-tumb" src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

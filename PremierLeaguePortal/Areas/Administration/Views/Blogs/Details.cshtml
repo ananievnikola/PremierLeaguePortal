@@ -42,6 +42,14 @@
             @Html.DisplayFor(model => model.CreatedOn)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.HeaderImage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb"/>
+        </dd>
+
     </dl>
 </div>
 <p>
