@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,8 +7,8 @@ using PremierLeaguePortal.Context;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Utilities.FileUtils;
 using System.IO;
-using System.Data.SqlTypes;
-//using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations;
+using System.Data.Entity;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -106,13 +103,19 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog, HttpPostedFileBase upload)
         {
+            Blog actual = db.Blogs.FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
                 blog.ModifiedOn = DateTime.Now;
-                db.Entry(blog).State = EntityState.Modified;
-                //db.Blogs.AddOrUpdate(blog);
+                blog.CreatedOn = actual.CreatedOn;//view model here?
+                //db.Entry(blog).State = EntityState.Modified;
+                if (upload != null && upload.ContentLength > 0)
+                {
+
+                }
+                db.Blogs.AddOrUpdate(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
