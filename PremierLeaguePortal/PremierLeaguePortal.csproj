@@ -176,17 +176,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704171600518_UsersAndOtherEntitiesOnSeparateDbs.cs" />
-    <Compile Include="Migrations\201704171600518_UsersAndOtherEntitiesOnSeparateDbs.Designer.cs">
-      <DependentUpon>201704171600518_UsersAndOtherEntitiesOnSeparateDbs.cs</DependentUpon>
+    <Compile Include="Migrations\201704250748194_connstr.cs" />
+    <Compile Include="Migrations\201704250748194_connstr.Designer.cs">
+      <DependentUpon>201704250748194_connstr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704171610445_singleContext.cs" />
-    <Compile Include="Migrations\201704171610445_singleContext.Designer.cs">
-      <DependentUpon>201704171610445_singleContext.cs</DependentUpon>
+    <Compile Include="Migrations\201704250817022_modifiedOnAdded.cs" />
+    <Compile Include="Migrations\201704250817022_modifiedOnAdded.Designer.cs">
+      <DependentUpon>201704250817022_modifiedOnAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704171625229_singleContext2.cs" />
-    <Compile Include="Migrations\201704171625229_singleContext2.Designer.cs">
-      <DependentUpon>201704171625229_singleContext2.cs</DependentUpon>
+    <Compile Include="Migrations\201704250840205_datetime2.cs" />
+    <Compile Include="Migrations\201704250840205_datetime2.Designer.cs">
+      <DependentUpon>201704250840205_datetime2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -283,21 +283,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704171600518_UsersAndOtherEntitiesOnSeparateDbs.resx">
-      <DependentUpon>201704171600518_UsersAndOtherEntitiesOnSeparateDbs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704171610445_singleContext.resx">
-      <DependentUpon>201704171610445_singleContext.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704171625229_singleContext2.resx">
-      <DependentUpon>201704171625229_singleContext2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PremierLeaguePortal.Utils\PremierLeaguePortal.Utils.csproj">
       <Project>{bc4c7062-3049-4c91-8406-0b98cb42eb11}</Project>
       <Name>PremierLeaguePortal.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704250748194_connstr.resx">
+      <DependentUpon>201704250748194_connstr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704250817022_modifiedOnAdded.resx">
+      <DependentUpon>201704250817022_modifiedOnAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704250840205_datetime2.resx">
+      <DependentUpon>201704250840205_datetime2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

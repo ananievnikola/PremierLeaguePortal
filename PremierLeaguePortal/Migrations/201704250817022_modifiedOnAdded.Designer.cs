@@ -7,13 +7,13 @@ namespace PremierLeaguePortal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class singleContext2 : IMigrationMetadata
+    public sealed partial class modifiedOnAdded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(singleContext2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(modifiedOnAdded));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704171625229_singleContext2"; }
+            get { return "201704250817022_modifiedOnAdded"; }
         }
         
         string IMigrationMetadata.Source

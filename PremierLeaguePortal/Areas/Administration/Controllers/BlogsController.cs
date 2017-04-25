@@ -10,6 +10,8 @@ using PremierLeaguePortal.Context;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Utilities.FileUtils;
 using System.IO;
+using System.Data.SqlTypes;
+//using System.Data.Entity.Migrations;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -75,6 +77,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     blog.HeaderImage = image;
                 }
                 blog.CreatedOn = DateTime.Now;
+                blog.ModifiedOn = DateTime.Now;
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -103,11 +106,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category,CreatedOn")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                blog.ModifiedOn = DateTime.Now;
                 db.Entry(blog).State = EntityState.Modified;
+                //db.Blogs.AddOrUpdate(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

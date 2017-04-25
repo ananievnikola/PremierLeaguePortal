@@ -26,6 +26,8 @@ namespace PremierLeaguePortal.Context
         {
             //remove the pluralizing convention, so I will handle table names myself
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Properties<DateTime>()
+                .Configure(c => c.HasColumnType("datetime2"));
             base.OnModelCreating(modelBuilder);
         }
 

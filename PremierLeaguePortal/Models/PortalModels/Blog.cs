@@ -17,5 +17,7 @@ namespace PremierLeaguePortal.Models
         public EBlogCategory Category { get; set; }
         //public string ImagePath { get; set; }
         public virtual Image HeaderImage { get; set; }
+        public DateTime ModifiedOn { get; set; }
+
     }
 }
