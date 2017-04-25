@@ -113,9 +113,35 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 //db.Entry(blog).State = EntityState.Modified;
                 if (upload != null && upload.ContentLength > 0)
                 {
+                    if (actual.HeaderImage != null)
+                    {
+                        try
+                        {
 
+                            System.IO.File.Delete(actual.HeaderImage.ImageServerPath);
+                        }
+                        catch (IOException ex)
+                        {
+                            //TODO
+                        }
+                    }
+                    string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
+                    string serverPath = Server.MapPath("~/Images/" + fileName);
+                    string physicalPath = Path.Combine("Images/", fileName);
+                    CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
+                    f.SaveAs(serverPath);
+                    Image image = new Image()
+                    {
+                        ImageName = upload.FileName,
+                        ImagePhysicalPath = physicalPath,
+                        ImageServerPath = serverPath,
+                        CreatedOn = DateTime.Now,
+                        Type = EImageType.HeaderImage
+                    };
+                    blog.HeaderImage = image;
                 }
                 db.Blogs.AddOrUpdate(blog);
+                //db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
