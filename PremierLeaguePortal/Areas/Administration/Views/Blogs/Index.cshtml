@@ -48,10 +48,18 @@
             @Html.DisplayFor(modelItem => item.CreatedOn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HeaderImage.ImageName)
+            @{ 
+                if (item.HeaderImage != null)
+                {
+                    Html.DisplayFor(modelItem => item.HeaderImage.ImageName);
+                }
+            }
         </td>
         <td>
-            <img class="img-fluid image-tumb" src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" />
+            @if (item.HeaderImage != null)
+            {
+                <img class="img-fluid image-tumb" src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" />
+            }            
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

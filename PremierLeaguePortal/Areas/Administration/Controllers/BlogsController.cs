@@ -72,6 +72,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     };
 
                     blog.HeaderImage = image;
+                    
                 }
                 blog.CreatedOn = DateTime.Now;
                 blog.ModifiedOn = DateTime.Now;
@@ -105,7 +106,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog, HttpPostedFileBase upload)
         {
-            Blog actual = db.Blogs.FirstOrDefault(b => b.Id == blog.Id);
+            Blog actual = db.Blogs.Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
                 blog.ModifiedOn = DateTime.Now;
@@ -132,12 +133,18 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     f.SaveAs(serverPath);
                     Image image = new Image()
                     {
+                        //Id = actual.HeaderImage.Id,
                         ImageName = upload.FileName,
                         ImagePhysicalPath = physicalPath,
                         ImageServerPath = serverPath,
                         CreatedOn = DateTime.Now,
                         Type = EImageType.HeaderImage
                     };
+                    if (actual.HeaderImage != null)
+                    {
+                        image.Id = actual.HeaderImage.Id;
+                    }
+                    db.Images.AddOrUpdate(image);
                     blog.HeaderImage = image;
                 }
                 db.Blogs.AddOrUpdate(blog);
