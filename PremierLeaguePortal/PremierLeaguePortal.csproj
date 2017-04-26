@@ -283,6 +283,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PremierLeaguePortal.Models\PremierLeaguePortal.Models.csproj">
+      <Project>{3b9b3b12-147f-4c81-b1d6-5fa7e14a6de7}</Project>
+      <Name>PremierLeaguePortal.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PremierLeaguePortal.Utils\PremierLeaguePortal.Utils.csproj">
       <Project>{bc4c7062-3049-4c91-8406-0b98cb42eb11}</Project>
       <Name>PremierLeaguePortal.Utils</Name>
