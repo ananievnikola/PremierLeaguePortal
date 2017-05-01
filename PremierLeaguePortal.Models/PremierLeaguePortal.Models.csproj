@@ -45,7 +45,11 @@
     <Compile Include="PortalModels\Enumerations\EBlogCategory.cs" />
     <Compile Include="PortalModels\Enumerations\EImageType.cs" />
     <Compile Include="PortalModels\Image.cs" />
+    <Compile Include="PortalModels\Manager.cs" />
     <Compile Include="PortalModels\ModelBase.cs" />
+    <Compile Include="PortalModels\Player.cs" />
+    <Compile Include="PortalModels\Team.cs" />
+    <Compile Include="PortalModels\TeamOfTheWeek.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

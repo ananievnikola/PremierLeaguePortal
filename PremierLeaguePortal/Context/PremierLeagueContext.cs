@@ -21,6 +21,10 @@ namespace PremierLeaguePortal.Context
         /// </summary>
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<Manager> Managers { get; set; }
+        public DbSet<TeamOfTheWeek> TeamOfTheWeek { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
