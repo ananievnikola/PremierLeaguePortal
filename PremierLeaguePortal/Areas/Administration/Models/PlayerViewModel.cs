@@ -13,6 +13,6 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public string Name { get; set; }
         public double ICTIndex { get; set; }
         public int BonusPoints { get; set; }
-        public string ImageDescription { get; set; }
+        //public string ImageDescription { get; set; }
     }
 }

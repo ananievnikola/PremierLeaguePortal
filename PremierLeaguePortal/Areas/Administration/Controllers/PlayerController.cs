@@ -16,13 +16,23 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
     public class PlayerController : Controller
     {
         private PremierLeagueContext db = new PremierLeagueContext();
+        //private readonly IMapper _mapper;
+
+        public PlayerController()
+        {
+            //_mapper = mapper;
+        }
 
         // GET: Administration/Player
         public ActionResult Index()
         {
-            PlayerViewModel p = new PlayerViewModel();
-            Mapper.Map<PlayerViewModel>(db.Players.ToList());
-            return View(db.Players.ToList());
+            var players = db.Players.ToList();
+            var pvm = Mapper.Map<IEnumerable<PlayerViewModel>>(players);
+            //var wheelsVm = Mapper.Map<IEnumerable<WheelViewModel>>(wheels);
+            //Player pl = db.Players;
+            //p = _mapper.Map<PlayerViewModel>(pl);
+            // p = Mapper.Map<Player, PlayerViewModel>();
+            return View(players);
         }
 
         // GET: Administration/Player/Details/5
