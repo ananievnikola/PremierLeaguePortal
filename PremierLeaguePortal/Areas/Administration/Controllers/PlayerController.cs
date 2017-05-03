@@ -32,7 +32,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             //Player pl = db.Players;
             //p = _mapper.Map<PlayerViewModel>(pl);
             // p = Mapper.Map<Player, PlayerViewModel>();
-            return View(players);
+            return View(pvm);
         }
 
         // GET: Administration/Player/Details/5
@@ -43,11 +43,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Player player = db.Players.Find(id);
+            var pvm = Mapper.Map<PlayerViewModel>(player);
             if (player == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(pvm);
         }
 
         // GET: Administration/Player/Create
@@ -61,11 +62,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,ICTIndex,BonusPoints,CreatedOn")] Player player)
+        public ActionResult Create(PlayerViewModel player)
         {
             if (ModelState.IsValid)
             {
-                db.Players.Add(player);
+                Player dbPlayer = Mapper.Map<Player>(player);
+                dbPlayer.CreatedOn = DateTime.Now;
+                db.Players.Add(dbPlayer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -81,11 +84,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Player player = db.Players.Find(id);
+            PlayerViewModel pvm = Mapper.Map<PlayerViewModel>(player);
             if (player == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(pvm);
         }
 
         // POST: Administration/Player/Edit/5
@@ -93,11 +97,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,ICTIndex,BonusPoints,CreatedOn")] Player player)
+        public ActionResult Edit(PlayerViewModel player)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(player).State = EntityState.Modified;
+                Player dbPlayer = Mapper.Map<Player>(player);
+                //dbPlayer.CreatedOn = DateTime.Now;
+                db.Entry(dbPlayer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

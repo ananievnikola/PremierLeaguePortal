@@ -10,6 +10,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
     {
         //public Player Player { get; set; }
         //public Image Image { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public double ICTIndex { get; set; }
         public int BonusPoints { get; set; }

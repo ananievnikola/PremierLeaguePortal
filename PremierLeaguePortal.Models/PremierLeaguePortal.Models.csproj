@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PortalModels\Autor.cs" />
     <Compile Include="PortalModels\Blog.cs" />
     <Compile Include="PortalModels\Enumerations\EBlogCategory.cs" />
     <Compile Include="PortalModels\Enumerations\EImageType.cs" />

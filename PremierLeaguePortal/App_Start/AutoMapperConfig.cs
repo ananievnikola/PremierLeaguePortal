@@ -15,7 +15,7 @@ namespace PremierLeaguePortal
         {
             Mapper.Initialize(expression =>
             {
-                expression.CreateMap<Player, PlayerViewModel>();
+                expression.CreateMap<Player, PlayerViewModel>().ReverseMap();
                 //expression.CreateMap<Wheel, WheelViewModel>();
 
                 //expression.CreateMap<Tyre, ProductViewModel>()
