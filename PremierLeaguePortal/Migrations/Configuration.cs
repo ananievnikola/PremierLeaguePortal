@@ -1,5 +1,8 @@
 namespace PremierLeaguePortal.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using PremierLeaguePortal.Context;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,6 +17,12 @@ namespace PremierLeaguePortal.Migrations
 
         protected override void Seed(PremierLeaguePortal.Context.PremierLeagueContext context)
         {
+            var roleManager = new RoleManager<IdentityRole>(
+                    new RoleStore<IdentityRole>(new PremierLeagueContext())
+                );
+            roleManager.Create(new IdentityRole("SuperUser"));
+            roleManager.Create(new IdentityRole("Author"));
+            roleManager.Create(new IdentityRole("NormalUser"));
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

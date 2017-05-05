@@ -25,6 +25,7 @@ namespace PremierLeaguePortal.Context
         public DbSet<Player> Players { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<TeamOfTheWeek> TeamOfTheWeek { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

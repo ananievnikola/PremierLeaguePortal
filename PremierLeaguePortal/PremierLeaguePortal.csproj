@@ -199,9 +199,17 @@
     <Compile Include="Migrations\201704291331162_PlayerManagerTeamEctAdded.Designer.cs">
       <DependentUpon>201704291331162_PlayerManagerTeamEctAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705031546310_authorAdded.cs" />
-    <Compile Include="Migrations\201705031546310_authorAdded.Designer.cs">
-      <DependentUpon>201705031546310_authorAdded.cs</DependentUpon>
+    <Compile Include="Migrations\201705051100397_authorsaddedtodb.cs" />
+    <Compile Include="Migrations\201705051100397_authorsaddedtodb.Designer.cs">
+      <DependentUpon>201705051100397_authorsaddedtodb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051127183_addedIsAuthorProp.cs" />
+    <Compile Include="Migrations\201705051127183_addedIsAuthorProp.Designer.cs">
+      <DependentUpon>201705051127183_addedIsAuthorProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051358252_userBugFix.cs" />
+    <Compile Include="Migrations\201705051358252_userBugFix.Designer.cs">
+      <DependentUpon>201705051358252_userBugFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -322,8 +330,14 @@
     <EmbeddedResource Include="Migrations\201704291331162_PlayerManagerTeamEctAdded.resx">
       <DependentUpon>201704291331162_PlayerManagerTeamEctAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705031546310_authorAdded.resx">
-      <DependentUpon>201705031546310_authorAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705051100397_authorsaddedtodb.resx">
+      <DependentUpon>201705051100397_authorsaddedtodb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051127183_addedIsAuthorProp.resx">
+      <DependentUpon>201705051127183_addedIsAuthorProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051358252_userBugFix.resx">
+      <DependentUpon>201705051358252_userBugFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,6 @@ namespace PremierLeaguePortal.Models
         //public string ImagePath { get; set; }
         public virtual Image HeaderImage { get; set; }
         public DateTime ModifiedOn { get; set; }
-        public virtual Author Autor { get; set; }
+        public virtual Author Author { get; set; }
     }
 }
