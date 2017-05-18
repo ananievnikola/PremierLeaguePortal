@@ -12,6 +12,7 @@ using System.Data.Entity;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "SuperUser,Author")]
     public class BlogsController : Controller
     {
         private PremierLeagueContext db = new PremierLeagueContext();
