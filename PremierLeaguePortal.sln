@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PremierLeaguePortal.Utils",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PremierLeaguePortal.Models", "PremierLeaguePortal.Models\PremierLeaguePortal.Models.csproj", "{3B9B3B12-147F-4C81-B1D6-5FA7E14A6DE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PremierLeaguePortal.Repository", "PremierLeaguePortal.Repository\PremierLeaguePortal.Repository.csproj", "{610D3818-2244-461F-B5B9-F0DCF985787B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3B9B3B12-147F-4C81-B1D6-5FA7E14A6DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B9B3B12-147F-4C81-B1D6-5FA7E14A6DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B9B3B12-147F-4C81-B1D6-5FA7E14A6DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610D3818-2244-461F-B5B9-F0DCF985787B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610D3818-2244-461F-B5B9-F0DCF985787B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610D3818-2244-461F-B5B9-F0DCF985787B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610D3818-2244-461F-B5B9-F0DCF985787B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

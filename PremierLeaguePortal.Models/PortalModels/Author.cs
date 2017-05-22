@@ -8,8 +8,8 @@ namespace PremierLeaguePortal.Models
 {
     public class Author : ModelBase
     {
-        public string Name { get; set; }
-        public string NickName { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorNickName { get; set; }
         public bool IsApproved { get; set; }
         public virtual IList<Blog> Blogs { get; set; }
     }

@@ -176,6 +176,7 @@
     <Compile Include="Areas\Administration\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserRoleController.cs" />
+    <Compile Include="Areas\Administration\Models\BlogViewModel.cs" />
     <Compile Include="Areas\Administration\Models\PlayerViewModel.cs" />
     <Compile Include="Areas\Administration\Models\UserViewModel.cs" />
     <Compile Include="Context\PremierLeagueContext.cs" />
@@ -188,6 +189,14 @@
     <Compile Include="Migrations\201705181421130_userSeed.cs" />
     <Compile Include="Migrations\201705181421130_userSeed.Designer.cs">
       <DependentUpon>201705181421130_userSeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221201593_asdf.cs" />
+    <Compile Include="Migrations\201705221201593_asdf.Designer.cs">
+      <DependentUpon>201705221201593_asdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.cs" />
+    <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.Designer.cs">
+      <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -299,6 +308,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705181421130_userSeed.resx">
       <DependentUpon>201705181421130_userSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221201593_asdf.resx">
+      <DependentUpon>201705221201593_asdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221238305_littleAdjustmentOfModels.resx">
+      <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

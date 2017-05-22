@@ -13,6 +13,7 @@ namespace PremierLeaguePortal.Models
         public string Header { get; set; }
         [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string SubHeader { get; set; }
+        public string Content { get; set; }
         [Required]
         public EBlogCategory Category { get; set; }
         //public string ImagePath { get; set; }

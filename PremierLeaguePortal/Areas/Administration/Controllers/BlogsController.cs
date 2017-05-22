@@ -9,6 +9,9 @@ using PremierLeaguePortal.Utilities.FileUtils;
 using System.IO;
 using System.Data.Entity.Migrations;
 using System.Data.Entity;
+using PremierLeaguePortal.Areas.Administration.Models;
+using AutoMapper;
+using System.Collections.Generic;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -20,6 +23,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // GET: Administration/Blogs
         public ActionResult Index()
         {
+            //var blogs = db.Blogs.ToList();
+            //var bvm = Mapper.Map<IEnumerable<BlogViewModel>>(blogs);
             return View(db.Blogs.ToList());
         }
 
@@ -49,8 +54,11 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog, HttpPostedFileBase upload)
-        {
+        public ActionResult Create(BlogViewModel model)
+        {           
+            HttpPostedFileBase upload = model.HeaderImageFile;
+            //TODO automapper Blog dbBlog = Mapper.Map<Blog>(model);
+            Blog blog = Mapper.Map<Blog>(model);
             if (ModelState.IsValid)
             {
                 if (upload != null && upload.ContentLength > 0)
@@ -73,7 +81,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     };
 
                     blog.HeaderImage = image;
-                    
+
                 }
                 blog.CreatedOn = DateTime.Now;
                 blog.ModifiedOn = DateTime.Now;
@@ -93,11 +101,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Blog blog = db.Blogs.Find(id);
+            
             if (blog == null)
             {
                 return HttpNotFound();
             }
-            return View(blog);
+            BlogViewModel bvm = Mapper.Map<BlogViewModel>(blog);
+            return View(bvm);
         }
 
         // POST: Administration/Blogs/Edit/5
@@ -105,8 +115,11 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Header,SubHeader,Category")] Blog blog, HttpPostedFileBase upload)
+        public ActionResult Edit(BlogViewModel model)
         {
+            HttpPostedFileBase upload = model.HeaderImageFile;
+            //TODO automapper Blog dbBlog = Mapper.Map<Blog>(model);
+            Blog blog = Mapper.Map<Blog>(model);
             Blog actual = db.Blogs.Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
@@ -191,7 +204,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 {
                     //TODO
                 }
-                
+
             }
 
             db.Blogs.Remove(blog);

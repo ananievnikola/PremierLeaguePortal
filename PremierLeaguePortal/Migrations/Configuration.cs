@@ -32,7 +32,6 @@ namespace PremierLeaguePortal.Migrations
             string pass = "1qaz@WSX";
             var chkUser = UserManager.Create(user, pass);
 
-            //Add default User to Role Admin    
             if (chkUser.Succeeded)
             {
                 var result1 = UserManager.AddToRole(user.Id, "SuperUser");
