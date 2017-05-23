@@ -9,9 +9,9 @@ namespace PremierLeaguePortal.Repository
     public interface IRepository<T> where T : EntityBase
 
     {
-        T GetById(Int64 id);
-        void Create(T entity);
-        void Delete(T entity);
+        T Get(int id);
+        void Add(T entity);
+        void Remove(T entity);
         void Update(T entity);
     }
 }

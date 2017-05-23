@@ -8,17 +8,41 @@ namespace PremierLeaguePortal.Repository
 {
     public class Repository<T> : IRepository<T> where T : EntityBase
     {
-        public void Create(T entity)
+        //public void Create(T entity)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void Delete(T entity)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public T GetById(long id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public T GetAll()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void Update(T entity)
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public void Add(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(T entity)
+        public T Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public T GetById(long id)
+        public void Remove(T entity)
         {
             throw new NotImplementedException();
         }
@@ -27,6 +51,5 @@ namespace PremierLeaguePortal.Repository
         {
             throw new NotImplementedException();
         }
-
     }
 }
