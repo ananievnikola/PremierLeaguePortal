@@ -1,31 +1,28 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PremierLeaguePortal.Context;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Utilities.FileUtils;
 using System.IO;
 using System.Data.Entity.Migrations;
-using System.Data.Entity;
 using PremierLeaguePortal.Areas.Administration.Models;
 using AutoMapper;
-using System.Collections.Generic;
+using PremierLeaguePortal.Repository;
+using PremierLeaguePortal.Context;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
     [Authorize(Roles = "SuperUser,Author")]
     public class BlogsController : Controller
     {
-        private PremierLeagueContext db = new PremierLeagueContext();
+        private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
+
 
         // GET: Administration/Blogs
         public ActionResult Index()
         {
-            //var blogs = db.Blogs.ToList();
-            //var bvm = Mapper.Map<IEnumerable<BlogViewModel>>(blogs);
-            return View(db.Blogs.ToList());
+            return View(_unitOfWork.Blogs.GetAll());
         }
 
         // GET: Administration/Blogs/Details/5
@@ -35,7 +32,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            //Blog blog = db.Blogs.Find(id);
+            Blog blog = _unitOfWork.Blogs.Get((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -85,8 +83,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 }
                 blog.CreatedOn = DateTime.Now;
                 blog.ModifiedOn = DateTime.Now;
-                db.Blogs.Add(blog);
-                db.SaveChanges();
+                _unitOfWork.Blogs.Add(blog);
+                _unitOfWork.Complete();
                 return RedirectToAction("Index");
             }
 
@@ -96,11 +94,11 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // GET: Administration/Blogs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Blog blog = db.Blogs.Find(id);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Blog blog = _unitOfWork.Blogs.Get((int)id);
             
             if (blog == null)
             {
@@ -120,7 +118,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             HttpPostedFileBase upload = model.HeaderImageFile;
             //TODO automapper Blog dbBlog = Mapper.Map<Blog>(model);
             Blog blog = Mapper.Map<Blog>(model);
-            Blog actual = db.Blogs.Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
+            Blog actual = _unitOfWork.Blogs.Get(blog.Id);//Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
                 blog.ModifiedOn = DateTime.Now;
@@ -158,12 +156,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     {
                         image.Id = actual.HeaderImage.Id;
                     }
-                    db.Images.AddOrUpdate(image);
+                    _unitOfWork.Images.Add(image);
                     blog.HeaderImage = image;
                 }
-                db.Blogs.AddOrUpdate(blog);
+                _unitOfWork.Blogs.Add(blog);
                 //db.Entry(blog).State = EntityState.Modified;
-                db.SaveChanges();
+                _unitOfWork.Complete();// .SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(blog);
@@ -176,7 +174,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
+            Blog blog = _unitOfWork.Blogs.Get((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -187,9 +185,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // POST: Administration/Blogs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            Blog blog = db.Blogs.Find(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Blog blog = _unitOfWork.Blogs.Get((int)id);// Find(id);
             Image image = blog.HeaderImage;
             if (image != null)
             {
@@ -198,7 +200,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 {
 
                     System.IO.File.Delete(blog.HeaderImage.ImageServerPath);
-                    db.Images.Remove(image);
+                    _unitOfWork.Images.Remove(image);
                 }
                 catch (IOException ex)
                 {
@@ -207,19 +209,19 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
 
             }
 
-            db.Blogs.Remove(blog);
-            db.SaveChanges();
+            _unitOfWork.Blogs.Remove(blog);
+            _unitOfWork.Complete();//SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
