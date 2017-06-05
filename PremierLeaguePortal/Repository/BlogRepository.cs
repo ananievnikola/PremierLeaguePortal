@@ -7,21 +7,11 @@ using System.Web;
 
 namespace PremierLeaguePortal.Repository
 {
-    public class BlogRepository : Repository<Blog>, IBlogRepository
+    public class BlogRepository : GenericRepository<Blog>
     {
         public BlogRepository(PremierLeagueContext context) : base(context)
         {
 
         }
-
-        //public void AddWithImage(Blog blog, Image image)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void RemoveWithImage(Blog blog, Image image)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

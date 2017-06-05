@@ -174,7 +174,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BlogsController.cs" />
-    <Compile Include="Areas\Administration\Controllers\PlayerController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Administration\Models\BlogViewModel.cs" />
     <Compile Include="Areas\Administration\Models\PlayerViewModel.cs" />
@@ -204,12 +203,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BlogRepository.cs" />
-    <Compile Include="Repository\IBlogRepository.cs" />
-    <Compile Include="Repository\IImageRepository.cs" />
-    <Compile Include="Repository\ImageRepository.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IUnitOfWork.cs" />
-    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

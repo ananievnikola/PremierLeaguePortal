@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
+using System.Web;
 
 namespace PremierLeaguePortal.Repository
 {
-    public interface IRepository<TEntity> where TEntity : class
-
+    interface IRepository<T> : IDisposable where T : class
     {
-        TEntity Get(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<T> GetAll();
 
-        void Add(TEntity entity);
-        void AddRange(IEnumerable<TEntity> entities);
+        T GetById(int Id);
 
-        void Remove(TEntity entity);
-        void RemoveRange(IEnumerable<TEntity> entities);
+        void Insert(T model);
 
+        void Update(T model);
+
+        void Delete(int id);
+
+        void Save();
     }
 }

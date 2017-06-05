@@ -14,7 +14,7 @@ using PremierLeaguePortal.Context;
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
     [Authorize(Roles = "SuperUser,Author")]
-    public class BlogsController : Controller
+    public class BlogsController : Controller, IDisposable
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
 
@@ -33,7 +33,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Blog blog = db.Blogs.Find(id);
-            Blog blog = _unitOfWork.Blogs.Get((int)id);
+            Blog blog = _unitOfWork.Blogs.GetById((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -83,8 +83,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 }
                 blog.CreatedOn = DateTime.Now;
                 blog.ModifiedOn = DateTime.Now;
-                _unitOfWork.Blogs.Add(blog);
-                _unitOfWork.Complete();
+                _unitOfWork.Blogs.Insert(blog);
+                _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
 
@@ -98,7 +98,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
-            Blog blog = _unitOfWork.Blogs.Get((int)id);
+            Blog blog = _unitOfWork.Blogs.GetById((int)id);
             
             if (blog == null)
             {
@@ -118,7 +118,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             HttpPostedFileBase upload = model.HeaderImageFile;
             //TODO automapper Blog dbBlog = Mapper.Map<Blog>(model);
             Blog blog = Mapper.Map<Blog>(model);
-            Blog actual = _unitOfWork.Blogs.Get(blog.Id);//Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
+            Blog actual = _unitOfWork.Blogs.GetById(blog.Id);//Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
                 blog.ModifiedOn = DateTime.Now;
@@ -156,12 +156,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     {
                         image.Id = actual.HeaderImage.Id;
                     }
-                    _unitOfWork.Images.Add(image);
+                    //_unitOfWork.Images.Update(image);
                     blog.HeaderImage = image;
                 }
-                _unitOfWork.Blogs.Add(blog);
+                _unitOfWork.Blogs.Update(blog);
                 //db.Entry(blog).State = EntityState.Modified;
-                _unitOfWork.Complete();// .SaveChanges();
+                _unitOfWork.Save();// .SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(blog);
@@ -174,7 +174,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = _unitOfWork.Blogs.Get((int)id);
+            Blog blog = _unitOfWork.Blogs.GetById((int)id);
             if (blog == null)
             {
                 return HttpNotFound();
@@ -191,7 +191,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = _unitOfWork.Blogs.Get((int)id);// Find(id);
+            Blog blog = _unitOfWork.Blogs.GetById((int)id);// Find(id);
             Image image = blog.HeaderImage;
             if (image != null)
             {
@@ -200,7 +200,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 {
 
                     System.IO.File.Delete(blog.HeaderImage.ImageServerPath);
-                    _unitOfWork.Images.Remove(image);
+                    _unitOfWork.Images.Delete(image.Id);
                 }
                 catch (IOException ex)
                 {
@@ -209,19 +209,19 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
 
             }
 
-            _unitOfWork.Blogs.Remove(blog);
-            _unitOfWork.Complete();//SaveChanges();
+            _unitOfWork.Blogs.Delete(blog.Id);
+            _unitOfWork.Save();//SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
