@@ -13,6 +13,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public string SubHeader { get; set; }
         public string Content { get; set; }
         public EBlogCategory Category { get; set; }
+        public Image HeaderImage { get; set; }
         //public DateTime ModifiedOn { get; set; }
         //public string AuthorName { get; set; }
         //public string AuthorNickName { get; set; }

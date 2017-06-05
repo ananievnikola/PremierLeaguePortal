@@ -118,26 +118,26 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             HttpPostedFileBase upload = model.HeaderImageFile;
             //TODO automapper Blog dbBlog = Mapper.Map<Blog>(model);
             Blog blog = Mapper.Map<Blog>(model);
-            Blog actual = _unitOfWork.Blogs.GetById(blog.Id);//Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
+            //Blog actual = _unitOfWork.Blogs.GetById(blog.Id);//Include("HeaderImage").FirstOrDefault(b => b.Id == blog.Id);
             if (ModelState.IsValid)
             {
                 blog.ModifiedOn = DateTime.Now;
-                blog.CreatedOn = actual.CreatedOn;//view model here?
+                //blog.CreatedOn = actual.CreatedOn;//view model here?
                 //db.Entry(blog).State = EntityState.Modified;
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    if (actual.HeaderImage != null)
-                    {
-                        try
-                        {
+                    //if (actual.HeaderImage != null)
+                    //{
+                    //    try
+                    //    {
 
-                            System.IO.File.Delete(actual.HeaderImage.ImageServerPath);
-                        }
-                        catch (IOException ex)
-                        {
-                            //TODO
-                        }
-                    }
+                    //        System.IO.File.Delete(actual.HeaderImage.ImageServerPath);
+                    //    }
+                    //    catch (IOException ex)
+                    //    {
+                    //        //TODO
+                    //    }
+                    //}
                     string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
                     string serverPath = Server.MapPath("~/Images/" + fileName);
                     string physicalPath = Path.Combine("Images/", fileName);
@@ -152,10 +152,10 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                         CreatedOn = DateTime.Now,
                         Type = EImageType.HeaderImage
                     };
-                    if (actual.HeaderImage != null)
-                    {
-                        image.Id = actual.HeaderImage.Id;
-                    }
+                    //if (actual.HeaderImage != null)
+                    //{
+                    //    image.Id = actual.HeaderImage.Id;
+                    //}
                     //_unitOfWork.Images.Update(image);
                     blog.HeaderImage = image;
                 }

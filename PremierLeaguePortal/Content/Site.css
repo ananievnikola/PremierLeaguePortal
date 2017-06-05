@@ -27,3 +27,7 @@ textarea {
 .image-tumb {
     max-width: 200px;
 }
+
+.hide-element {
+    display: none;
+}
