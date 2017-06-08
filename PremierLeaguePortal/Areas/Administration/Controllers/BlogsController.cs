@@ -9,7 +9,7 @@ using System.Data.Entity.Migrations;
 using PremierLeaguePortal.Areas.Administration.Models;
 using AutoMapper;
 using PremierLeaguePortal.Repository;
-using PremierLeaguePortal.Context;
+using PremierLeaguePortal.DAL.Context;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {

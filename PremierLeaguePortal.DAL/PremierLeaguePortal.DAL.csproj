@@ -78,17 +78,16 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PortalModels\Blog.cs" />
+    <Compile Include="Models\PortalModels\Enumerations\EBlogCategory.cs" />
+    <Compile Include="Models\PortalModels\Enumerations\EImageType.cs" />
+    <Compile Include="Models\PortalModels\Image.cs" />
+    <Compile Include="Models\PortalModels\ModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PremierLeaguePortal.Models\PremierLeaguePortal.Models.csproj">
-      <Project>{3b9b3b12-147f-4c81-b1d6-5fa7e14a6de7}</Project>
-      <Name>PremierLeaguePortal.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

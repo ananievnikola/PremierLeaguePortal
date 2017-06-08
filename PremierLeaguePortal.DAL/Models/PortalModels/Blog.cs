@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +20,6 @@ namespace PremierLeaguePortal.Models
         //public string ImagePath { get; set; }
         public virtual Image HeaderImage { get; set; }
         public DateTime ModifiedOn { get; set; }
-        public virtual ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

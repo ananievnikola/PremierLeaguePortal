@@ -6,7 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using PremierLeaguePortal.Models;
-using PremierLeaguePortal.Context;
+using PremierLeaguePortal.DAL.Context;
 
 namespace PremierLeaguePortal
 {

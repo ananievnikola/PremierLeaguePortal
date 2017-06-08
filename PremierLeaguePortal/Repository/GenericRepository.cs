@@ -1,4 +1,4 @@
-﻿using PremierLeaguePortal.Context;
+﻿using PremierLeaguePortal.DAL.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

@@ -7,7 +7,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace PremierLeaguePortal.Context
+namespace PremierLeaguePortal.DAL.Context
 {
     public class PremierLeagueContext : IdentityDbContext<ApplicationUser>
     {
@@ -32,6 +32,8 @@ namespace PremierLeaguePortal.Context
             //remove the pluralizing convention, so I will handle table names myself
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Properties<DateTime>()
+                .Configure(c => c.HasColumnType("datetime2"));
+            modelBuilder.Properties<DateTime?>()
                 .Configure(c => c.HasColumnType("datetime2"));
             base.OnModelCreating(modelBuilder);
         }

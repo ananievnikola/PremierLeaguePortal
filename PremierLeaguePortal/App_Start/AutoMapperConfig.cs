@@ -1,13 +1,8 @@
-﻿using AutoMapper;
-using PremierLeaguePortal.Areas.Administration.Models;
-using PremierLeaguePortal.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PremierLeaguePortal
+﻿namespace PremierLeaguePortal
 {
+    using AutoMapper;
+    using PremierLeaguePortal.Areas.Administration.Models;
+    using PremierLeaguePortal.Models;
     public class AutoMapperConfig
     {
         //public static IMapper Mapper;
