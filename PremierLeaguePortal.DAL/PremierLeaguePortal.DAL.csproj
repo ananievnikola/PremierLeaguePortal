@@ -84,6 +84,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PremierLeaguePortal.Models\PremierLeaguePortal.Models.csproj">
+      <Project>{3b9b3b12-147f-4c81-b1d6-5fa7e14a6de7}</Project>
+      <Name>PremierLeaguePortal.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

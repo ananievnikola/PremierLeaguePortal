@@ -176,8 +176,6 @@
     <Compile Include="Areas\Administration\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Administration\Models\BlogViewModel.cs" />
-    <Compile Include="Areas\Administration\Models\PlayerViewModel.cs" />
-    <Compile Include="Areas\Administration\Models\UserViewModel.cs" />
     <Compile Include="Context\PremierLeagueContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -196,6 +194,18 @@
     <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.cs" />
     <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.Designer.cs">
       <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706080859420_removeUnusedTables.cs" />
+    <Compile Include="Migrations\201706080859420_removeUnusedTables.Designer.cs">
+      <DependentUpon>201706080859420_removeUnusedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706081205243_userIdToAuthor.cs" />
+    <Compile Include="Migrations\201706081205243_userIdToAuthor.Designer.cs">
+      <DependentUpon>201706081205243_userIdToAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706081258526_movedInSepProj.cs" />
+    <Compile Include="Migrations\201706081258526_movedInSepProj.Designer.cs">
+      <DependentUpon>201706081258526_movedInSepProj.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -225,14 +235,6 @@
     <Content Include="Areas\Administration\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\Administration\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Blogs\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\%40Create.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\%40Delete.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\%40Details.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\%40Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\%40Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Player\Create.cshtml" />
     <Content Include="Areas\Administration\Views\UserRole\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -299,6 +301,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PremierLeaguePortal.DAL\PremierLeaguePortal.DAL.csproj">
+      <Project>{35f38ea5-e50a-4020-9b8f-bfd6ddce6653}</Project>
+      <Name>PremierLeaguePortal.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PremierLeaguePortal.Models\PremierLeaguePortal.Models.csproj">
       <Project>{3b9b3b12-147f-4c81-b1d6-5fa7e14a6de7}</Project>
       <Name>PremierLeaguePortal.Models</Name>
@@ -317,6 +323,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221238305_littleAdjustmentOfModels.resx">
       <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706080859420_removeUnusedTables.resx">
+      <DependentUpon>201706080859420_removeUnusedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081205243_userIdToAuthor.resx">
+      <DependentUpon>201706081205243_userIdToAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081258526_movedInSepProj.resx">
+      <DependentUpon>201706081258526_movedInSepProj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
