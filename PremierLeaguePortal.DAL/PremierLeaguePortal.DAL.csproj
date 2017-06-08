@@ -75,7 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PremierLeagueContext.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
+    <Compile Include="Models\AccountModels\LoginViewModel.cs" />
+    <Compile Include="Models\AccountModels\RegisterViewModel.cs" />
+    <Compile Include="Models\AccountModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\AccountModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\AccountModels\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PortalModels\Blog.cs" />
@@ -83,6 +89,7 @@
     <Compile Include="Models\PortalModels\Enumerations\EImageType.cs" />
     <Compile Include="Models\PortalModels\Image.cs" />
     <Compile Include="Models\PortalModels\ModelBase.cs" />
+    <Compile Include="Models\AccountModels\VerifyCodeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
