@@ -10,6 +10,7 @@ using AutoMapper;
 using PremierLeaguePortal.Repository;
 using PremierLeaguePortal.DAL.Context;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -22,7 +23,16 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // GET: Administration/Blogs
         public ActionResult Index()
         {
-            return View(_unitOfWork.Blogs.GetAll());
+            IEnumerable<Blog> blogs;
+            if (User.IsInRole("SuperUser"))
+            {
+                blogs = _unitOfWork.Blogs.GetAll();
+            }
+            else
+            {
+                blogs = _unitOfWork.Blogs.GetAllByUser(User.Identity.GetUserId());
+            }
+            return View(blogs);
         }
 
         // GET: Administration/Blogs/Details/5
@@ -32,7 +42,16 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = _unitOfWork.Blogs.GetById((int)id);
+            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            if (User.IsInRole("SuperUser"))
+            {
+                blog = _unitOfWork.Blogs.GetById((int)id);
+            }
+            else
+            {
+                blog = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            }
+            
             if (blog == null)
             {
                 return HttpNotFound();
@@ -93,8 +112,19 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // GET: Administration/Blogs/Edit/5
         public ActionResult Edit(int? id)
         {
-            Blog blog = _unitOfWork.Blogs.GetById((int)id);
-            
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            if (User.IsInRole("SuperUser"))
+            {
+                blog = _unitOfWork.Blogs.GetById((int)id);
+            }
+            else
+            {
+                blog = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            }
             if (blog == null)
             {
                 return HttpNotFound();
@@ -160,7 +190,15 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = _unitOfWork.Blogs.GetById((int)id);
+            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            if (User.IsInRole("SuperUser"))
+            {
+                blog = _unitOfWork.Blogs.GetById((int)id);
+            }
+            else
+            {
+                blog = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            }
             if (blog == null)
             {
                 return HttpNotFound();
@@ -177,7 +215,15 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = _unitOfWork.Blogs.GetById((int)id);
+            Blog blog;// = _unitOfWork.Blogs.GetById((int)id);
+            if (User.IsInRole("SuperUser"))
+            {
+                blog = _unitOfWork.Blogs.GetById((int)id);
+            }
+            else
+            {
+                blog = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            }
             Image image = blog.HeaderImage;
             if (image != null)
             {

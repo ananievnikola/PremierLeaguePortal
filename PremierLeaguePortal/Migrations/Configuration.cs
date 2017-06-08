@@ -37,6 +37,32 @@ namespace PremierLeaguePortal.Migrations
             {
                 var result1 = UserManager.AddToRole(user.Id, "SuperUser");
             }
+
+            var author = new ApplicationUser();
+            author.Email = "author@gmail.com";
+            author.UserName = "author@gmail.com";
+            author.FirstName = "Author";
+            author.LastName = "Test";
+            author.NickName = "TheAuthor";
+            var authorUser = UserManager.Create(author, pass);
+
+            if (authorUser.Succeeded)
+            {
+                var result1 = UserManager.AddToRole(author.Id, "Author");
+            }
+
+            var author2 = new ApplicationUser();
+            author2.Email = "author2@gmail.com";
+            author2.UserName = "author2@gmail.com";
+            author2.FirstName = "Author2";
+            author2.LastName = "Test2";
+            author2.NickName = "TheAuthor2";
+            var authorUser2 = UserManager.Create(author2, pass);
+
+            if (authorUser2.Succeeded)
+            {
+                var result1 = UserManager.AddToRole(author2.Id, "Author");
+            }
         }
     }
 }
