@@ -5,11 +5,11 @@ using System.Web.Mvc;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Utilities.FileUtils;
 using System.IO;
-using System.Data.Entity.Migrations;
 using PremierLeaguePortal.Areas.Administration.Models;
 using AutoMapper;
 using PremierLeaguePortal.Repository;
 using PremierLeaguePortal.DAL.Context;
+using Microsoft.AspNet.Identity;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -54,6 +54,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         public ActionResult Create(BlogViewModel model)
         {           
             HttpPostedFileBase upload = model.HeaderImageFile;
+            var user = _unitOfWork.User.GetById(User.Identity.GetUserId());
             Blog blog = Mapper.Map<Blog>(model);
             if (ModelState.IsValid)
             {
@@ -80,6 +81,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 }
                 blog.CreatedOn = DateTime.Now;
                 blog.ModifiedOn = DateTime.Now;
+                blog.ApplicationUser = user;
                 _unitOfWork.Blogs.Insert(blog);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");

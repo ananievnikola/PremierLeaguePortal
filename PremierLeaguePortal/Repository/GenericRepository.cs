@@ -10,7 +10,7 @@ namespace PremierLeaguePortal.Repository
     public class GenericRepository<T> : IRepository<T> where T : class
     {
 
-        PremierLeagueContext _Context = null;
+        protected PremierLeagueContext _Context = null;
         private DbSet<T> entities = null;
 
         public GenericRepository(PremierLeagueContext context)

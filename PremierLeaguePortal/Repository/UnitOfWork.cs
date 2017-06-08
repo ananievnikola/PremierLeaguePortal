@@ -10,36 +10,49 @@ namespace PremierLeaguePortal.Repository
     public class UnitOfWork : IDisposable
     {
         private PremierLeagueContext _Context;// = new PremierLeagueContext();
-        private GenericRepository<Blog> _Blogs;
-        private GenericRepository<Image> _Image;
+        private BlogRepository _Blogs;
+        private ImageRepository _Image;
+        private ApplicationUserRepository _User;
         //private GenericRepository<Course> courseRepository;
         public UnitOfWork(PremierLeagueContext context)
         {
             this._Context = context;
         }
-        public GenericRepository<Blog> Blogs
+        public BlogRepository Blogs
         {
             get
             {
 
                 if (this._Blogs == null)
                 {
-                    this._Blogs = new GenericRepository<Blog>(_Context);
+                    this._Blogs = new BlogRepository(_Context);
                 }
                 return _Blogs;
             }
         }
 
-        public GenericRepository<Image> Images
+        public ImageRepository Images
         {
             get
             {
 
                 if (this._Image == null)
                 {
-                    this._Image = new GenericRepository<Image>(_Context);
+                    this._Image = new ImageRepository(_Context);
                 }
                 return _Image;
+            }
+        }
+        public ApplicationUserRepository User
+        {
+            get
+            {
+
+                if (this._User == null)
+                {
+                    this._User = new ApplicationUserRepository(_Context);
+                }
+                return _User;
             }
         }
 
