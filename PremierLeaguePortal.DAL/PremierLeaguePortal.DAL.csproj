@@ -75,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PremierLeagueContext.cs" />
+    <Compile Include="Migrations\201706151602172_dal.cs" />
+    <Compile Include="Migrations\201706151602172_dal.Designer.cs">
+      <DependentUpon>201706151602172_dal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
     <Compile Include="Models\AccountModels\LoginViewModel.cs" />
@@ -95,6 +100,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706151602172_dal.resx">
+      <DependentUpon>201706151602172_dal.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

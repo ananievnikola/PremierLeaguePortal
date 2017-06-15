@@ -180,39 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705181421130_userSeed.cs" />
-    <Compile Include="Migrations\201705181421130_userSeed.Designer.cs">
-      <DependentUpon>201705181421130_userSeed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221201593_asdf.cs" />
-    <Compile Include="Migrations\201705221201593_asdf.Designer.cs">
-      <DependentUpon>201705221201593_asdf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.cs" />
-    <Compile Include="Migrations\201705221238305_littleAdjustmentOfModels.Designer.cs">
-      <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706080859420_removeUnusedTables.cs" />
-    <Compile Include="Migrations\201706080859420_removeUnusedTables.Designer.cs">
-      <DependentUpon>201706080859420_removeUnusedTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081205243_userIdToAuthor.cs" />
-    <Compile Include="Migrations\201706081205243_userIdToAuthor.Designer.cs">
-      <DependentUpon>201706081205243_userIdToAuthor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081258526_movedInSepProj.cs" />
-    <Compile Include="Migrations\201706081258526_movedInSepProj.Designer.cs">
-      <DependentUpon>201706081258526_movedInSepProj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081311091_AppUserNavPropInBlog.cs" />
-    <Compile Include="Migrations\201706081311091_AppUserNavPropInBlog.Designer.cs">
-      <DependentUpon>201706081311091_AppUserNavPropInBlog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081628577_SeedMethodUpdate.cs" />
-    <Compile Include="Migrations\201706081628577_SeedMethodUpdate.Designer.cs">
-      <DependentUpon>201706081628577_SeedMethodUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ApplicationUserRepository.cs" />
     <Compile Include="Repository\BlogRepository.cs" />
@@ -322,32 +289,6 @@
       <Project>{bc4c7062-3049-4c91-8406-0b98cb42eb11}</Project>
       <Name>PremierLeaguePortal.Utils</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705181421130_userSeed.resx">
-      <DependentUpon>201705181421130_userSeed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221201593_asdf.resx">
-      <DependentUpon>201705221201593_asdf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221238305_littleAdjustmentOfModels.resx">
-      <DependentUpon>201705221238305_littleAdjustmentOfModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706080859420_removeUnusedTables.resx">
-      <DependentUpon>201706080859420_removeUnusedTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081205243_userIdToAuthor.resx">
-      <DependentUpon>201706081205243_userIdToAuthor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081258526_movedInSepProj.resx">
-      <DependentUpon>201706081258526_movedInSepProj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081311091_AppUserNavPropInBlog.resx">
-      <DependentUpon>201706081311091_AppUserNavPropInBlog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081628577_SeedMethodUpdate.resx">
-      <DependentUpon>201706081628577_SeedMethodUpdate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
