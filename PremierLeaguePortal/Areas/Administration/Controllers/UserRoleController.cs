@@ -7,6 +7,7 @@ using PremierLeaguePortal.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -38,9 +39,22 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteUser(string Id)
+        public ActionResult Delete(string Id)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser userToDelete = _unitOfWork.User.GetById(Id);
+            List<string> userToDeleteRoles = _unitOfWork.User.GetUserRoles(Id);
+            foreach (var role in userToDeleteRoles)
+            {
+                _unitOfWork.User.RemoveUserFromRole(userToDelete.Id, role);//TODO: Move to the repository
+            }
+            //_unitOfWork.User.RemoveUserFromRole(userToDelete.Id, "Author");
+            _unitOfWork.User.Delete(Id);
+            _unitOfWork.Save();
+            return RedirectToAction("Index");
         }
     }
 }

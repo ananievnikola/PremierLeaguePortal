@@ -41,5 +41,17 @@ namespace PremierLeaguePortal.Repository
             UserManager.RemoveFromRole(userId, roleName);
             //UserManager.AddToRole(user.Id, roleName);
         }
+
+        public List<string> GetUserRoles(string userId)
+        {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_Context));
+            return UserManager.GetRoles(userId).ToList();
+        }
+
+        public void Delete(string userId)
+        {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_Context));
+            UserManager.Delete(_Context.Users.FirstOrDefault(u => u.Id == userId));
+        }
     }
 }
