@@ -101,6 +101,19 @@ namespace PremierLeaguePortal.DAL.Migrations
             {
                 var result1 = UserManager.AddToRole(nu3.Id, "NormalUser");
             }
+
+            var defaultAuthor = new ApplicationUser();
+            defaultAuthor.Email = "defaultAuthor@gmail.com";
+            defaultAuthor.UserName = "defaultAuthor@gmail.com";
+            defaultAuthor.FirstName = "defaultAuthor";
+            defaultAuthor.LastName = "defaultAuthor";
+            defaultAuthor.NickName = "defaultAuthor";
+            var defAuth = UserManager.Create(defaultAuthor, pass);
+
+            if (defAuth.Succeeded)
+            {
+                var result1 = UserManager.AddToRole(nu3.Id, "Author");
+            }
         }
     }
 }

@@ -26,6 +26,10 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
 
         public ActionResult AssignAuthorRole(string Id)
         {
+            if (string.IsNullOrEmpty(Id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             _unitOfWork.User.RemoveUserFromRole(Id, "NormalUser");
             _unitOfWork.User.AddUserToRole(Id, "Author");
             _unitOfWork.Save();
@@ -34,6 +38,10 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
 
         public ActionResult RemoveAuthorRole(string Id)
         {
+            if (string.IsNullOrEmpty(Id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             _unitOfWork.User.RemoveUserFromRole(Id, "Author");
             _unitOfWork.Save();
             return RedirectToAction("Index");
@@ -53,6 +61,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             }
             //_unitOfWork.User.RemoveUserFromRole(userToDelete.Id, "Author");
             _unitOfWork.User.Delete(Id);
+            var blogPostsByUser = _unitOfWork.Blogs.GetAllByUser(Id);
+            foreach (var blog in blogPostsByUser)
+            {
+                blog.ApplicationUser = _unitOfWork.User.GetAll().FirstOrDefault(b => b.UserName == "defaultAuthor@gmail.com");//test it
+                _unitOfWork.Blogs.Update(blog);
+            }            
             _unitOfWork.Save();
             return RedirectToAction("Index");
         }
