@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
     [Authorize(Roles = "SuperUser")]
-    public class UserRoleController : Controller
+    public class UserRoleController : Controller, IDisposable
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
         // GET: Administration/UserRole
@@ -54,19 +54,30 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ApplicationUser userToDelete = _unitOfWork.User.GetById(Id);
+            return View(userToDelete);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string Id)
+        {
+            if (string.IsNullOrEmpty(Id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser userToDelete = _unitOfWork.User.GetById(Id);
             List<string> userToDeleteRoles = _unitOfWork.User.GetUserRoles(Id);
             foreach (var role in userToDeleteRoles)
             {
-                _unitOfWork.User.RemoveUserFromRole(userToDelete.Id, role);//TODO: Move to the repository
+                _unitOfWork.User.RemoveUserFromRole(userToDelete.Id, role);
             }
-            //_unitOfWork.User.RemoveUserFromRole(userToDelete.Id, "Author");
             _unitOfWork.User.Delete(Id);
             var blogPostsByUser = _unitOfWork.Blogs.GetAllByUser(Id);
             foreach (var blog in blogPostsByUser)
             {
-                blog.ApplicationUser = _unitOfWork.User.GetAll().FirstOrDefault(b => b.UserName == "defaultAuthor@gmail.com");//test it
+                blog.ApplicationUser = _unitOfWork.User.GetAll().FirstOrDefault(b => b.UserName == "defaultAuthor@gmail.com");
                 _unitOfWork.Blogs.Update(blog);
-            }            
+            }
             _unitOfWork.Save();
             return RedirectToAction("Index");
         }
