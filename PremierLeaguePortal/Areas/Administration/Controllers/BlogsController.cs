@@ -144,7 +144,13 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             Blog blog = Mapper.Map<Blog>(model);
             if (ModelState.IsValid)
             {
+                string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
+                string serverPath = Server.MapPath("~/Images/" + fileName);
+                string physicalPath = Path.Combine("Images/", fileName);
+                CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
+                f.SaveAs(serverPath);
                 blog.ModifiedOn = DateTime.Now;
+                Image image;
                 if (upload != null && upload.ContentLength > 0)
                 {
                     if (blog.HeaderImage != null)
@@ -158,23 +164,32 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                         {
                             //TODO
                         }
+                        image = new Image()
+                        {
+                            Id = model.HeaderImage.Id,
+                            ImageName = upload.FileName,
+                            ImagePhysicalPath = physicalPath,
+                            ImageServerPath = serverPath,
+                            CreatedOn = DateTime.Now,
+                            Type = EImageType.HeaderImage
+                        };
+                        _unitOfWork.Images.Update(image);
+                        blog.HeaderImage = image;
                     }
-                    string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
-                    string serverPath = Server.MapPath("~/Images/" + fileName);
-                    string physicalPath = Path.Combine("Images/", fileName);
-                    CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
-                    f.SaveAs(serverPath);
-                    Image image = new Image()
+                    else
                     {
-                        Id = model.HeaderImage.Id,
-                        ImageName = upload.FileName,
-                        ImagePhysicalPath = physicalPath,
-                        ImageServerPath = serverPath,
-                        CreatedOn = DateTime.Now,
-                        Type = EImageType.HeaderImage
-                    };
-                    blog.HeaderImage = image;
-                    _unitOfWork.Images.Update(image);
+                        image = new Image()
+                        {
+                            //Id = model.HeaderImage.Id,
+                            ImageName = upload.FileName,
+                            ImagePhysicalPath = physicalPath,
+                            ImageServerPath = serverPath,
+                            CreatedOn = DateTime.Now,
+                            Type = EImageType.HeaderImage
+                        };
+                        _unitOfWork.Images.Insert(image);
+                        blog.HeaderImage = image;
+                    }                 
                 }
                 _unitOfWork.Blogs.Update(blog);
                 _unitOfWork.Save();
