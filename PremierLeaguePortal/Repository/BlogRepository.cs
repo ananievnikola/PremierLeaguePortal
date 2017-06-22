@@ -20,5 +20,16 @@ namespace PremierLeaguePortal.Repository
         {
             return _Context.Blogs.FirstOrDefault(b => b.ApplicationUser.Id == userId && b.Id == id);
         }
+
+        public IEnumerable<Blog> GetAllUnpublished()
+        {
+            return _Context.Blogs.Where(b => b.IsPublished == false);
+        }
+
+        public void Publish(int id)
+        {
+            Blog toPublish =  _Context.Blogs.FirstOrDefault(b => b.Id == id);
+            toPublish.IsPublished = true;
+        }
     }
 }

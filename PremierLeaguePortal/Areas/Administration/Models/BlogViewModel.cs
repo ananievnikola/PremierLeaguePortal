@@ -19,5 +19,6 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         //public string AuthorNickName { get; set; }
         public HttpPostedFileBase HeaderImageFile { get; set; }
         public DateTime? CreatedOn { get; set; }
+        public bool IsPublished { get; set; }
     }
 }

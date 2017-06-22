@@ -144,15 +144,16 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             Blog blog = Mapper.Map<Blog>(model);
             if (ModelState.IsValid)
             {
-                string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
-                string serverPath = Server.MapPath("~/Images/" + fileName);
-                string physicalPath = Path.Combine("Images/", fileName);
-                CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
-                f.SaveAs(serverPath);
-                blog.ModifiedOn = DateTime.Now;
-                Image image;
+                
                 if (upload != null && upload.ContentLength > 0)
                 {
+                    string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];
+                    string serverPath = Server.MapPath("~/Images/" + fileName);
+                    string physicalPath = Path.Combine("Images/", fileName);
+                    CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
+                    f.SaveAs(serverPath);
+                    blog.ModifiedOn = DateTime.Now;
+                    Image image;
                     if (blog.HeaderImage != null)
                     {
                         try

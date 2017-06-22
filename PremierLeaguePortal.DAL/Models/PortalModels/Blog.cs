@@ -21,5 +21,6 @@ namespace PremierLeaguePortal.Models
         public virtual Image HeaderImage { get; set; }
         public DateTime ModifiedOn { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+        public bool IsPublished { get; set; }
     }
 }

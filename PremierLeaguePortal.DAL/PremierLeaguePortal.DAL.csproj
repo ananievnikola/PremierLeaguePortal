@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201706151602172_dal.Designer.cs">
       <DependentUpon>201706151602172_dal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706220810079_isPublishedAdded.cs" />
+    <Compile Include="Migrations\201706220810079_isPublishedAdded.Designer.cs">
+      <DependentUpon>201706220810079_isPublishedAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -104,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706151602172_dal.resx">
       <DependentUpon>201706151602172_dal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706220810079_isPublishedAdded.resx">
+      <DependentUpon>201706220810079_isPublishedAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
