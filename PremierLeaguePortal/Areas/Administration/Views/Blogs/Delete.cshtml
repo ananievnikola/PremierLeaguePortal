@@ -14,7 +14,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.Header)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Header)
         </dd>
@@ -28,6 +27,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Category)
         </dt>
 
@@ -36,12 +43,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HeaderImage.Description)
+            @Html.DisplayNameFor(model => model.CreatedOn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HeaderImage.Description)
+            @Html.DisplayFor(model => model.CreatedOn)
         </dd>
+        @if (Model.HeaderImage != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.HeaderImage)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb" />
+            </dd>
+        }
+        
 
     </dl>
 
@@ -49,8 +67,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            <br />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
         </div>
     }
 </div>

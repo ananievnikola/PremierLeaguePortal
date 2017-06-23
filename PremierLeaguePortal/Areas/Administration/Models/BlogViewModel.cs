@@ -20,5 +20,16 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public HttpPostedFileBase HeaderImageFile { get; set; }
         public DateTime? CreatedOn { get; set; }
         public bool IsPublished { get; set; }
+        public string ShortContent
+        {
+            get
+            {
+                if (Content.Length > 17)
+                {
+                    return Content.Substring(0, 17) + "...";
+                }
+                return Content;
+            }
+        }
     }
 }

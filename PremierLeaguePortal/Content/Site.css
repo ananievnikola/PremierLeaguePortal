@@ -25,9 +25,26 @@ textarea {
 
 /*Images*/
 .image-tumb {
-    max-width: 200px;
+    width: 150px;
 }
 
 .hide-element {
     display: none;
+}
+
+.plp-actionlink {
+    font-size: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 100px;
+}
+
+    .plp-actionlink.plp-nopadding {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 30px;
+    }
+
+.plp-marginbot-twenty {
+    margin-bottom: 20px;
 }

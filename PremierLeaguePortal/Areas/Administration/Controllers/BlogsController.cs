@@ -32,7 +32,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 blogs = _unitOfWork.Blogs.GetAllByUser(User.Identity.GetUserId());
             }
-            return View(blogs);
+            List<BlogViewModel> bvm = Mapper.Map<List<BlogViewModel>>(blogs);
+            return View(bvm);
         }
 
         // GET: Administration/Blogs/Details/5
@@ -143,8 +144,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             HttpPostedFileBase upload = model.HeaderImageFile;
             Blog blog = Mapper.Map<Blog>(model);
             if (ModelState.IsValid)
-            {
-                
+            {               
                 if (upload != null && upload.ContentLength > 0)
                 {
                     string fileName = upload.FileName.Split('.')[0] + Guid.NewGuid() + "." + upload.FileName.Split('.')[1];

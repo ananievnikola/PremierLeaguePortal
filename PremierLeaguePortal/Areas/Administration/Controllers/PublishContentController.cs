@@ -21,8 +21,8 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         public ActionResult Index()
         {
             List<Blog> unpub = _unitOfWork.Blogs.GetAllUnpublished().ToList();
-
-            return View(unpub);
+            List<BlogViewModel> bvm = Mapper.Map<List<BlogViewModel>>(unpub);
+            return View(bvm);
         }
 
         public ActionResult Publish(int? id)

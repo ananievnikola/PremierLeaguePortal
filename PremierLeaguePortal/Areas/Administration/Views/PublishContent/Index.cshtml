@@ -1,21 +1,11 @@
-﻿
+﻿@model IEnumerable<PremierLeaguePortal.Areas.Administration.Models.BlogViewModel>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Publish pannel";
 }
 
 <h2>Index</h2>
 
-@model IEnumerable<PremierLeaguePortal.Models.Blog>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -25,14 +15,14 @@
             @Html.DisplayNameFor(model => model.SubHeader)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedOn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HeaderImage.ImageName)
-        </th>
+        </th>        
         <th>
             Image Preview
         </th>
@@ -49,18 +39,13 @@
                 @Html.DisplayFor(modelItem => item.SubHeader)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ShortContent)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
-                @{
-                    if (item.HeaderImage != null)
-                    {
-                        Html.DisplayFor(modelItem => item.HeaderImage.ImageName);
-                    }
-                }
             </td>
             <td>
                 @if (item.HeaderImage != null)
@@ -69,9 +54,11 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Publish", "Publish", new { id = item.Id }) 
+                @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink" })
+                <br />
+                @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink" })
             </td>
         </tr>
-                    }
+    }
 
 </table>
