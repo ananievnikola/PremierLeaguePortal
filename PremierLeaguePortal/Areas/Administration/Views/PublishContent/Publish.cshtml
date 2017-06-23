@@ -17,45 +17,57 @@
         <div class="form-group form-group-lg">
             @Html.LabelFor(model => model.Header, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })*@
+                @Model.Header
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.SubHeader, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SubHeader, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SubHeader, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.SubHeader, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SubHeader, "", new { @class = "text-danger" })*@
+                @Model.SubHeader
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Category, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                @*@Html.EnumDropDownListFor(model => model.Category, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })*@
+                @Model.Category
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Content, 20, 128, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.TextAreaFor(model => model.Content, 20, 128, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Model.Content
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" id="HeaderImageFile" name="HeaderImageFile" />
+        @if (Model.HeaderImage != null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*<input type="file" id="HeaderImageFile" name="HeaderImageFile" />*@
+                    @if (Model.HeaderImage != null)
+                    {
+                        <img class="img-fluid image-tumb" src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" />
+                    } 
+                </div>
             </div>
-        </div>
+        }
+        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Publish" class="btn btn-default" />
             </div>
         </div>
-        @Html.HiddenFor(m => m.CreatedOn)
+        @*@Html.HiddenFor(m => m.CreatedOn)
         @if (Model.HeaderImage != null)
         {
             @Html.HiddenFor(m => m.HeaderImage.CreatedOn)
@@ -65,13 +77,13 @@
             @Html.HiddenFor(m => m.HeaderImage.ImagePhysicalPath)
             @Html.HiddenFor(m => m.HeaderImage.ImageServerPath)
             @Html.HiddenFor(m => m.HeaderImage.Type)
-        }
+        }*@
     </div>
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-    @Html.ActionLink("Edit blog", "Edit", "Blog", new { id = Model.Id }, null)
+    @Html.ActionLink("Edit blog", "Edit", "Blogs", new { id = Model.Id }, null)
 </div>
 
 @section Scripts {
