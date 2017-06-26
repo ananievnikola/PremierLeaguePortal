@@ -60,9 +60,12 @@
         }
     </dl>
 </div>
-<p>
+<div class="btn btn-warning btn-block">
     @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
-    <br />
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" }) 
-    @*@Html.ActionLink("Back to List", "Index")*@
-</p>
+</div>
+<br />
+<div class="btn btn-success btn-block">
+     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" }) 
+</div>
+
+

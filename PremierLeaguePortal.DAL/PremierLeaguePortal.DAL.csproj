@@ -99,6 +99,7 @@
     <Compile Include="Models\PortalModels\Image.cs" />
     <Compile Include="Models\PortalModels\ModelBase.cs" />
     <Compile Include="Models\AccountModels\VerifyCodeViewModel.cs" />
+    <Compile Include="Models\VisualizationEnums\ELinkType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

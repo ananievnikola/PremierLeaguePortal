@@ -70,7 +70,7 @@
         }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
         @Html.HiddenFor(m => m.CreatedOn)
@@ -88,6 +88,9 @@
 }
 
 <div>
+    
+</div>
+<div class="btn btn-success btn-block">
     @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
 </div>
 

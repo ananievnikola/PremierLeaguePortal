@@ -54,9 +54,15 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink" })
+                <div class="btn btn-primary btn-block">
+                    @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink" })
+                </div>
+                
                 <br />
-                @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink" })
+                <div class="btn btn-success btn-block">
+                    @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink" })
+                </div>
+                
             </td>
         </tr>
     }

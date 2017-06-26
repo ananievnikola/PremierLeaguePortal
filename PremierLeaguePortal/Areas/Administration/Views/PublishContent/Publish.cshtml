@@ -63,9 +63,15 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
+    <div class="btn btn-warning btn-block">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
+    </div>
+    
     <br />
-    @Html.ActionLink("Edit blog", "Edit", "Blogs", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" })
+    <div class="btn btn-success btn-block">
+        @Html.ActionLink("Edit blog", "Edit", "Blogs", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" })
+    </div>
+    
 </div>
 
 @section Scripts {
