@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PremierLeaguePortal.Areas.Administration.Models
 {
@@ -11,6 +12,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public int Id { get; set; }
         public string Header { get; set; }
         public string SubHeader { get; set; }
+        [AllowHtml]
         public string Content { get; set; }
         public EBlogCategory Category { get; set; }
         public Image HeaderImage { get; set; }

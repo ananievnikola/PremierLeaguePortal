@@ -37,6 +37,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/tinymce")
+    <script>
+        tinymce.init({ selector: 'textarea' });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
