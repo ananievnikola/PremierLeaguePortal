@@ -30,8 +30,11 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-warning" />
+            <br />
+            <div class="btn btn-success btn-block">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink" })
+            </div>
         </div>
     }
 </div>
