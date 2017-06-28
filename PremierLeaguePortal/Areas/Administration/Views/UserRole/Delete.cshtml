@@ -32,9 +32,10 @@
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-warning" />
             <br />
-            <div class="btn btn-success btn-block">
+            @*<div class="btn btn-success btn-block">
                 @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink" })
-            </div>
+            </div>*@
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink btn btn-success btn-block" })
         </div>
     }
 </div>

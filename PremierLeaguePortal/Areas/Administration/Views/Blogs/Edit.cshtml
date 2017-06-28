@@ -45,39 +45,26 @@
                     @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "30" })
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                 </div>
-                @*@Html.TextAreaFor(model => model.Content, 20, 150, new { htmlAttributes = new { @class = "form-control" } })*@
-                @*@Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })*@
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" id="HeaderImageFile" name="HeaderImageFile" />
-                @*<a class='btn btn-primary' href='javascript:;'>
-                    Browse..
-                    <input type="file" 
-                           style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'  
-                           size="40" 
-                           id="HeaderImageFile"
-                           name="HeaderImageFile"
-                           onchange='$("#upload-file-info").html($(this).val());'>
-                </a>
-                &nbsp;
-                <span class='label label-info' id="upload-file-info"></span>*@
             </div>
         </div>
         @if (Model.HeaderImage != null)
         {
                 @Html.LabelFor(model => model.HeaderImage, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10 plp-marginbot-twenty">
-                    <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb" />
-                </div>
+                <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb-edit" />
         }
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+        <div class="btn-group btn-group-justified">
+            <input type="submit" value="Save" class="btn btn-primary btn-block btn-lg" />
+            <input type="button" class="btn btn-warning btn-block btn-lg" value="Back to List" onclick="location.href='@Url.Action("Index", "Blogs")'" />
+            @*@Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink btn btn-success btn-block btn-lg" })*@
         </div>
+        
+        
         @Html.HiddenFor(m => m.CreatedOn)
         @if (Model.HeaderImage != null)
         {
@@ -95,9 +82,7 @@
 <div>
     
 </div>
-<div class="btn btn-success btn-block">
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -7,78 +7,41 @@
 
 <h2>Index</h2>
 
-<div class="btn btn-primary btn-group-justified">
-   @Html.ActionLink("Create New", "Create", null, new { @class = "plp-actionlink plp-nopadding" })
+@Html.ActionLink("Create New", "Create", null, new { @class = "plp-actionlink plp-nopadding btn btn-primary btn-block" })
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(model => model.Header)</div>
+        <div class="col-md-2">@Html.DisplayNameFor(model => model.Category)</div>
+        <div class="col-md-2">@Html.DisplayNameFor(model => model.SubHeader)</div>
+        <div class="col-md-2">@Html.DisplayNameFor(model => model.Content)</div>
+        <div class="col-md-3">@Html.DisplayNameFor(model => model.HeaderImage)</div>
+        <div class="col-md-1">@Html.DisplayNameFor(model => model.IsPublished)</div>
+        @*<div class="col-md-2">Действия</div>*@ 
+        
+    </div>
+    @foreach(var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-2">@Html.DisplayFor(modelItem => item.Header)</div>
+            <div class="col-md-2">@Html.DisplayFor(modelItem => item.Category)</div>
+            <div class="col-md-2">@Html.DisplayFor(modelItem => item.SubHeader)</div>
+            <div class="col-md-2">@Html.DisplayFor(modelItem => item.ShortContent)</div>
+            <div class="col-md-3">
+                @if (item.HeaderImage != null)
+                {
+                    <img src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb" />
+                }
+            </div>
+            <div class="col-md-1">@Html.DisplayFor(modelItem => item.IsPublished)</div>            
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="btn-group btn-group-justified">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "plp-actionlin btn btn-success btn-block btn-lg" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "plp-actionlink btn btn-info btn-block btn-lg" })
+                @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink btn btn-primary btn-block btn-lg" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "plp-actionlink btn btn-warning btn-block btn-lg" })
+            </div>
+        </div>
+    }
 </div>
 
-<div class="table-responsive">
-    <table class="table table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Header)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubHeader)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </th>
-            <th>
-                Header image
-            </th>
-            <th>@Html.DisplayNameFor(model => model.IsPublished)</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Header)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubHeader)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShortContent)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedOn)
-                </td>
-                <td>
-                    @if (item.HeaderImage != null)
-                    {
-                        <img class="img-fluid image-tumb" src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" />
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsPublished)
-                </td>
-                <td>
-                    <div class="btn btn-success btn-block">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "plp-actionlink" })
-                    </div>
-                    <br />
-                    <div class="btn btn-info btn-block">
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "plp-actionlink" })
-                    </div>
-                    
-                    <br />
-                    <div class="btn btn-warning btn-block">
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "plp-actionlink" })
-                    </div>
-                    
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>

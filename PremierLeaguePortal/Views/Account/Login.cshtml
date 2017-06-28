@@ -41,10 +41,10 @@
                         <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
-                <div class="btn btn-success btn-block">
-                    @Html.ActionLink("Register as a new user", "Register", null, new { @class = "plp-actionlink" })
-                </div>
-
+                @*<div class="btn btn-success btn-block">
+                    @Html.ActionLink("Register as a new user", "Register", null, new { @class = "plp-actionlink btn btn-success btn-block" })
+                </div>*@
+                @Html.ActionLink("Register as a new user", "Register", null, new { @class = "plp-actionlink btn btn-success btn-block" })
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")

@@ -25,7 +25,10 @@ textarea {
 
 /*Images*/
 .image-tumb {
-    width: 150px;
+    width: 100%;
+}
+.image-tumb-edit {
+    width: 20%;
 }
 
 .hide-element {
@@ -62,4 +65,9 @@ textarea {
 
 .plp-homePageThumb {
     height: 50%;
+}
+
+.row.plp-row-margin-b-t {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

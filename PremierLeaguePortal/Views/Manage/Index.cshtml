@@ -15,15 +15,17 @@
             [
             @if (Model.HasPassword)
             {
-                <div class="btn btn-success btn-block">
+                @*<div class="btn btn-success btn-block">
                     @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "plp-actionlink" })
-                </div>
+                </div>*@
+                @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "plp-actionlink btn btn-success btn-block" })
             }
             else
             {
-                <div class="btn btn-success btn-block">
+                @*<div class="btn btn-success btn-block">
                     @Html.ActionLink("Create", "SetPassword", null, new { @class = "plp-actionlink" })
-                </div>
+                </div>*@
+                @Html.ActionLink("Create", "SetPassword", null, new { @class = "plp-actionlink btn btn-success btn-block" })
             }
             ]
         </dd>

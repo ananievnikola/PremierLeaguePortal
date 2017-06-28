@@ -33,12 +33,14 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                <div class="btn btn-success btn-block">
+                @*<div class="btn btn-success btn-block">
                     @Html.ActionLink("Assign author right", "AssignAuthorRole", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>
-                <div class="btn btn-warning btn-block">
+                </div>*@
+                @Html.ActionLink("Assign author right", "AssignAuthorRole", new { id = item.Id }, new { @class = "plp-actionlink btn btn-success btn-block" })
+                @*<div class="btn btn-warning btn-block">
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>
+                </div>*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "plp-actionlink btn btn-warning btn-block" })
             </td>
         </tr>
     }

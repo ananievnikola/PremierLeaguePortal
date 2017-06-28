@@ -29,9 +29,10 @@
             }
             <div>@analysis[i].ShortContent</div>
             <div>@analysis[i].ApplicationUser.NickName</div>
-            <div class="btn btn-info btn-block">
-                @Html.ActionLink("More", "More", new { id = analysis[i].Id }, new { @class = "plp-actionlink" })
-            </div>
+            @*<div class="btn btn-info btn-block">
+                @Html.ActionLink("More", "More", new { id = analysis[i].Id }, new { @class = "plp-actionlink btn btn-info btn-block" })
+            </div>*@
+            @Html.ActionLink("More", "More", new { id = analysis[i].Id }, new { @class = "plp-actionlink btn btn-info btn-block" })
         </div>
     }
 </div>
@@ -44,9 +45,10 @@
             <div>@transfers[i].SubHeader</div>
             <div>@transfers[i].ShortContent</div>
             <div>@transfers[i].ApplicationUser.NickName</div>
-            <div class="btn btn-info btn-block">
+            @*<div class="btn btn-info btn-block">
                 @Html.ActionLink("More", "More", new { id = transfers[i].Id }, new { @class = "plp-actionlink" })
-            </div>
+            </div>*@
+            @Html.ActionLink("More", "More", new { id = transfers[i].Id }, new { @class = "plp-actionlink btn btn-info btn-block" })
         </div>
     }
 </div>
@@ -63,9 +65,10 @@
             }
             <div>@news[i].ShortContent</div>
             <div>@news[i].ApplicationUser.NickName</div>
-            <div class="btn btn-info btn-block">
+            @*<div class="btn btn-info btn-block">
                 @Html.ActionLink("More", "More", new { id = news[i].Id }, new { @class = "plp-actionlink" })
-            </div>
+            </div>*@
+            @Html.ActionLink("More", "More", new { id = news[i].Id }, new { @class = "plp-actionlink btn btn-info btn-block" })
         </div>
     }
 </div>

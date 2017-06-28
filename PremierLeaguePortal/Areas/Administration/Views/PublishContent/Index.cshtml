@@ -54,15 +54,15 @@
                 }
             </td>
             <td>
-                <div class="btn btn-primary btn-block">
+                @*<div class="btn btn-primary btn-block">
                     @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>
-                
+                </div>*@
+                @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink btn btn-primary btn-block" })
                 <br />
-                <div class="btn btn-success btn-block">
+                @*<div class="btn btn-success btn-block">
                     @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>
-                
+                </div>*@
+                @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink btn btn-success btn-block" })
             </td>
         </tr>
     }
