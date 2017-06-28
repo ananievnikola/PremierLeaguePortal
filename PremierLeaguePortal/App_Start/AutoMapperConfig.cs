@@ -12,6 +12,7 @@
             {
                 //expression.CreateMap<Player, PlayerViewModel>().ReverseMap();
                 expression.CreateMap<Blog, BlogViewModel>().ReverseMap();
+                expression.CreateMap<Blog, HomeViewModel>().ReverseMap();
                 expression.CreateMap<ApplicationUser, UserRoleViewModel>().ReverseMap();
                 //expression.CreateMap<Wheel, WheelViewModel>();
 

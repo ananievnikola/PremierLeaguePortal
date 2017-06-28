@@ -52,7 +52,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <a class='btn btn-primary' href='javascript:;'>
+                <input type="file" id="HeaderImageFile" name="HeaderImageFile" />
+                @*<a class='btn btn-primary' href='javascript:;'>
                     Browse..
                     <input type="file" 
                            style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'  
@@ -62,7 +63,7 @@
                            onchange='$("#upload-file-info").html($(this).val());'>
                 </a>
                 &nbsp;
-                <span class='label label-info' id="upload-file-info"></span>
+                <span class='label label-info' id="upload-file-info"></span>*@
             </div>
         </div>
         @if (Model.HeaderImage != null)

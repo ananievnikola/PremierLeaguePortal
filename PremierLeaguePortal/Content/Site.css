@@ -55,3 +55,11 @@ textarea {
 .plp-marginbot-twenty {
     margin-bottom: 20px;
 }
+
+.row.plp-homeCategory {
+    height: 300px;
+}
+
+.plp-homePageThumb {
+    height: 50%;
+}

@@ -87,6 +87,12 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
                     f.SaveAs(serverPath);
 
+                    //System.Drawing.Bitmap source = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromStream(upload.InputStream));
+                    //System.Drawing.Rectangle section = new System.Drawing.Rectangle(new System.Drawing.Point(12, 50), new System.Drawing.Size(150, 150));
+                    //ImageCropper cropper = new ImageCropper();
+                    //System.Drawing.Bitmap CroppedImage = cropper.CropImage(source, section);
+                    
+
                     Image image = new Image()
                     {
                         ImageName = upload.FileName,

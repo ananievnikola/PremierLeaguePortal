@@ -1,5 +1,13 @@
-﻿@{
+﻿@model IEnumerable<PremierLeaguePortal.Models.HomeViewModel>
+
+@{
     ViewBag.Title = "Home Page";
+    var analysis = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Analysis && b.IsPublished == true)
+        .OrderBy(b => b.CreatedOn).Take(3).ToList();
+    var transfers = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Transfers && b.IsPublished == true)
+        .OrderBy(b => b.CreatedOn).Take(3).ToList();
+    var news = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.News && b.IsPublished == true)
+        .OrderBy(b => b.CreatedOn).Take(3).ToList();
 }
 
 <div class="jumbotron">
@@ -8,24 +16,56 @@
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<div class="row plp-homeCategory">
+    <h2>Анализи</h2>
+    @for (int i = 0; i < analysis.Count; i++)
+    {
+        <div class="col-md-4">
+            <div>@analysis[i].Header</div>
+            <div>@analysis[i].SubHeader</div>
+            @if (news[i].HeaderImage != null)
+            {
+                <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive homePageThumb" />
+            }
+            <div>@analysis[i].ShortContent</div>
+            <div>@analysis[i].ApplicationUser.NickName</div>
+            <div class="btn btn-info btn-block">
+                @Html.ActionLink("More", "More", new { id = analysis[i].Id }, new { @class = "plp-actionlink" })
+            </div>
+        </div>
+    }
+</div>
+<div class="row plp-homeCategory">
+    <h2>Трансфери</h2>
+    @for (int i = 0; i < transfers.Count; i++)
+    {
+        <div class="col-md-4">
+            <div>@transfers[i].Header</div>
+            <div>@transfers[i].SubHeader</div>
+            <div>@transfers[i].ShortContent</div>
+            <div>@transfers[i].ApplicationUser.NickName</div>
+            <div class="btn btn-info btn-block">
+                @Html.ActionLink("More", "More", new { id = transfers[i].Id }, new { @class = "plp-actionlink" })
+            </div>
+        </div>
+    }
+</div>
+<div class="row plp-homeCategory">
+    <h2>Новини</h2>
+    @for (int i = 0; i < news.Count; i++)
+    {
+        <div class="col-md-4 style: height: 100%;">
+            <div>@news[i].Header</div>
+            <div>@news[i].SubHeader</div>
+            @if (news[i].HeaderImage != null)
+            {
+                    <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+            }
+            <div>@news[i].ShortContent</div>
+            <div>@news[i].ApplicationUser.NickName</div>
+            <div class="btn btn-info btn-block">
+                @Html.ActionLink("More", "More", new { id = news[i].Id }, new { @class = "plp-actionlink" })
+            </div>
+        </div>
+    }
 </div>

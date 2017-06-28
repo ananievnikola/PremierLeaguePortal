@@ -69,10 +69,10 @@
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-warning btn-block" /> 
             <br />
-            <div class="btn btn-success btn-block">
+            @*<div class="btn btn-success btn-block">
                 @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
-            </div>
-            
+            </div>*@
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding btn btn-warning btn-block" })
         </div>
     }
 </div>

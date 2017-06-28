@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using PremierLeaguePortal.DAL.Context;
+using PremierLeaguePortal.Models;
+using PremierLeaguePortal.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +12,13 @@ namespace PremierLeaguePortal.Controllers
 {
     public class HomeController : Controller
     {
+        private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAll();
+
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs);
+            return View(hvm);
         }
 
         public ActionResult About()

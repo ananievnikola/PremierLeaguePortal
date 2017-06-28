@@ -181,6 +181,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ApplicationUserRepository.cs" />
     <Compile Include="Repository\BlogRepository.cs" />
@@ -204,7 +205,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Blogs\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Blogs\Details.cshtml" />
@@ -222,7 +222,6 @@
     <Content Include="Areas\Administration\Views\UserRole\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\PublishContent\Index.cshtml" />
     <Content Include="Areas\Administration\Views\PublishContent\Publish.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="App_Code\plp-Helpers.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -237,6 +236,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\plp-scripts.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -425,6 +425,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>

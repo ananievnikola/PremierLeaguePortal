@@ -83,6 +83,14 @@
     <Compile Include="Migrations\201706220810079_isPublishedAdded.Designer.cs">
       <DependentUpon>201706220810079_isPublishedAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706271145121_publishedOnAddedToBlogs.cs" />
+    <Compile Include="Migrations\201706271145121_publishedOnAddedToBlogs.Designer.cs">
+      <DependentUpon>201706271145121_publishedOnAddedToBlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281149516_xxx.cs" />
+    <Compile Include="Migrations\201706281149516_xxx.Designer.cs">
+      <DependentUpon>201706281149516_xxx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -112,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706220810079_isPublishedAdded.resx">
       <DependentUpon>201706220810079_isPublishedAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271145121_publishedOnAddedToBlogs.resx">
+      <DependentUpon>201706271145121_publishedOnAddedToBlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281149516_xxx.resx">
+      <DependentUpon>201706281149516_xxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

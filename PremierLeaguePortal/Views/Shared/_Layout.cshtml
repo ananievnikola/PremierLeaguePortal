@@ -38,6 +38,21 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/tinymce")
+    <script>
+        tinymce.init({ selector: 'textarea' });
+    </script>
+
+    @*tinymce.init({
+    selector: "textarea",
+    plugins: "image",
+    menubar: "insert",
+    toolbar: "image",
+    image_list: [
+    { title: 'My image 1', value: 'http://www.tinymce.com/my1.gif' },
+    { title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif' }
+    ]
+    });*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

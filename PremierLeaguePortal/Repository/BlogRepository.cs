@@ -1,5 +1,6 @@
 ﻿using PremierLeaguePortal.DAL.Context;
 using PremierLeaguePortal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,6 +31,7 @@ namespace PremierLeaguePortal.Repository
         {
             Blog toPublish =  _Context.Blogs.FirstOrDefault(b => b.Id == id);
             toPublish.IsPublished = true;
+            toPublish.PublishedOn = DateTime.Now;
         }
     }
 }

@@ -129,7 +129,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    CreatedOn = new DateTime(2017, 06, 01),
             //    Header = "Lorem ipsum",
             //    ModifiedOn = new DateTime(2017, 06, 01),
-            //    SubHeader = "Lorem ipsum subheader"
+            //    SubHeader = "Lorem ipsum subheader",
+            //    PublishedOn = new DateTime(2017, 06, 01),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b1);
 
@@ -141,7 +143,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    CreatedOn = new DateTime(2017, 06, 02),
             //    Header = "Cicero ",
             //    ModifiedOn = new DateTime(2017, 06, 03),
-            //    SubHeader = "Cicero subheader"
+            //    SubHeader = "Cicero subheader",
+            //    PublishedOn = new DateTime(2017, 06, 03),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b11);
 
@@ -153,7 +157,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    Content = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.",
             //    Header = "Li Europan lingues",
             //    ModifiedOn = new DateTime(2017, 06, 03),
-            //    SubHeader = "Li Europan lingues subheader"
+            //    SubHeader = "Li Europan lingues subheader",
+            //    PublishedOn = new DateTime(2017, 06, 03),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b12);
 
@@ -165,7 +171,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    Content = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.",
             //    Header = "Transfer Li Europan lingues",
             //    ModifiedOn = new DateTime(2017, 06, 05),
-            //    SubHeader = "Transfer Li Europan lingues subheader"
+            //    SubHeader = "Transfer Li Europan lingues subheader",
+            //    PublishedOn = new DateTime(2017, 06, 05),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b13);
             //Blog b2 = new Blog()
@@ -176,7 +184,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    CreatedOn = new DateTime(2017, 06, 01),
             //    Header = "Lorem ipsum",
             //    ModifiedOn = new DateTime(2017, 06, 01),
-            //    SubHeader = "Lorem ipsum subheader"
+            //    SubHeader = "Lorem ipsum subheader",
+            //    PublishedOn = new DateTime(2017, 06, 01),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b2);
             //Blog b21 = new Blog()
@@ -187,7 +197,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    CreatedOn = new DateTime(2017, 06, 02),
             //    Header = "Cicero ",
             //    ModifiedOn = new DateTime(2017, 06, 03),
-            //    SubHeader = "Cicero subheader"
+            //    SubHeader = "Cicero subheader",
+            //    PublishedOn = new DateTime(2017, 06, 03),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b21);
             //Blog b22 = new Blog()
@@ -198,7 +210,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    Content = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.",
             //    Header = "Li Europan lingues",
             //    ModifiedOn = new DateTime(2017, 06, 03),
-            //    SubHeader = "Li Europan lingues subheader"
+            //    SubHeader = "Li Europan lingues subheader",
+            //    PublishedOn = new DateTime(2017, 06, 03),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b22);
             //Blog b23 = new Blog()
@@ -209,7 +223,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    Content = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.",
             //    Header = "Transfer Li Europan lingues",
             //    ModifiedOn = new DateTime(2017, 06, 05),
-            //    SubHeader = "Transfer Li Europan lingues subheader"
+            //    SubHeader = "Transfer Li Europan lingues subheader",
+            //    PublishedOn = new DateTime(2017, 06, 05),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b23);
             //Blog b3 = new Blog()
@@ -220,7 +236,9 @@ namespace PremierLeaguePortal.DAL.Migrations
             //    CreatedOn = new DateTime(2017, 06, 01),
             //    Header = "Lorem ipsum",
             //    ModifiedOn = new DateTime(2017, 06, 01),
-            //    SubHeader = "Lorem ipsum subheader"
+            //    SubHeader = "Lorem ipsum subheader",
+            //    PublishedOn = new DateTime(2017, 06, 01),
+            //    IsPublished = true
             //};
             //context.Blogs.Add(b3);
             //TrySaveChanges(context);

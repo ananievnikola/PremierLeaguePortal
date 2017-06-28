@@ -9,18 +9,19 @@ namespace PremierLeaguePortal.Models
 {
     public class Blog : ModelBase
     {
-        [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        //[Required]
+        //[StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string Header { get; set; }
-        [StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        //[StringLength(200, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string SubHeader { get; set; }
         public string Content { get; set; }
-        [Required]
+        //[Required]
         public EBlogCategory Category { get; set; }
         //public string ImagePath { get; set; }
         public virtual Image HeaderImage { get; set; }
         public DateTime ModifiedOn { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public bool IsPublished { get; set; }
+        public DateTime? PublishedOn { get; set; }
     }
 }

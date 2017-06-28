@@ -13,6 +13,8 @@
                         "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/tinymce").Include(
                         "~/Scripts/tinymce/tinymce.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/plp-scripts").Include(
+                        "~/Scripts/plp-scripts.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
