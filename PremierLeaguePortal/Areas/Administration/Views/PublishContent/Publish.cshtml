@@ -55,23 +55,20 @@
         }
         
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Publish" class="btn btn-default" />
+            <div class="col-md-12">
+                <input type="submit" value="Publish" class="btn btn-primary btn-lg btn-block" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @*<div class="btn btn-warning btn-block">
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
-    </div>*@
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding btn btn-warning btn-block" })
-    <br />
-    @*<div class="btn btn-success btn-block">
-        @Html.ActionLink("Edit blog", "Edit", "Blogs", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" })
-    </div>*@
-    @Html.ActionLink("Edit blog", "Edit", "Blogs", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding btn btn-success btn-block" })
+<div class="container-fluid">
+    <div class="col-md-6">
+        @plp_Helpers.GenerateActionLinkButton(Url, "Index", "PublishContent", PremierLeaguePortal.Models.ELinkType.BACK, "Back to List")
+    </div>
+    <div class="col-md-6">
+        @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit blog", Model.Id)
+    </div>
 </div>
 
 @section Scripts {

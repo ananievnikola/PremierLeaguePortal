@@ -58,11 +58,18 @@
                 @Html.LabelFor(model => model.HeaderImage, htmlAttributes: new { @class = "control-label col-md-2" })
                 <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb-edit" />
         }
-        <div class="btn-group btn-group-justified">
+        @*<div class="btn-group btn-group-justified">
+            
+            @
+        </div>*@
+    <div class="container-fluid">
+        <div class="col-md-6">
             <input type="submit" value="Save" class="btn btn-primary btn-block btn-lg" />
-            <input type="button" class="btn btn-warning btn-block btn-lg" value="Back to List" onclick="location.href='@Url.Action("Index", "Blogs")'" />
-            @*@Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink btn btn-success btn-block btn-lg" })*@
         </div>
+        <div class="col-md-6">
+            @plp_Helpers.GenerateActionLinkButton(Url, "Index", "Blogs", PremierLeaguePortal.Models.ELinkType.BACK, "Back to List")
+        </div>
+    </div>
         
         
         @Html.HiddenFor(m => m.CreatedOn)

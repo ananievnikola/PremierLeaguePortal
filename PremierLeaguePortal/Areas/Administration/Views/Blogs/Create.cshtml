@@ -49,31 +49,25 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <input type="file" id="HeaderImageFile" name="HeaderImageFile" class="btn btn-primary btn-block" />
-                        @*<a class='btn btn-primary btn-block' href='javascript:;'>
-                            Browse..
-                            <input type="file"
-                                   style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
-                                   size="40"
-                                   id="HeaderImageFile"
-                                   name="HeaderImageFile"
-                                   onchange='$("#HeaderImageFile").html($(this).val());'>
-                        </a>
-
-                        &nbsp;
-                        <span class='label label-info' id="upload-file-info"></span>*@
+                        <input type="file" id="HeaderImageFile" name="HeaderImageFile" class="btn btn-primary btn-block btn-lg" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default btn-block" id="submitForm" />
+                    <div class="container-fluid">
+                        <div class="col-md-6">
+                            <input type="submit" value="Create" class="btn btn-default btn-block btn-lg" id="submitForm" />
+                        </div>
+                        <div class="col-md-6">
+                            @plp_Helpers.GenerateActionLinkButton(Url, "Index", "Blogs", PremierLeaguePortal.Models.ELinkType.BACK, "Back to List")
+                        </div>
                     </div>
+                    
                 </div>
             </div>
     }
 </div>
 
-@Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding btn btn-warning btn-block" })
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

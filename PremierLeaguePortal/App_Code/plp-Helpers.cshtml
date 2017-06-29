@@ -1,28 +1,37 @@
-﻿@*@using PremierLeaguePortal.Models
-@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc 
+@using PremierLeaguePortal.Models 
 
-@helper DrawActionLink(string linkText, string actionMethod, object routeVals, object htmlAttributes, ELinkType linkType) {
-switch (linkType)
-{
-    case ELinkType.CREATE:
-
-        break;
-    case ELinkType.DETAILS:
-
+@helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label) {
+    switch (type)
+    {
+        case ELinkType.BACK:
+                <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller)'" />
         break;
     case ELinkType.EDIT:
-            <div class="btn btn-primary btn-group-justified">
-                @Html.ActionLink(linkText, actionMethod, routeVals, htmlAttributes)
-            </div>
-        break;
-    case ELinkType.PREVIEW:
-
-        break;
-
-    case ELinkType.DELETE:
-
         break;
     default:
-        throw new ArgumentException("The linktype is not implemented");
-}/**/
-}*@
+        break;
+    }
+}
+
+@helper GenerateParamButton(UrlHelper url, string method, string controller, ELinkType type, string label, object idParam = null)
+{
+switch (type)
+{
+
+case ELinkType.EDIT:
+    <input type="button" class="btn btn-success btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+    break;
+case ELinkType.DETAILS:
+            <input type="button" class="btn btn-info btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        break;
+    case ELinkType.DELETE:
+            <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        break;
+    case ELinkType.CREATE:
+            <input type="button" class="btn btn-primary btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        break;
+    default:
+        break;
+}
+}

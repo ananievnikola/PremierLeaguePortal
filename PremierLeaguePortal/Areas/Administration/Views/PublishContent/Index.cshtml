@@ -5,66 +5,50 @@
 }
 
 <h2>Index</h2>
-
-<table class="table">
-    <tr>
-        <th>
+<div class="container-fluid">
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-2">
             @Html.DisplayNameFor(model => model.Header)
-        </th>
-        <th>
+        </div>
+        <div class="col-md-2">
             @Html.DisplayNameFor(model => model.SubHeader)
-        </th>
-        <th>
+        </div>
+        <div class="col-md-3">
             @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
+        </div>
+        <div class="col-md-1">
             @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </th>        
-        <th>
+        </div>
+        <div class="col-md-4">
             Image Preview
-        </th>
-        <th></th>
-    </tr>
-
+        </div>
+        
+    </div>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Header)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubHeader)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOn)
-            </td>
-            <td>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayFor(model => item.Header)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(model => item.SubHeader)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => item.Content)
+            </div>
+            <div class="col-md-1">
+                @Html.DisplayFor(model => item.Category)
+            </div>
+            <div class="col-md-4">
                 @if (item.HeaderImage != null)
                 {
                     <img class="img-fluid image-tumb" src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" />
                 }
-            </td>
-            <td>
-                @*<div class="btn btn-primary btn-block">
-                    @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>*@
-                @Html.ActionLink("Publish", "Publish", new { id = item.Id }, new { @class = "plp-actionlink btn btn-primary btn-block" })
-                <br />
-                @*<div class="btn btn-success btn-block">
-                    @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink" })
-                </div>*@
-                @Html.ActionLink("Edit", "Edit", "Blogs", new { id = item.Id }, new { @class = "plp-actionlink btn btn-success btn-block" })
-            </td>
-        </tr>
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            @plp_Helpers.GenerateParamButton(Url, "Publish", "PublishContent", PremierLeaguePortal.Models.ELinkType.CREATE, "Publish", item.Id)
+            @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", item.Id)
+        </div>
     }
-
-</table>
+</div>

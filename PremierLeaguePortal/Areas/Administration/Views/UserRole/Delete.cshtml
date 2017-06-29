@@ -11,31 +11,54 @@
 <div>
     <h4>Blog</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-    </dl>
+    <div class="container-fluid">
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.UserName)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.UserName)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.LastName)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.NickName)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.NickName)
+            </div>
+        </div>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-warning" />
-            <br />
-            @*<div class="btn btn-success btn-block">
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink" })
-            </div>*@
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink btn btn-success btn-block" })
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-6">
+                <input type="submit" value="Delete" class="btn btn-warning btn-lg btn-block" />
+            </div>
+            <div class="col-md-6">
+                @plp_Helpers.GenerateActionLinkButton(Url, "Index", "UserRole", PremierLeaguePortal.Models.ELinkType.BACK, "Back to List")
+            </div>
         </div>
+            
+            @*@Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink btn btn-success btn-block" })*@
     }
+    </div>
 </div>

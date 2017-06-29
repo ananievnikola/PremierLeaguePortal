@@ -9,66 +9,71 @@
 <div>
     <h4>Blog</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Header)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Header)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SubHeader)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SubHeader)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @*@Html.DisplayFor(model => model.Content)*@
-            @Html.Raw(Model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
+    <div class="container-fluid">
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Header)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Header)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.SubHeader)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.SubHeader)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Content)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Content)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Category)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.CreatedOn)
+            </div>
+        </div>
         @if (Model.HeaderImage != null)
         {
-            <dt>
-                @Html.DisplayNameFor(model => model.HeaderImage)
-            </dt>
-
-            <dd>
-                <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb" />
-            </dd>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-2">
+                    @Html.DisplayNameFor(model => model.HeaderImage)
+                </div>
+                <div class="col-md-10">
+                    <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb-edit" />
+                </div>
+            </div>
         }
-    </dl>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-6">
+                @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", Model.Id)                
+            </div>
+            <div class="col-md-6">
+                @plp_Helpers.GenerateActionLinkButton(Url, "Index", "Blogs", PremierLeaguePortal.Models.ELinkType.BACK, "Back to List")
+            </div>
+        </div>
+    </div>
 </div>
-@*<div class="btn btn-warning btn-block">
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding" })
-</div>*@
-@Html.ActionLink("Back to List", "Index", null, new { @class = "plp-actionlink plp-nopadding btn btn-warning btn-block" })
-<br />
-@*<div class="btn btn-success btn-block">
-     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding" }) 
-</div>*@
-@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "plp-actionlink plp-nopadding btn btn-success btn-block" })
+
+
+
+
 
 

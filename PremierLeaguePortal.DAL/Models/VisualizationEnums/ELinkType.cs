@@ -12,6 +12,7 @@ namespace PremierLeaguePortal.Models
         EDIT = 1,
         DETAILS = 2,
         PREVIEW = 3,
-        DELETE = 4
+        DELETE = 4,
+        BACK = 5
     }
 }
