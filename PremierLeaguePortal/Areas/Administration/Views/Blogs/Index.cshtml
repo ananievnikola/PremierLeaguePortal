@@ -19,7 +19,7 @@
         @*<div class="col-md-2">Действия</div>*@ 
         
     </div>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
         <div class="row">
             <div class="col-md-2">@Html.DisplayFor(modelItem => item.Header)</div>
@@ -42,7 +42,11 @@
                 @plp_Helpers.GenerateParamButton(Url, "Details", "Blogs", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
             </div>
             <div class="col-md-3">
-                @plp_Helpers.GenerateParamButton(Url, "Publish", "PublishContent", PremierLeaguePortal.Models.ELinkType.CREATE, "Publish", item.Id)
+                @{
+                    bool disabled = item.IsPublished;
+                    
+                }
+                @plp_Helpers.GenerateParamButton(Url, "Publish", "PublishContent", PremierLeaguePortal.Models.ELinkType.CREATE, "Publish", item.Id, disabled)
             </div>
             <div class="col-md-3">
                 @plp_Helpers.GenerateParamButton(Url, "Delete", "Blogs", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)

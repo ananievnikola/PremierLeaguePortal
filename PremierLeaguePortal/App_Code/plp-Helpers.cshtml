@@ -2,10 +2,10 @@
 @using PremierLeaguePortal.Models 
 
 @helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label) {
-    switch (type)
-    {
-        case ELinkType.BACK:
-                <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller)'" />
+switch (type)
+{
+    case ELinkType.BACK:
+            <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller)'" />
         break;
     case ELinkType.EDIT:
         break;
@@ -14,22 +14,31 @@
     }
 }
 
-@helper GenerateParamButton(UrlHelper url, string method, string controller, ELinkType type, string label, object idParam = null)
+@helper GenerateParamButton(UrlHelper url, string method, string controller, ELinkType type, string label, object idParam = null, bool disable = false)
 {
+string cssClasses = string.Empty;
+if (disable)
+{
+    cssClasses = "disabled";
+}
 switch (type)
 {
 
-case ELinkType.EDIT:
-    <input type="button" class="btn btn-success btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+    case ELinkType.EDIT:
+        cssClasses += " btn btn-success btn-block btn-lg";
+<input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
     break;
 case ELinkType.DETAILS:
-            <input type="button" class="btn btn-info btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+            cssClasses += " btn btn-info btn-block btn-lg";
+            <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
         break;
     case ELinkType.DELETE:
-            <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        cssClasses += " btn btn-warning btn-block btn-lg";
+        <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
         break;
     case ELinkType.CREATE:
-            <input type="button" class="btn btn-primary btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        cssClasses += " btn btn-primary btn-block btn-lg";
+        <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
         break;
     default:
         break;
