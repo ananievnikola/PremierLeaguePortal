@@ -11,6 +11,7 @@ using PremierLeaguePortal.Repository;
 using PremierLeaguePortal.DAL.Context;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PremierLeaguePortal.Areas.Administration.Controllers
 {
@@ -26,7 +27,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             IEnumerable<Blog> blogs;
             if (User.IsInRole("SuperUser"))
             {
-                blogs = _unitOfWork.Blogs.GetAll();
+                blogs = _unitOfWork.Blogs.GetAll().OrderByDescending(d => d.CreatedOn);
             }
             else
             {
@@ -43,7 +44,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            Blog blog;
             if (User.IsInRole("SuperUser"))
             {
                 blog = _unitOfWork.Blogs.GetById((int)id);
@@ -86,13 +87,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
 
                     CustomHttpPostedFile f = new CustomHttpPostedFile(upload.InputStream, "jpg", serverPath);
                     f.SaveAs(serverPath);
-
-                    //System.Drawing.Bitmap source = new System.Drawing.Bitmap(System.Drawing.Bitmap.FromStream(upload.InputStream));
-                    //System.Drawing.Rectangle section = new System.Drawing.Rectangle(new System.Drawing.Point(12, 50), new System.Drawing.Size(150, 150));
-                    //ImageCropper cropper = new ImageCropper();
-                    //System.Drawing.Bitmap CroppedImage = cropper.CropImage(source, section);
-                    
-
                     Image image = new Image()
                     {
                         ImageName = upload.FileName,
@@ -123,7 +117,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            Blog blog;
             if (User.IsInRole("SuperUser"))
             {
                 blog = _unitOfWork.Blogs.GetById((int)id);
@@ -169,7 +163,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                         }
                         catch (IOException ex)
                         {
-                            //TODO
+                            //TODO add logger
                         }
                         image = new Image()
                         {
@@ -187,7 +181,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     {
                         image = new Image()
                         {
-                            //Id = model.HeaderImage.Id,
                             ImageName = upload.FileName,
                             ImagePhysicalPath = physicalPath,
                             ImageServerPath = serverPath,
@@ -212,7 +205,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog;// = _unitOfWork.Blogs.GetByUser(User.Identity.GetUserId(), (int)id);
+            Blog blog;
             if (User.IsInRole("SuperUser"))
             {
                 blog = _unitOfWork.Blogs.GetById((int)id);
@@ -237,7 +230,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog;// = _unitOfWork.Blogs.GetById((int)id);
+            Blog blog;
             if (User.IsInRole("SuperUser"))
             {
                 blog = _unitOfWork.Blogs.GetById((int)id);
@@ -257,7 +250,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 }
                 catch (IOException ex)
                 {
-                    //TODO
+                    //TODO add logger
                 }
 
             }

@@ -65,7 +65,7 @@ textarea {
 }
 
 .plp-homePageThumb {
-    height: 50%;
+    max-height: 200px;
 }
 
 .row.plp-row-margin-b-t {

@@ -8,6 +8,10 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @{
+        var area = HttpContext.Current.Request.RequestContext.RouteData.DataTokens["area"];
+    }
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -20,9 +24,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (area == null)
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Public", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Blogs", "Index", "Blogs")</li>
+                        if (this.User.IsInRole("SuperUser"))
+                        {
+                            <li>@Html.ActionLink("User roles", "Index", "UserRole")</li>
+                        }
+
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
