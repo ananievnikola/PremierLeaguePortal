@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace PremierLeaguePortal.Models
@@ -20,9 +21,10 @@ namespace PremierLeaguePortal.Models
         {
             get
             {
-                if (Content.Length > 17)
+                if (Content.Length > 25)
                 {
-                    return Content.Substring(0, 17) + "...";
+                    string shortContentFixed = Content.Substring(0, 25) + "...";
+                    return Regex.Replace(shortContentFixed, "<.*?>", String.Empty);
                 }
                 return Content;
             }

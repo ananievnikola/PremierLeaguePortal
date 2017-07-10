@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PremierLeaguePortal.Models.HomeViewModel>
+
+@{
+    ViewBag.Title = "Анализи";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="container-fluid">
+
+    @{
+        List<PremierLeaguePortal.Models.HomeViewModel> analysis = Model.ToList();
+    }
+    @for (int i = 0; i < analysis.Count; i++)
+    {
+        <div class="row">
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                @if (analysis[i].HeaderImage != null)
+                {
+                    <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                }
+                else
+                {
+                    <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                }
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                <div>@analysis[i].Header</div>
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                <div>@analysis[i].SubHeader</div>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                <div>@Html.Raw(analysis[i].ShortContent)</div>
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                <div>@analysis[i].ApplicationUser.NickName</div>
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+                @plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", analysis[i].Id)
+            </div>
+        </div>
+    }
+</div>
+

@@ -7,11 +7,12 @@ switch (type)
     case ELinkType.BACK:
             <input type="button" class="btn btn-warning btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller)'" />
         break;
-    case ELinkType.EDIT:
+    case ELinkType.DETAILS:
+            <input type="button" class="btn btn-info btn-block btn-lg" value="@label" onclick="location.href='@url.Action(method, controller)'" />
         break;
     default:
         break;
-    }
+}
 }
 
 @helper GenerateParamButton(UrlHelper url, string method, string controller, ELinkType type, string label, object idParam = null, bool disable = false)
@@ -26,11 +27,13 @@ switch (type)
 
     case ELinkType.EDIT:
         cssClasses += " btn btn-success btn-block btn-lg";
+
 <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
-    break;
-case ELinkType.DETAILS:
-            cssClasses += " btn btn-info btn-block btn-lg";
+        break;
+    case ELinkType.DETAILS:
+        cssClasses += " btn btn-info btn-block btn-lg";
             <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+
         break;
     case ELinkType.DELETE:
         cssClasses += " btn btn-warning btn-block btn-lg";
@@ -38,7 +41,14 @@ case ELinkType.DETAILS:
         break;
     case ELinkType.CREATE:
         cssClasses += " btn btn-primary btn-block btn-lg";
-        <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        if (disable)
+        {
+                <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" disabled />
+        }
+        else
+        {
+                <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+        }
         break;
     default:
         break;

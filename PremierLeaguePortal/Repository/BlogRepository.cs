@@ -27,6 +27,11 @@ namespace PremierLeaguePortal.Repository
             return _Context.Blogs.Where(b => b.IsPublished == false);
         }
 
+        public IEnumerable<Blog> GetAllByCategoty(EBlogCategory cat)
+        {
+            return _Context.Blogs.Where(b => b.Category == cat);
+        }
+
         public void Publish(int id)
         {
             Blog toPublish =  _Context.Blogs.FirstOrDefault(b => b.Id == id);

@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<PremierLeaguePortal.Models.HomeViewModel>
+    @using PremierLeaguePortal.Models
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Начало";
     var analysis = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Analysis && b.IsPublished == true)
         .OrderBy(b => b.CreatedOn).Take(3).ToList();
     var transfers = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Transfers && b.IsPublished == true)
@@ -17,7 +18,7 @@
 </div>
 <div class="container-fluid">
     <div class="row plp-homeCategory">
-        <h2>Анализи</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "Analysis", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Анализи", null)</h2>
         @for (int i = 0; i < analysis.Count; i++)
         {
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
@@ -39,7 +40,7 @@
     </div>
     <div style="clear: both"></div>
     <div class="row plp-homeCategory">
-        <h2>Трансфери</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "Transfers", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Трансфери", null)</h2>
         @for (int i = 0; i < transfers.Count; i++)
         {
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
@@ -61,7 +62,7 @@
     </div>
     <div style="clear: both"></div>
     <div class="row plp-homeCategory">
-        <h2>Новини</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Новини", null)</h2>
         @for (int i = 0; i < news.Count; i++)
         {
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">

@@ -16,8 +16,6 @@
         <div class="col-md-2">@Html.DisplayNameFor(model => model.Content)</div>
         <div class="col-md-3">@Html.DisplayNameFor(model => model.HeaderImage)</div>
         <div class="col-md-1">@Html.DisplayNameFor(model => model.IsPublished)</div>
-        @*<div class="col-md-2">Действия</div>*@ 
-        
     </div>
     @foreach (var item in Model)
     {
@@ -32,26 +30,41 @@
                     <img src="@Url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" class="image-tumb" />
                 }
             </div>
-            <div class="col-md-1">@Html.DisplayFor(modelItem => item.IsPublished)</div>            
+            <div class="col-md-1">@Html.DisplayFor(modelItem => item.IsPublished)</div>
         </div>
         <div class="row plp-row-margin-b-t">
-            <div class="col-md-3">
-                @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", item.Id)
-            </div>
-            <div class="col-md-3">
-                @plp_Helpers.GenerateParamButton(Url, "Details", "Blogs", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
-            </div>
-            <div class="col-md-3">
-                @{
-                    bool disabled = item.IsPublished;
-                    
-                }
-                @plp_Helpers.GenerateParamButton(Url, "Publish", "PublishContent", PremierLeaguePortal.Models.ELinkType.CREATE, "Publish", item.Id, disabled)
-            </div>
-            <div class="col-md-3">
-                @plp_Helpers.GenerateParamButton(Url, "Delete", "Blogs", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
-            </div> 
+            @if (this.User.IsInRole("SuperUser"))
+            {
+                <div class="col-md-3">
+                    @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", item.Id)
+                </div>
+                <div class="col-md-3">
+                    @plp_Helpers.GenerateParamButton(Url, "Details", "Blogs", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
+                </div>
+                <div class="col-md-3">
+                    @{
+                        bool disabled = item.IsPublished;
+                    }
+                    @plp_Helpers.GenerateParamButton(Url, "Publish", "PublishContent", PremierLeaguePortal.Models.ELinkType.CREATE, "Publish", item.Id, disabled)
+                </div>
+                <div class="col-md-3">
+                    @plp_Helpers.GenerateParamButton(Url, "Delete", "Blogs", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
+                </div>
+           }
+           else
+           {
+               <div class="col-md-4">
+                   @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", item.Id)
+               </div>
+               <div class="col-md-4">
+                   @plp_Helpers.GenerateParamButton(Url, "Details", "Blogs", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
+               </div>
+
+               <div class="col-md-4">
+                   @plp_Helpers.GenerateParamButton(Url, "Delete", "Blogs", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
+               </div>
+           }
+
         </div>
     }
 </div>
-

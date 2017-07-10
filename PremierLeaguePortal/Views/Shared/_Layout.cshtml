@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - FPL Портал</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,25 +20,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Начало", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @if (area == null)
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Начало", "Index", "Home")</li>
+                        <li>@Html.ActionLink("За Нас", "About", "Home")</li>
+                        <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
+                        if (this.User.IsInRole("SuperUser") || this.User.IsInRole("Author"))
+                        {
+                            <li>@Html.ActionLink("Администрация", "Index", "Blogs", new { area = "Administration" }, null)</li>
+                        }
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Public", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Blogs", "Index", "Blogs")</li>
+                        <li>@Html.ActionLink("Публична Част", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Блог", "Index", "Blogs")</li>
                         if (this.User.IsInRole("SuperUser"))
                         {
-                            <li>@Html.ActionLink("User roles", "Index", "UserRole")</li>
+                            <li>@Html.ActionLink("Менажиране на роли", "Index", "UserRole")</li>
                         }
-
                     }
 
                 </ul>
@@ -50,7 +53,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - FPL Портал</p>
         </footer>
     </div>
 
@@ -60,17 +63,6 @@
     <script>
         tinymce.init({ selector: 'textarea' });
     </script>
-
-    @*tinymce.init({
-    selector: "textarea",
-    plugins: "image",
-    menubar: "insert",
-    toolbar: "image",
-    image_list: [
-    { title: 'My image 1', value: 'http://www.tinymce.com/my1.gif' },
-    { title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif' }
-    ]
-    });*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

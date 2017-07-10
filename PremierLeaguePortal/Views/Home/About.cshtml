@@ -1,7 +1,16 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "За нас";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="container-fluid">
+    <h2>@ViewBag.Title</h2>
 
-<p>Use this area to provide additional information.</p>
+    <p>
+        Ние сме група ентусиасти, решили да придадат нов привкус към основното плюдо - Официалната фентъзи игра на Premier League. Тук можете да откриете
+        анализи, съвети за трансфери, новини и още много, свързани с играта на най-силното първенство в света!
+    </p>
+    <p>
+        Ако имате желание да станете част от този хубав проект, моля свържете се с нас.
+    </p>
+    @plp_Helpers.GenerateActionLinkButton(Url, "Contact", "Home", PremierLeaguePortal.Models.ELinkType.DETAILS, "Свържете се с нас")
+</div>
+

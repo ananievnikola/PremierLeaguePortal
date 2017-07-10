@@ -1,0 +1,38 @@
+﻿@model PremierLeaguePortal.Models.HomeViewModel
+
+<div class="container-fluid">
+    <div class="row plp-row-margin-b-t">
+        <h1 class="col-md-12 text-center">
+            <strong>@Html.DisplayFor(model => model.Header)</strong>            
+        </h1>
+    </div>
+    <div class="row plp-row-margin-b-t">
+        <h3 class="col-md-12 text-center">
+            <strong>@Html.DisplayFor(model => model.SubHeader)</strong>             
+        </h3>
+    </div>
+    @if (Model.HeaderImage != null)
+    {
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-12 text-center">
+                <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 300px;" />
+            </div>
+        </div>
+    }
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-12">
+            Category: @Html.DisplayFor(model => model.Category)
+        </div>
+    </div>
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-12">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-12">
+            Автор: @Html.DisplayFor(model => model.ApplicationUser.NickName)
+        </div>
+    </div>
+</div>
+
