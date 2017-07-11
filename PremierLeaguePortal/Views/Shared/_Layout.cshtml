@@ -61,7 +61,11 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/tinymce")
     <script>
-        tinymce.init({ selector: 'textarea' });
+        tinymce.init({
+            selector: 'textarea',
+            oninit: "setPlainText",
+            plugins: "paste"
+        });
     </script>
     @RenderSection("scripts", required: false)
 </body>

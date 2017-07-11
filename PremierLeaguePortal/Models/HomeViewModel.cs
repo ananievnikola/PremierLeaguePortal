@@ -16,6 +16,7 @@ namespace PremierLeaguePortal.Models
         public Image HeaderImage { get; set; }
         public HttpPostedFileBase HeaderImageFile { get; set; }
         public DateTime? CreatedOn { get; set; }
+        public DateTime? PublishedOn { get; set; }
         public bool IsPublished { get; set; }
         public string ShortContent
         {
@@ -23,8 +24,15 @@ namespace PremierLeaguePortal.Models
             {
                 if (Content.Length > 25)
                 {
-                    string shortContentFixed = Content.Substring(0, 25) + "...";
-                    return Regex.Replace(shortContentFixed, "<.*?>", String.Empty);
+                    string shortContentFixed = Regex.Replace(Content, "<.*?>", String.Empty);
+                    if (shortContentFixed.Length > 50)
+                    {
+                        return shortContentFixed.Substring(0, 50) + "...";
+                    }
+                    else
+                    {
+                        return shortContentFixed + "...";
+                    }
                 }
                 return Content;
             }

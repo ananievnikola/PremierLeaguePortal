@@ -21,7 +21,7 @@
     }
     <div class="row plp-row-margin-b-t">
         <div class="col-md-12">
-            Category: @Html.DisplayFor(model => model.Category)
+            <strong>Category: @Html.DisplayFor(model => model.Category)</strong>
         </div>
     </div>
     <div class="row plp-row-margin-b-t">
@@ -31,8 +31,15 @@
     </div>
     <div class="row plp-row-margin-b-t">
         <div class="col-md-12">
-            Автор: @Html.DisplayFor(model => model.ApplicationUser.NickName)
+            <strong>Автор: @Html.DisplayFor(model => model.ApplicationUser.NickName)</strong>
         </div>
     </div>
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-12">
+            <strong>Дата: @Html.DisplayFor(model => model.PublishedOn)</strong>            
+        </div>
+    </div>
+    @plp_Helpers.GenerateActionLinkButton(Url, "Index", "Home", PremierLeaguePortal.Models.ELinkType.BACK, "Начало");
+    @plp_Helpers.GenerateActionLinkButton(Url, Model.Category.ToString(), "BlogCategory", PremierLeaguePortal.Models.ELinkType.BACK, "Още от тази категория");
 </div>
 

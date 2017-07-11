@@ -4,46 +4,48 @@
 @{
     ViewBag.Title = "Начало";
     var analysis = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Analysis && b.IsPublished == true)
-        .OrderBy(b => b.CreatedOn).Take(3).ToList();
+        .OrderByDescending(b => b.PublishedOn).Take(3).ToList();
     var transfers = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.Transfers && b.IsPublished == true)
-        .OrderBy(b => b.CreatedOn).Take(3).ToList();
+        .OrderByDescending(b => b.PublishedOn).Take(3).ToList();
     var news = Model.Where(b => b.Category == PremierLeaguePortal.Models.EBlogCategory.News && b.IsPublished == true)
-        .OrderBy(b => b.CreatedOn).Take(3).ToList();
+        .OrderByDescending(b => b.PublishedOn).Take(3).ToList();
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Fantasy Premier League Портал</h1>
+    <p class="lead">Най-точното място за fantasy феновете на България! Мястото, което ти дава възможност и ти да станеш автор!</p>
+    <p><a href="https://fantasy.premierleague.com" class="btn btn-primary btn-lg">Официалната игра &raquo;</a></p>
 </div>
 <div class="container-fluid">
     <div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "Analysis", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Анализи", null)</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "Analysis", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Анализи", null)</h2>
         @for (int i = 0; i < analysis.Count; i++)
         {
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                <div>@analysis[i].Header</div>
-                <div>@analysis[i].SubHeader</div>
-                @if (analysis[i].HeaderImage != null)
-                {
-                    <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                }
-                else
-                {
-                    <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                }
-                <div>@Html.Raw(analysis[i].ShortContent)</div>
-                <div>@analysis[i].ApplicationUser.NickName</div>
-                @plp_Helpers.GenerateParamButton(Url, "More", "Home", PremierLeaguePortal.Models.ELinkType.DETAILS, "More", analysis[i].Id)
-            </div>
+            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
+                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
+                    <h2>@analysis[i].Header</h2>
+                    <h4>@analysis[i].SubHeader</h4>
+                    @if (analysis[i].HeaderImage != null)
+                    {
+                        <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                    }
+                    <div class="plp-blog-row-preview">@Html.Raw(analysis[i].ShortContent)</div>
+                    <div>@analysis[i].ApplicationUser.NickName</div>
+                    @*@plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", analysis[i].Id)*@
+                </div>
+            </a>
         }
     </div>
     <div style="clear: both"></div>
     <div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "Transfers", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Трансфери", null)</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "Transfers", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Трансфери", null)</h2>
         @for (int i = 0; i < transfers.Count; i++)
         {
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
                 <div>@transfers[i].Header</div>
                 <div>@transfers[i].SubHeader</div>
                 @if (transfers[i].HeaderImage != null)
@@ -56,16 +58,16 @@
                 }
                 <div>@Html.Raw(@transfers[i].ShortContent)</div>
                 <div>@transfers[i].ApplicationUser.NickName</div>
-                @plp_Helpers.GenerateParamButton(Url, "More", "Home", PremierLeaguePortal.Models.ELinkType.DETAILS, "More", transfers[i].Id)
+                @plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", transfers[i].Id)
             </div>
         }
     </div>
     <div style="clear: both"></div>
     <div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Новини", null)</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Новини", null)</h2>
         @for (int i = 0; i < news.Count; i++)
         {
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
                 <div>@news[i].Header</div>
                 <div>@news[i].SubHeader</div>
                 @if (news[i].HeaderImage != null)
@@ -78,7 +80,7 @@
                 }
                 <div>@Html.Raw(news[i].ShortContent)</div>
                 <div>@news[i].ApplicationUser.NickName</div>
-                @plp_Helpers.GenerateParamButton(Url, "More", "Home", PremierLeaguePortal.Models.ELinkType.DETAILS, "More", news[i].Id)
+                @plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", news[i].Id)
             </div>
         }
     </div>

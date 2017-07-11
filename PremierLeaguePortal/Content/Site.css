@@ -24,6 +24,11 @@ textarea {
 }*/
 
 /*Images*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .image-tumb {
     width: 100%;
 }
@@ -65,10 +70,14 @@ textarea {
 }
 
 .plp-homePageThumb {
-    max-height: 200px;
+    height: 200px;
 }
 
 .row.plp-row-margin-b-t {
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.plp-blog-row-preview {
+    min-height: 50px;
 }
