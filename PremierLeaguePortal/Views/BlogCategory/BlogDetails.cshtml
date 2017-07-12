@@ -1,3 +1,6 @@
 ﻿@model PremierLeaguePortal.Models.HomeViewModel
 
 @Html.Partial("_BlogTemplate", Model)
+
+@plp_Helpers.GenerateActionLinkButton(Url, "Index", "Home", PremierLeaguePortal.Models.ELinkType.BACK, "Начало")
+@plp_Helpers.GenerateActionLinkButton(Url, Model.Category.ToString(), "BlogCategory", PremierLeaguePortal.Models.ELinkType.BACK, "Още от тази категория") 

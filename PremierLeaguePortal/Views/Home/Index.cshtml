@@ -44,7 +44,7 @@
         <h2>@plp_Helpers.GenerateParamButton(Url, "Transfers", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Трансфери", null)</h2>
         @for (int i = 0; i < transfers.Count; i++)
         {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
+            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = transfers[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
                     <div>@transfers[i].Header</div>
                     <div>@transfers[i].SubHeader</div>
@@ -68,7 +68,7 @@
         <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Новини", null)</h2>
         @for (int i = 0; i < news.Count; i++)
         {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
+            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
                     <div>@news[i].Header</div>
                     <div>@news[i].SubHeader</div>
