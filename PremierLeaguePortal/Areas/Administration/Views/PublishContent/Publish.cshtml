@@ -1,4 +1,4 @@
-﻿@model PremierLeaguePortal.Areas.Administration.Models.BlogViewModel
+﻿@model PremierLeaguePortal.Models.HomeViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -10,7 +10,8 @@
 @using (Html.BeginForm("Publish", "PublishContent", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
+    @Html.Partial("~/Views/Shared/_BlogTemplate.cshtml", Model)
+    @*<div class="form-horizontal">
         <h4>Blog</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -52,14 +53,14 @@
                     } 
                 </div>
             </div>
-        }
+        }*@
         
         <div class="form-group">
             <div class="col-md-12">
                 <input type="submit" value="Publish" class="btn btn-primary btn-lg btn-block" />
             </div>
         </div>
-    </div>
+    @*</div>*@
 }
 
 <div class="container-fluid">

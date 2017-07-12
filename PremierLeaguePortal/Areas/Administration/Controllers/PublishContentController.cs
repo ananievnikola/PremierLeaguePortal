@@ -37,8 +37,9 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return HttpNotFound();
             }
-            BlogViewModel bvm = Mapper.Map<BlogViewModel>(blog);
-            return View(bvm);
+            HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
+            hvm.isPublish = true;
+            return View(hvm);
         }
 
         [HttpPost, ActionName("Publish")]

@@ -38,5 +38,6 @@ namespace PremierLeaguePortal.Models
             }
         }
         public virtual ApplicationUser ApplicationUser { get; set; }
+        public bool isPublish { get; set; }
     }
 }
