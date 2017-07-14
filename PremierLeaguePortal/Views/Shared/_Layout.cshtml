@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - FPL Портал</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Scripts/tinymce/skins")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -60,12 +61,13 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/tinymce")
+    @Scripts.Render("~/bundles/plp-scripts")
     <script>
-        tinymce.init({
-            selector: 'textarea',
-            oninit: "setPlainText",
-            plugins: "paste"
-        });
+        //tinymce.init({
+        //    selector: 'textarea',
+        //    oninit: "setPlainText",
+        //    plugins: "paste"
+        //});
     </script>
     @RenderSection("scripts", required: false)
 </body>

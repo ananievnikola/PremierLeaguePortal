@@ -20,7 +20,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DisplayName("Подзаглавие")]
         public string SubHeader { get; set; }
-        [AllowHtml]
+        [UIHint("tinymce_jquery_full"), AllowHtml]
         [Required]
         [StringLength(200000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 200)]
         [DisplayName("Съдържание")]
