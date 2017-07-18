@@ -73,6 +73,9 @@
         
         
         @Html.HiddenFor(m => m.CreatedOn)
+        @Html.HiddenFor(m => m.ModifiedOn)
+        @Html.HiddenFor(m => m.IsPublished)
+        @Html.HiddenFor(m => m.PublishedOn)
         @if (Model.HeaderImage != null)
         {
             @Html.HiddenFor(m => m.HeaderImage.CreatedOn)

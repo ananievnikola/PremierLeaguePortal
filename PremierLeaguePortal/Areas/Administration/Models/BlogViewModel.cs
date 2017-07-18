@@ -22,7 +22,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public string SubHeader { get; set; }
         [UIHint("tinymce_jquery_full"), AllowHtml]
         [Required]
-        [StringLength(200000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 200)]
+        [StringLength(20000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 200)]
         [DisplayName("Съдържание")]
         public string Content { get; set; }
         [Required]
@@ -32,11 +32,15 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public Image HeaderImage { get; set; }
         [DisplayName("Качете заглавна снимка")]
         public HttpPostedFileBase HeaderImageFile { get; set; }
-        [DisplayName("Създанен/о/а на")]
+        [DisplayName("Създанен на")]
         public DateTime? CreatedOn { get; set; }
-        [DisplayName("Публикуван/о/а")]
+        [DisplayName("Променен на")]
+        public DateTime? ModifiedOn { get; set; }
+        [DisplayName("Публикуван на")]
+        public DateTime? PublishedOn { get; set; }
+        [DisplayName("Публикуван")]
         public bool IsPublished { get; set; }
-        [DisplayName("съкратено съдържание")]
+        [DisplayName("Съкратено съдържание")]
         public string ShortContent
         {
             get
