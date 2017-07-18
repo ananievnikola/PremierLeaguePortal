@@ -15,26 +15,41 @@ namespace PremierLeaguePortal.Repository
 
         public IEnumerable<Blog> GetAllByUser(string userId)
         {
-            return _Context.Blogs.Include("HeaderImage").Where(b => b.ApplicationUser.Id == userId);
+            return _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .Where(b => b.ApplicationUser.Id == userId);
         }
         public Blog GetByUser(string userId, int id)
         {
-            return _Context.Blogs.Include("HeaderImage").FirstOrDefault(b => b.ApplicationUser.Id == userId && b.Id == id);
+            return _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .FirstOrDefault(b => b.ApplicationUser.Id == userId && b.Id == id);
         }
 
         public IEnumerable<Blog> GetAllUnpublished()
         {
-            return _Context.Blogs.Include("HeaderImage").Where(b => b.IsPublished == false);
+            return _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .Where(b => b.IsPublished == false);
         }
 
         public IEnumerable<Blog> GetAllByCategoty(EBlogCategory cat)
         {
-            return _Context.Blogs.Include("HeaderImage").Where(b => b.Category == cat);
+            return _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .Where(b => b.Category == cat);
         }
 
         public void Publish(int id)
         {
-            Blog toPublish =  _Context.Blogs.Include("HeaderImage").FirstOrDefault(b => b.Id == id);
+            Blog toPublish =  _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .FirstOrDefault(b => b.Id == id);
             toPublish.IsPublished = true;
             toPublish.PublishedOn = DateTime.Now;
         }
