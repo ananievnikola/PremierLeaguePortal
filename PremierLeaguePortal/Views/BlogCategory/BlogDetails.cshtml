@@ -1,5 +1,7 @@
 ﻿@model PremierLeaguePortal.Models.HomeViewModel
-
+@{
+    ViewBag.Title = Model.Header;
+}
 @Html.Partial("_BlogTemplate", Model)
 
 @plp_Helpers.GenerateActionLinkButton(Url, "Index", "Home", PremierLeaguePortal.Models.ELinkType.BACK, "Начало")

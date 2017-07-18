@@ -10,51 +10,7 @@
 @using (Html.BeginForm("Publish", "PublishContent", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.Partial("~/Views/Shared/_BlogTemplate.cshtml", Model)
-    @*<div class="form-horizontal">
-        <h4>Blog</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group form-group-lg">
-            @Html.LabelFor(model => model.Header, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Model.Header
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubHeader, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Model.SubHeader
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Model.Category
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Model.Content
-            </div>
-        </div>
-        @if (Model.HeaderImage != null)
-        {
-            <div class="form-group">
-                @Html.LabelFor(model => model.HeaderImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @if (Model.HeaderImage != null)
-                    {
-                        <img class="img-fluid image-tumb" src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" />
-                    } 
-                </div>
-            </div>
-        }*@
-        
+    @Html.Partial("~/Views/Shared/_BlogTemplate.cshtml", Model)        
         <div class="form-group">
             <div class="col-md-12">
                 <input type="submit" value="Publish" class="btn btn-primary btn-lg btn-block" />

@@ -18,6 +18,30 @@
 </div>
 <div class="container-fluid">
     <div class="row plp-homeCategory">
+        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "News", null)</h2>
+        @for (int i = 0; i < news.Count; i++)
+        {
+            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
+                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
+                    <div>@news[i].Header</div>
+                    <div>@news[i].SubHeader</div>
+                    @if (news[i].HeaderImage != null)
+                    {
+                        <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                    }
+                    <div>@Html.Raw(@news[i].ShortContent)</div>
+                    <div>@news[i].ApplicationUser.NickName</div>
+                    @*@plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", transfers[i].Id)*@
+                </div>
+            </a>
+        }
+    </div>
+    <div style="clear: both"></div>
+    <div class="row plp-homeCategory">
         <h2>@plp_Helpers.GenerateParamButton(Url, "Analysis", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Анализи", null)</h2>
         @for (int i = 0; i < analysis.Count; i++)
         {
@@ -63,52 +87,7 @@
             </a>
         }
     </div>
-    <div style="clear: both"></div>
-    <div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "News", null)</h2>
-        @for (int i = 0; i < news.Count; i++)
-        {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
-                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <div>@news[i].Header</div>
-                    <div>@news[i].SubHeader</div>
-                    @if (news[i].HeaderImage != null)
-                    {
-                        <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    <div>@Html.Raw(@news[i].ShortContent)</div>
-                    <div>@news[i].ApplicationUser.NickName</div>
-                    @*@plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", transfers[i].Id)*@
-                </div>
-            </a>
-        }
-    </div>
-    @*<div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Новини", null)</h2>
-        @for (int i = 0; i < news.Count; i++)
-        {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
-                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <div>@news[i].Header</div>
-                    <div>@news[i].SubHeader</div>
-                    @if (news[i].HeaderImage != null)
-                    {
-                        <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    <div>@Html.Raw(news[i].ShortContent)</div>
-                    <div>@news[i].ApplicationUser.NickName</div>
-                </div>
-            </a>
-        }
-    </div>*@
+    
     <div style="clear: both"></div>
 </div>
 

@@ -9,19 +9,19 @@ namespace PremierLeaguePortal.Models
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Полето Име е задължитело")]
         [Display(Name = "Име")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Полето Фамилия е задължитело")]
         [Display(Name = "Фамилия")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Полето Nick Name е задължитело")]
         [Display(Name = "Nick Name")]
         public string NickName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Полето Email е задължитело")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
