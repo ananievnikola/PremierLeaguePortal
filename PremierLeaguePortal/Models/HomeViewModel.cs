@@ -39,5 +39,23 @@ namespace PremierLeaguePortal.Models
         }
         public virtual ApplicationUser ApplicationUser { get; set; }
         public bool isPublish { get; set; }
+        public string ViewTitle {
+            get
+            {
+                if (this.Category == EBlogCategory.Analysis)
+                {
+                    return "Анализи";
+                }
+                else if (this.Category == EBlogCategory.News)
+                {
+                    return "Новини";
+                }
+                else if (this.Category == EBlogCategory.Transfers)
+                {
+                    return "Трансфери";
+                }
+                return string.Empty;
+            }
+        }
     }
 }

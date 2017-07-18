@@ -52,5 +52,6 @@ namespace PremierLeaguePortal.Areas.Administration.Models
                 return Content;
             }
         }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace PremierLeaguePortal.Controllers
         {
             IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis);
 
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs);
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
         }
 
@@ -35,12 +35,11 @@ namespace PremierLeaguePortal.Controllers
             return View(hvm);
         }
 
-        [ValidateAntiForgeryToken]
         public ActionResult News()
         {
             IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.News);
 
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs);
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
         }
 
@@ -49,7 +48,7 @@ namespace PremierLeaguePortal.Controllers
         {
             IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers);
 
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs);
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
         }
 
