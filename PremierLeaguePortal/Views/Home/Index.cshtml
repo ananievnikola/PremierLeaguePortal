@@ -18,7 +18,7 @@
 </div>
 <div class="container-fluid">
     <div class="row plp-homeCategory">
-        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "News", null)</h2>
+        <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Новини", null)</h2>
         @for (int i = 0; i < news.Count; i++)
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
