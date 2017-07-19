@@ -14,24 +14,18 @@ namespace PremierLeaguePortal.Controllers
     public class BlogCategoryController : Controller
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
-        // GET: BlogCategory
+        //public ActionResult Index()
+        //{
+        //    IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis);
+
+        //    List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
+        //    return View(hvm);
+        //}
         public ActionResult Analysis()
         {
             IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis);
 
             List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
-            return View(hvm);
-        }
-
-        public ActionResult BlogDetails(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Blog blog = _unitOfWork.Blogs.GetById((int)id);
-
-            HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
             return View(hvm);
         }
 
@@ -49,6 +43,18 @@ namespace PremierLeaguePortal.Controllers
             IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers);
 
             List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
+            return View(hvm);
+        }
+
+        public ActionResult BlogDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Blog blog = _unitOfWork.Blogs.GetById((int)id);
+
+            HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
             return View(hvm);
         }
 

@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<PremierLeaguePortal.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
     ViewBag.Title = "Index";
@@ -8,43 +10,52 @@
 <h3>Search</h3>
 <div class="container-fluid">
     <div class="row plp-row-margin-b-t">
-        <div class="col-md-3">
-            @Html.DisplayNameFor(model => model.UserName)
-        </div>
-        <div class="col-md-3">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </div>
-        <div class="col-md-3">
-            @Html.DisplayNameFor(model => model.LastName)
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
             @Html.DisplayNameFor(model => model.NickName)
         </div>
     </div>
     @foreach (var item in Model)
     {
+        var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        var userRoles = userManager.GetRoles(item.Id);
+        bool isAuthor = userRoles.Contains("Author");
         <div class="row plp-row-margin-b-t">
-            <div class="col-md-3">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @Html.DisplayNameFor(model => model.UserName)
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 @Html.DisplayFor(model => item.UserName)
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 @Html.DisplayFor(model => item.FirstName)
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @Html.DisplayNameFor(model => model.LastName)
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 @Html.DisplayFor(model => item.LastName)
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 @Html.DisplayFor(model => item.NickName)
             </div>
         </div>
         <div class="row plp-row-margin-b-t">
-            <div class="col-md-6">
-                @plp_Helpers.GenerateParamButton(Url, "AssignAuthorRole", "UserRole", PremierLeaguePortal.Models.ELinkType.CREATE, "Assign author right", item.Id)
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @plp_Helpers.GenerateParamButton(Url, "AssignAuthorRole", "UserRole", PremierLeaguePortal.Models.ELinkType.CREATE, "Дай авторски права", item.Id, isAuthor)
             </div>
-            <div class="col-md-6">
-                @plp_Helpers.GenerateParamButton(Url, "Delete", "UserRole", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
-
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @plp_Helpers.GenerateParamButton(Url, "AssignSuperUserRole", "UserRole", PremierLeaguePortal.Models.ELinkType.CREATE, "Направи SuperUser", item.Id)
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @plp_Helpers.GenerateParamButton(Url, "RemoveAuthorRole", "UserRole", PremierLeaguePortal.Models.ELinkType.DELETE, "Премахни авторски права", item.Id, !isAuthor)
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                @plp_Helpers.GenerateParamButton(Url, "Delete", "UserRole", PremierLeaguePortal.Models.ELinkType.DELETE, "Изтрий", item.Id)
             </div>
         </div>
+        <hr />
     }
 </div>

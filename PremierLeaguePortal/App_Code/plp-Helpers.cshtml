@@ -1,7 +1,8 @@
-﻿@using System.Web.Mvc 
-@using PremierLeaguePortal.Models 
+﻿@using System.Web.Mvc
+@using PremierLeaguePortal.Models
 
-@helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label) {
+@helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label)
+{
 switch (type)
 {
     case ELinkType.BACK:
@@ -28,7 +29,7 @@ switch (type)
     case ELinkType.EDIT:
         cssClasses += " btn btn-success btn-block btn-lg";
 
-<input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+            <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
         break;
     case ELinkType.DETAILS:
         cssClasses += " btn btn-info btn-block btn-lg";
@@ -37,7 +38,7 @@ switch (type)
         break;
     case ELinkType.DELETE:
         cssClasses += " btn btn-warning btn-block btn-lg";
-        <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
+            <input type="button" class="@cssClasses" value="@label" onclick="location.href='@url.Action(method, controller, new { id = idParam})'" />
         break;
     case ELinkType.CREATE:
         cssClasses += " btn btn-primary btn-block btn-lg";
@@ -54,3 +55,8 @@ switch (type)
         break;
 }
 }
+
+@*@helper GenerateParamButton(UrlHelper url, string method, string controller, ELinkType type, string label, object idParam = null, bool disable = false)
+{     
+    here we need to extend this method for roles
+}*@

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierLeaguePortal.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,11 +9,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
 {
     public class UserRoleViewModel
     {
-        public string UserId { get; set; }
-        [DisplayName("Име")]
-        public string FirstName { get; set; }
-        [DisplayName("Фамилия")]
-        public string LastName { get; set; }
-        //public string NickName { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+        public bool isAuthor { get; set; }
     }
 }

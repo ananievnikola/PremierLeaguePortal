@@ -18,5 +18,10 @@ namespace PremierLeaguePortal
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.RegisterMappings();
         }
+
+        protected void Session_Start()
+        {
+            Session.Timeout = 60;
+        }
     }
 }
