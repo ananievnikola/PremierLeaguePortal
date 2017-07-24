@@ -23,6 +23,11 @@ textarea {
     max-width: 280px;
 }*/
 
+/*MENU*/
+.navbar-inverse {
+    background-color: #1F7972;
+    border-color: #1F7972;
+}
 /*Images*/
 img {
     max-width: 100%;
