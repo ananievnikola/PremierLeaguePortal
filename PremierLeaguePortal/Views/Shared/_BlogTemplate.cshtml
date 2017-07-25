@@ -1,5 +1,6 @@
 ﻿@model PremierLeaguePortal.Models.HomeViewModel
 
+
 <div class="container-fluid">
     <div class="row plp-row-margin-b-t">
         <h1 class="col-md-12 text-center">
@@ -37,6 +38,11 @@
     <div class="row plp-row-margin-b-t">
         <div class="col-md-12">
             <strong>Дата: @Html.DisplayFor(model => model.PublishedOn)</strong>            
+        </div>
+    </div>
+    <div class="row plp-row-margin-b-t">
+        <div class="col-md-12 text-center">
+            @plp_Helpers.FacebookShareHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id, Model.Header)
         </div>
     </div>
 </div>

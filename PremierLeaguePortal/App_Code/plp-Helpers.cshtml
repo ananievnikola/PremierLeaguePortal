@@ -1,6 +1,13 @@
 ﻿@using System.Web.Mvc
 @using PremierLeaguePortal.Models
 
+@helper FacebookShareHelper(string urlToShare, string title)
+{
+    <div class="fb-share-button" data-href="@urlToShare" data-layout="button" data-size="large" data-mobile-iframe="true" data-title="@title">    
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffantasypremierleague-bg.com%2F&amp;src=sdkpreparse">Споделяне</a>
+    </div>
+}
+
 @helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label)
 {
 switch (type)

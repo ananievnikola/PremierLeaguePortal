@@ -1,6 +1,18 @@
 ﻿@model PremierLeaguePortal.Models.HomeViewModel
 @{
     ViewBag.Title = Model.Header;
+    var url = "http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id;
+}
+@section FbMetas
+{
+    <meta property="og:url" content="@url" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@Model.Header" />
+    <meta property="og:description" content="@Model.ShortContent" />
+    @if (Model.HeaderImage != null)
+    {
+        <meta property="og:image" content="@Model.HeaderImage.ImageServerPath" />
+    }
 }
 @Html.Partial("_BlogTemplate", Model)
 
