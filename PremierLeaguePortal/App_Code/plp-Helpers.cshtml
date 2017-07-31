@@ -8,6 +8,13 @@
     </div>
 }
 
+@helper FacebookCommentHelper(string urlToShare)
+{
+    <div class="col-md-12 text-center">
+        <div class="fb-comments" data-href="@urlToShare" data-numposts="5" style="width: 100%"></div>
+    </div>
+}
+
 @helper GenerateActionLinkButton(UrlHelper url, string method, string controller, ELinkType type, string label)
 {
 switch (type)
