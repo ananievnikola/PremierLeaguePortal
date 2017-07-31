@@ -23,8 +23,8 @@
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <div>@news[i].Header</div>
-                    <div>@news[i].SubHeader</div>
+                    <h2>@news[i].Header</h2>
+                    <h4>@news[i].SubHeader</h4>
                     @if (news[i].HeaderImage != null)
                     {
                         <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
@@ -35,7 +35,6 @@
                     }
                     <div>@Html.Raw(@news[i].ShortContent)</div>
                     <div>@news[i].ApplicationUser.NickName</div>
-                    @*@plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", transfers[i].Id)*@
                 </div>
             </a>
         }
@@ -70,8 +69,8 @@
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = transfers[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <div>@transfers[i].Header</div>
-                    <div>@transfers[i].SubHeader</div>
+                    <h2>@transfers[i].Header</h2>
+                    <h4>@transfers[i].SubHeader</h4>
                     @if (transfers[i].HeaderImage != null)
                     {
                         <img src="@Url.Content("~/" + transfers[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
