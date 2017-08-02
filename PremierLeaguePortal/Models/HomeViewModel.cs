@@ -10,6 +10,20 @@ namespace PremierLeaguePortal.Models
     {
         public int Id { get; set; }
         public string Header { get; set; }
+        public string FixedHeader
+        {
+            get
+            {
+                if (Header.Length > 50)
+                {
+                    return Header.Substring(0, 50);
+                }
+                else
+                {
+                    return Header;
+                }
+            }
+        }
         public string SubHeader { get; set; }
         public string Content { get; set; }
         public EBlogCategory Category { get; set; }

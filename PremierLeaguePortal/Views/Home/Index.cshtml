@@ -31,7 +31,7 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <h3 class="plp-homeHeader">@news[i].Header</h3>
+                    <h3 class="plp-homeHeader">@news[i].FixedHeader</h3>
                     <br />
                     @*<h5 class="plp-homeSubheader">@news[i].SubHeader</h5>*@                    
                     <div>Автор: @news[i].ApplicationUser.NickName | Дата: @news[i].PublishedOn</div>
@@ -54,9 +54,8 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <h3 class="plp-homeHeader">@analysis[i].Header</h3>
+                    <h3 class="plp-homeHeader">@analysis[i].FixedHeader</h3>
                     <br />
-                    @*<h5 class="plp-homeSubheader">@analysis[i].SubHeader</h5>*@
                     
                     <div>Автор: @analysis[i].ApplicationUser.NickName | Дата: @analysis[i].PublishedOn</div>
                 </div>
@@ -78,7 +77,7 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <h3 class="plp-homeHeader">@transfers[i].Header</h3>
+                    <h3 class="plp-homeHeader">@transfers[i].FixedHeader</h3>
                     <br />
                     @*<h5 class="plp-homeSubheader">@transfers[i].SubHeader</h5>*@
                     
