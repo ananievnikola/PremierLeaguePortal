@@ -22,7 +22,7 @@
     }
     <div class="row plp-row-margin-b-t">
         <div class="col-md-12">
-            <strong>Category: @Html.DisplayFor(model => model.Category)</strong>
+            <strong>Категория: @Html.DisplayFor(model => model.CategoryText)</strong>
         </div>
     </div>
     <div class="row plp-row-margin-b-t">
@@ -47,7 +47,7 @@
     </div>
     <div class="row plp-row-margin-b-t">
         <div class="col-md-12 text-center">
-            @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id);
+            @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
         </div>
     </div>
     

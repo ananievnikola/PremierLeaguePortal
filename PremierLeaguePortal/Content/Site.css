@@ -81,6 +81,13 @@ img {
     height: 200px;
 }
 
+.plp-homeHeader {
+    height: 60px;
+}
+.plp-homeSubheader {
+    height: 60px;
+}
+
 .row.plp-row-margin-b-t {
     margin-bottom: 20px;
     margin-top: 20px;
@@ -89,6 +96,10 @@ img {
 .plp-blog-row-preview {
     min-height: 50px;
 }
+
+/*.plp-col-padding {
+    padding: 2%;
+}*/
 
 /*social*/
 .plp-fbb-pos {

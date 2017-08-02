@@ -13,16 +13,16 @@ namespace PremierLeaguePortal.Areas.Administration.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Заглавието трябва да бъде между 6 и 100 символа дълго.", MinimumLength = 6)]
         [DisplayName("Заглавие")]
         public string Header { get; set; }
         [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Подзаглавието трябва да бъде между 6 и 100 символа дълго.", MinimumLength = 6)]
         [DisplayName("Подзаглавие")]
         public string SubHeader { get; set; }
         [UIHint("tinymce_jquery_full"), AllowHtml]
         [Required]
-        [StringLength(20000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 200)]
+        [StringLength(20000, ErrorMessage = "Съдържанието трябва да бъде минимум 200 символа дълго", MinimumLength = 200)]
         [DisplayName("Съдържание")]
         public string Content { get; set; }
         [Required]

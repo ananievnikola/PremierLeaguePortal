@@ -13,6 +13,23 @@ namespace PremierLeaguePortal.Models
         public string SubHeader { get; set; }
         public string Content { get; set; }
         public EBlogCategory Category { get; set; }
+        public string CategoryText {
+            get
+            {
+                string cat = "Категория: ";
+                switch (Category)
+                {
+                    case EBlogCategory.Analysis:
+                        return cat + "Анализи";
+                    case EBlogCategory.Transfers:
+                        return cat + "Трансфери";
+                    case EBlogCategory.News:
+                        return cat + "Новини";
+                    default:
+                        return cat + "Други";
+                }
+            }
+        }
         public Image HeaderImage { get; set; }
         public HttpPostedFileBase HeaderImageFile { get; set; }
         public DateTime? CreatedOn { get; set; }

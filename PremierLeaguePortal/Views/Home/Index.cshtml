@@ -23,8 +23,6 @@
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <h2>@news[i].Header</h2>
-                    <h4>@news[i].SubHeader</h4>
                     @if (news[i].HeaderImage != null)
                     {
                         <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
@@ -33,8 +31,10 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <div>@Html.Raw(@news[i].ShortContent)</div>
-                    <div>@news[i].ApplicationUser.NickName</div>
+                    <h3 class="plp-homeHeader">@news[i].Header</h3>
+                    <br />
+                    @*<h5 class="plp-homeSubheader">@news[i].SubHeader</h5>*@                    
+                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @news[i].PublishedOn</div>
                 </div>
             </a>
         }
@@ -46,8 +46,6 @@
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <h2>@analysis[i].Header</h2>
-                    <h4>@analysis[i].SubHeader</h4>
                     @if (analysis[i].HeaderImage != null)
                     {
                         <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
@@ -56,8 +54,11 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <div class="plp-blog-row-preview">@Html.Raw(analysis[i].ShortContent)</div>
-                    <div>@analysis[i].ApplicationUser.NickName</div>
+                    <h3 class="plp-homeHeader">@analysis[i].Header</h3>
+                    <br />
+                    @*<h5 class="plp-homeSubheader">@analysis[i].SubHeader</h5>*@
+                    
+                    <div>Автор: @analysis[i].ApplicationUser.NickName | Дата: @analysis[i].PublishedOn</div>
                 </div>
             </a>
         }
@@ -69,8 +70,6 @@
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = transfers[i].Id })">
                 <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    <h2>@transfers[i].Header</h2>
-                    <h4>@transfers[i].SubHeader</h4>
                     @if (transfers[i].HeaderImage != null)
                     {
                         <img src="@Url.Content("~/" + transfers[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
@@ -79,9 +78,11 @@
                     {
                         <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
                     }
-                    <div>@Html.Raw(@transfers[i].ShortContent)</div>
-                    <div>@transfers[i].ApplicationUser.NickName</div>
-                    @*@plp_Helpers.GenerateParamButton(Url, "BlogDetails", "BlogCategory", PremierLeaguePortal.Models.ELinkType.DETAILS, "Още", transfers[i].Id)*@
+                    <h3 class="plp-homeHeader">@transfers[i].Header</h3>
+                    <br />
+                    @*<h5 class="plp-homeSubheader">@transfers[i].SubHeader</h5>*@
+                    
+                    <div>Автор: @transfers[i].ApplicationUser.NickName | Дата: @transfers[i].PublishedOn</div>
                 </div>
             </a>
         }
