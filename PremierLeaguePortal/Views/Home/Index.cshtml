@@ -22,19 +22,38 @@
         @for (int i = 0; i < news.Count; i++)
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
-                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    @if (news[i].HeaderImage != null)
-                    {
-                        <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    <h3 class="plp-homeHeader">@news[i].FixedHeader</h3>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                            @if (news[i].HeaderImage != null)
+                            {
+                                <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h3>@news[i].Header</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@news[i].SubHeader</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@news[i].ShortContent</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <br />
-                    @*<h5 class="plp-homeSubheader">@news[i].SubHeader</h5>*@                    
-                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @news[i].PublishedOn</div>
+                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @transfers[i].PublishedOn</div>
                 </div>
             </a>
         }
@@ -45,18 +64,37 @@
         @for (int i = 0; i < analysis.Count; i++)
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
-                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    @if (analysis[i].HeaderImage != null)
-                    {
-                        <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    <h3 class="plp-homeHeader">@analysis[i].FixedHeader</h3>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                            @if (analysis[i].HeaderImage != null)
+                            {
+                                <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h3>@analysis[i].Header</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@analysis[i].SubHeader</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@analysis[i].ShortContent</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <br />
-                    
                     <div>Автор: @analysis[i].ApplicationUser.NickName | Дата: @analysis[i].PublishedOn</div>
                 </div>
             </a>
@@ -68,25 +106,44 @@
         @for (int i = 0; i < transfers.Count; i++)
         {
             <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = transfers[i].Id })">
-                <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12">
-                    @if (transfers[i].HeaderImage != null)
-                    {
-                        <img src="@Url.Content("~/" + transfers[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    <h3 class="plp-homeHeader">@transfers[i].FixedHeader</h3>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                            @if (transfers[i].HeaderImage != null)
+                            {
+                                <img src="@Url.Content("~/" + transfers[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
+                            }
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h3>@transfers[i].Header</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@transfers[i].SubHeader</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                    <h5>@transfers[i].ShortContent</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                 
                     <br />
-                    @*<h5 class="plp-homeSubheader">@transfers[i].SubHeader</h5>*@
-                    
                     <div>Автор: @transfers[i].ApplicationUser.NickName | Дата: @transfers[i].PublishedOn</div>
                 </div>
             </a>
         }
     </div>    
     <div style="clear: both"></div>
+    <br />
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4 text-center">

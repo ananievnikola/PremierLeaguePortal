@@ -78,7 +78,7 @@ img {
 }
 
 .plp-homePageThumb {
-    height: 200px;
+    height: 250px;
 }
 
 .plp-homeHeader {
@@ -98,7 +98,9 @@ img {
 }
 
 .plp-homeItem {
-    border: 6px solid red;
+    border: 1px solid #839496;
+    border-radius: 2%;
+    padding: 1%;
 }
 /*.plp-col-padding {
     padding: 2%;
