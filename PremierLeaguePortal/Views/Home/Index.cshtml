@@ -21,41 +21,7 @@
         <h2>@plp_Helpers.GenerateParamButton(Url, "News", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Новини", null)</h2>
         @for (int i = 0; i < news.Count; i++)
         {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = news[i].Id })">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                            @if (news[i].HeaderImage != null)
-                            {
-                                <img src="@Url.Content("~/" + news[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                            else
-                            {
-                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h2>@news[i].Header</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@news[i].SubHeader</h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@Html.Raw(news[i].PreviewContent)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @news[i].PublishedOn</div>
-                </div>
-            </a>
+            @plp_Helpers.BlogItemPreview(news[i], Url)
         }
     </div>
     <div style="clear: both"></div>
@@ -63,41 +29,7 @@
         <h2>@plp_Helpers.GenerateParamButton(Url, "Analysis", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Анализи", null)</h2>
         @for (int i = 0; i < analysis.Count; i++)
         {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                            @if (analysis[i].HeaderImage != null)
-                            {
-                                <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                            else
-                            {
-                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h2>@analysis[i].Header</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@analysis[i].SubHeader</h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@Html.Raw(analysis[i].PreviewContent)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div>Автор: @analysis[i].ApplicationUser.NickName | Дата: @analysis[i].PublishedOn</div>
-                </div>
-            </a>
+            @plp_Helpers.BlogItemPreview(analysis[i], Url)
         }
     </div>
     <div style="clear: both"></div>
@@ -105,41 +37,7 @@
         <h2>@plp_Helpers.GenerateParamButton(Url, "Transfers", "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, "Трансфери", null)</h2>
         @for (int i = 0; i < transfers.Count; i++)
         {
-            <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = transfers[i].Id })">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                            @if (transfers[i].HeaderImage != null)
-                            {
-                                <img src="@Url.Content("~/" + transfers[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                            else
-                            {
-                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                            }
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h2>@transfers[i].Header</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@transfers[i].SubHeader</h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@Html.Raw(transfers[i].PreviewContent)</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                 
-                    <br />
-                    <div>Автор: @transfers[i].ApplicationUser.NickName | Дата: @transfers[i].PublishedOn</div>
-                </div>
-            </a>
+            @plp_Helpers.BlogItemPreview(transfers[i], Url)
         }
     </div>    
     <div style="clear: both"></div>

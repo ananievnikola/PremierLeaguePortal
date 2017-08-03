@@ -14,37 +14,11 @@
 <div class="container-fluid">
 
     @{
-        List<PremierLeaguePortal.Models.HomeViewModel> analysis = Model.ToList();
+        List<PremierLeaguePortal.Models.HomeViewModel> item = Model.ToList();
     }
-    @for (int i = 0; i < analysis.Count; i++)
+    @for (int i = 0; i < item.Count; i++)
     {
-        <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = analysis[i].Id })">
-            <div class="row">
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 text-center">
-                    @if (analysis[i].HeaderImage != null)
-                {
-                        <img src="@Url.Content("~/" + analysis[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                </div>
-                <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
-                    <div>@analysis[i].Header</div>
-                </div>
-                <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
-                    <div>@analysis[i].SubHeader</div>
-                </div>
-
-                <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
-                    <div>@Html.Raw(analysis[i].ShortContent)</div>
-                </div>
-                <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
-                    <div>@analysis[i].ApplicationUser.NickName</div>
-                </div>
-            </div>
-        </a>
+        @plp_Helpers.BlogItemPreview(item[i], Url)
     }
 </div>
 
