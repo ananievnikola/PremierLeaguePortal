@@ -49,23 +49,37 @@ namespace PremierLeaguePortal.Models
         public DateTime? CreatedOn { get; set; }
         public DateTime? PublishedOn { get; set; }
         public bool IsPublished { get; set; }
-        public string ShortContent
+        //public string ShortContent
+        //{
+        //    get
+        //    {
+        //        if (Content.Length > 25)
+        //        {
+        //            string shortContentFixed = Regex.Replace(Content, "<.*?>", String.Empty);
+        //            if (shortContentFixed.Length > 50)
+        //            {
+        //                return shortContentFixed.Substring(0, 50) + "...";
+        //            }
+        //            else
+        //            {
+        //                return shortContentFixed + "...";
+        //            }
+        //        }
+        //        return Content;
+        //    }
+        //}
+
+
+        public string PreviewContent
         {
             get
             {
-                if (Content.Length > 25)
+                string content = Regex.Replace(Content, "<.*?>", String.Empty);
+                if (content.Length > 300)
                 {
-                    string shortContentFixed = Regex.Replace(Content, "<.*?>", String.Empty);
-                    if (shortContentFixed.Length > 50)
-                    {
-                        return shortContentFixed.Substring(0, 50) + "...";
-                    }
-                    else
-                    {
-                        return shortContentFixed + "...";
-                    }
+                    return content.Substring(0, 300) + "...";
                 }
-                return Content;
+                return content;
             }
         }
         public virtual ApplicationUser ApplicationUser { get; set; }

@@ -99,8 +99,9 @@ img {
 
 .plp-homeItem {
     border: 1px solid #839496;
-    border-radius: 2%;
+    border-radius: 25px;
     padding: 1%;
+    margin-bottom: 10px;
 }
 /*.plp-col-padding {
     padding: 2%;

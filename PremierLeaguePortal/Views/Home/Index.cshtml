@@ -37,23 +37,23 @@
                         <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@news[i].Header</h3>
+                                    <h2>@news[i].Header</h2>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@news[i].SubHeader</h5>
+                                    <h3>@news[i].SubHeader</h3>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@news[i].ShortContent</h5>
+                                    <h5>@Html.Raw(news[i].PreviewContent)</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <br />
-                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @transfers[i].PublishedOn</div>
+                    <div>Автор: @news[i].ApplicationUser.NickName | Дата: @news[i].PublishedOn</div>
                 </div>
             </a>
         }
@@ -79,17 +79,17 @@
                         <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@analysis[i].Header</h3>
+                                    <h2>@analysis[i].Header</h2>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@analysis[i].SubHeader</h5>
+                                    <h3>@analysis[i].SubHeader</h3>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@analysis[i].ShortContent</h5>
+                                    <h5>@Html.Raw(analysis[i].PreviewContent)</h5>
                                 </div>
                             </div>
                         </div>
@@ -121,17 +121,17 @@
                         <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h3>@transfers[i].Header</h3>
+                                    <h2>@transfers[i].Header</h2>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@transfers[i].SubHeader</h5>
+                                    <h3>@transfers[i].SubHeader</h3>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                                    <h5>@transfers[i].ShortContent</h5>
+                                    <h5>@Html.Raw(transfers[i].PreviewContent)</h5>
                                 </div>
                             </div>
                         </div>
