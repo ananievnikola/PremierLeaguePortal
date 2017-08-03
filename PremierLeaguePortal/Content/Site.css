@@ -100,8 +100,12 @@ img {
 .plp-homeItem {
     border: 1px solid #839496;
     border-radius: 25px;
-    padding: 1%;
+    padding: 2%;
     margin-bottom: 10px;
+}
+
+.plp-homeAnchor {
+    color: #839496;
 }
 /*.plp-col-padding {
     padding: 2%;

@@ -3,7 +3,7 @@
 
 @helper BlogItemPreview(HomeViewModel item, UrlHelper url)
 {
-    <a href="@url.Action("BlogDetails", "BlogCategory", new { id = item.Id })">
+    <a href="@url.Action("BlogDetails", "BlogCategory", new { id = item.Id })" class="plp-homeAnchor">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
