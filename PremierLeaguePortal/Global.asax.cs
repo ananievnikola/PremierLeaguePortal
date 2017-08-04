@@ -23,5 +23,15 @@ namespace PremierLeaguePortal
         {
             Session.Timeout = 60;
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception lastError = Server.GetLastError();
+            if (lastError is HttpRequestValidationException)
+            {
+                Response.Redirect("~/Home/HtmlNotAllowed");
+            }
+
+        }
     }
 }

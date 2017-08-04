@@ -13,7 +13,7 @@
 
 $(document).ready(function () {
     tinymce.init({
-        selector: 'textarea',
+        selector: "#blogTA",
         entity_encoding: "raw",
         oninit: "setPlainText",
         plugins: [

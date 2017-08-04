@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -45,6 +46,8 @@
   <ItemGroup>
     <Compile Include="FileUtils\CustomHttpPostedFile.cs" />
     <Compile Include="FileUtils\ImageCropper.cs" />
+    <Compile Include="MailService\EmailMessage.cs" />
+    <Compile Include="MailService\CustomEmailService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

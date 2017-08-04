@@ -42,7 +42,7 @@
                     <h3 class="text-warning">Поради липса на съвместимост валидацията за съдържанието на статията не работи. Моля, имайте предвид, че съдържанието трябва да бъде дълго минимум 200 символа. Проблемът ще бъде решен при първа възможност</h3>
                     @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = "30" })
+                        @Html.TextAreaFor(model => model.Content, new { @class = "form-control", @id ="blogTA", rows = "30" })
                         @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                     </div>
                 </div>
