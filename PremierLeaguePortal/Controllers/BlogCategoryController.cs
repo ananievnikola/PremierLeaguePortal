@@ -14,16 +14,10 @@ namespace PremierLeaguePortal.Controllers
     public class BlogCategoryController : Controller
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new PremierLeagueContext());
-        //public ActionResult Index()
-        //{
-        //    IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis);
 
-        //    List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
-        //    return View(hvm);
-        //}
         public ActionResult Analysis()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis);
+            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis).OrderByDescending(b => b.PublishedOn);
 
             List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
@@ -31,7 +25,7 @@ namespace PremierLeaguePortal.Controllers
 
         public ActionResult News()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.News);
+            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.News).OrderByDescending(b => b.PublishedOn);
 
             List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
@@ -40,7 +34,7 @@ namespace PremierLeaguePortal.Controllers
 
         public ActionResult Transfers()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers);
+            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers).OrderByDescending(b => b.PublishedOn);
 
             List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
             return View(hvm);
@@ -55,6 +49,7 @@ namespace PremierLeaguePortal.Controllers
             Blog blog = _unitOfWork.Blogs.GetById((int)id);
 
             HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
+            hvm.OthersInCategory = _unitOfWork.Blogs.GetAllByCategoty(blog.Category).OrderByDescending(b => b.PublishedOn).ToList();
             return View(hvm);
         }
 

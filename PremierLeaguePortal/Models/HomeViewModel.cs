@@ -10,20 +10,6 @@ namespace PremierLeaguePortal.Models
     {
         public int Id { get; set; }
         public string Header { get; set; }
-        public string FixedHeader
-        {
-            get
-            {
-                if (Header.Length > 50)
-                {
-                    return Header.Substring(0, 50);
-                }
-                else
-                {
-                    return Header;
-                }
-            }
-        }
         public string SubHeader { get; set; }
         public string Content { get; set; }
         public EBlogCategory Category { get; set; }
@@ -49,26 +35,6 @@ namespace PremierLeaguePortal.Models
         public DateTime? CreatedOn { get; set; }
         public DateTime? PublishedOn { get; set; }
         public bool IsPublished { get; set; }
-        //public string ShortContent
-        //{
-        //    get
-        //    {
-        //        if (Content.Length > 25)
-        //        {
-        //            string shortContentFixed = Regex.Replace(Content, "<.*?>", String.Empty);
-        //            if (shortContentFixed.Length > 50)
-        //            {
-        //                return shortContentFixed.Substring(0, 50) + "...";
-        //            }
-        //            else
-        //            {
-        //                return shortContentFixed + "...";
-        //            }
-        //        }
-        //        return Content;
-        //    }
-        //}
-
 
         public string PreviewContent
         {
@@ -101,6 +67,10 @@ namespace PremierLeaguePortal.Models
                 }
                 return string.Empty;
             }
+        }
+        public List<Blog> OthersInCategory
+        {
+            get;set;
         }
     }
 }

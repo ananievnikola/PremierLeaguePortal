@@ -50,6 +50,34 @@
             @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
         </div>
     </div>
-    
+    @*@if (Model.OthersInCategory != null && Model.OthersInCategory.Count > 0)
+    {
+        var index = 0;
+        <div class="row plp-row-margin-b-t">
+            @foreach (var b in Model.OthersInCategory)
+            {
+                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    @{ index++}
+                    
+                    @if (b.HeaderImage != null &&!string.IsNullOrEmpty(b.HeaderImage.ImagePhysicalPath))
+                    {
+                        
+                        <img src="@Url.Content("~/" + b.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 100px;" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" style="max-width: 100%; max-height: 100px;" />
+                    }
+                    <h5>@b.Header</h5>
+                    <h6>@b.SubHeader</h6>
+                </div>
+                if (index % 3 == 0)
+                {
+                    <div style="clear: both"></div>
+                }
+            }
+        </div>
+    }*@
+
 </div>
 
