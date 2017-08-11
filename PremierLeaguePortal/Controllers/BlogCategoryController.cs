@@ -49,7 +49,7 @@ namespace PremierLeaguePortal.Controllers
             Blog blog = _unitOfWork.Blogs.GetById((int)id);
 
             HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
-            hvm.OthersInCategory = _unitOfWork.Blogs.GetAllByCategoty(blog.Category).OrderByDescending(b => b.PublishedOn).ToList();
+            hvm.OthersInCategory = _unitOfWork.Blogs.GetAllByCategotyExceptCurrent(blog.Category, (int)id).OrderByDescending(b => b.PublishedOn).ToList();
             return View(hvm);
         }
 

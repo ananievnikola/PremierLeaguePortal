@@ -41,7 +41,15 @@ namespace PremierLeaguePortal.Repository
             return _Context.Blogs
                 .Include("HeaderImage")
                 .Include("ApplicationUser")
-                .Where(b => b.Category == cat);
+                .Where(b => b.Category == cat && b.IsPublished);
+        }
+
+        public IEnumerable<Blog> GetAllByCategotyExceptCurrent(EBlogCategory cat, int id)
+        {
+            return _Context.Blogs
+                .Include("HeaderImage")
+                .Include("ApplicationUser")
+                .Where(b => b.Category == cat && b.Id != id && b.IsPublished);
         }
 
         public void Publish(int id)

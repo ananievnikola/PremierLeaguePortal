@@ -2,82 +2,80 @@
 
 
 <div class="container-fluid">
-    <div class="row plp-row-margin-b-t">
-        <h1 class="col-md-12 text-center">
-            <strong>@Html.DisplayFor(model => model.Header)</strong>            
-        </h1>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <h3 class="col-md-12 text-center">
-            <strong>@Html.DisplayFor(model => model.SubHeader)</strong>             
-        </h3>
-    </div>
-    @if (Model.HeaderImage != null)
-    {
-        <div class="row plp-row-margin-b-t">
-            <div class="col-md-12 text-center">
-                <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 300px;" />
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="row plp-row-margin-b-t">
+                <h1 class="col-md-12 text-center">
+                    <strong>@Html.DisplayFor(model => model.Header)</strong>
+                </h1>
+            </div>
+            <div class="row plp-row-margin-b-t">
+                <h3 class="col-md-12 text-center">
+                    <strong>@Html.DisplayFor(model => model.SubHeader)</strong>
+                </h3>
+            </div>
+            @if (Model.HeaderImage != null)
+            {
+                <div class="row plp-row-margin-b-t">
+                    <div class="col-md-12 text-center">
+                        <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 300px;" />
+                    </div>
+                </div>
+            }
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12">
+                    <strong>@Html.DisplayFor(model => model.CategoryText)</strong>
+                </div>
+            </div>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12">
+                    <strong>Дата: @Html.DisplayFor(model => model.PublishedOn)</strong>
+                </div>
+            </div>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12">
+                    @Html.Raw(Model.Content)
+                </div>
+            </div>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12">
+                    <strong>Автор: @Html.DisplayFor(model => model.ApplicationUser.NickName)</strong>
+                </div>
+            </div>
+
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12 text-center">
+                    @plp_Helpers.FacebookShareHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id, Model.Header)
+                </div>
+            </div>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12 text-center">
+                    @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
+                </div>
             </div>
         </div>
-    }
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(model => model.CategoryText)</strong>
-        </div>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12">
-            @Html.Raw(Model.Content)
-        </div>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12">
-            <strong>Автор: @Html.DisplayFor(model => model.ApplicationUser.NickName)</strong>
-        </div>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12">
-            <strong>Дата: @Html.DisplayFor(model => model.PublishedOn)</strong>            
-        </div>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12 text-center">
-            @plp_Helpers.FacebookShareHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id, Model.Header)
-        </div>
-    </div>
-    <div class="row plp-row-margin-b-t">
-        <div class="col-md-12 text-center">
-            @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
-        </div>
-    </div>
-    @*@if (Model.OthersInCategory != null && Model.OthersInCategory.Count > 0)
-    {
-        var index = 0;
-        <div class="row plp-row-margin-b-t">
-            @foreach (var b in Model.OthersInCategory)
+        <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">            
+            @if (Model.OthersInCategory != null && Model.OthersInCategory.Count > 0)
             {
-                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                    @{ index++}
-                    
-                    @if (b.HeaderImage != null &&!string.IsNullOrEmpty(b.HeaderImage.ImagePhysicalPath))
+                <div class="row plp-row-margin-b-t">
+                    <h3>Още от категорията</h3>
+                    @for (int i = 0; i < Model.OthersInCategory.Count; i++)
                     {
-                        
-                        <img src="@Url.Content("~/" + b.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 100px;" />
+                        plp_Helpers.RenderImage(Model.OthersInCategory[i].HeaderImage, "text-center image-tumb", Url);
+                        //if (Model.OthersInCategory[i].HeaderImage != null && !string.IsNullOrEmpty(Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath))
+                        //{
+                        //    <img src="@Url.Content("~/" + Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath)" alt="Image"  class="text-center image-tumb" />
+                        //}
+                        //else
+                        //{
+                        //    <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="text-center image-tumb" />
+                        //}
+                        <h5>@Model.OthersInCategory[i].Header</h5>
                     }
-                    else
-                    {
-                        <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" style="max-width: 100%; max-height: 100px;" />
-                    }
-                    <h5>@b.Header</h5>
-                    <h6>@b.SubHeader</h6>
                 </div>
-                if (index % 3 == 0)
-                {
-                    <div style="clear: both"></div>
-                }
             }
-        </div>
-    }*@
-
+            
+        </aside>
+     </div>
 </div>
 

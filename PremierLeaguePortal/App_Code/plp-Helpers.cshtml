@@ -7,14 +7,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 plp-homeItem">
             <div class="row">
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                    @if (item.HeaderImage != null)
-                    {
-                        <img src="@url.Content("~/" + item.HeaderImage.ImagePhysicalPath)" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
-                    else
-                    {
-                        <img src="@url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="img-thumbnail img-responsive plp-homePageThumb" />
-                    }
+                    @plp_Helpers.RenderImage(item.HeaderImage, "img-thumbnail img-responsive plp-homePageThumb", url)
                 </div>
                 <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
                     <div class="row">
@@ -38,6 +31,18 @@
             <div>Автор: @item.ApplicationUser.NickName | Дата: @item.PublishedOn</div>
         </div>
     </a>
+}
+
+@helper RenderImage(Image image, string classes, UrlHelper url)
+{
+    if(image != null)
+    {
+        <img src="@url.Content("~/" + @image.ImagePhysicalPath)" alt="Image" class="@classes" />
+    }
+    else
+    {
+        <img src="@url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="@classes" />
+    }
 }
 
 @helper FacebookShareHelper(string urlToShare, string title)
