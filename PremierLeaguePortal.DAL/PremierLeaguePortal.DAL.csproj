@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201706281149516_xxx.Designer.cs">
       <DependentUpon>201706281149516_xxx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708141225540_addedTags.cs" />
+    <Compile Include="Migrations\201708141225540_addedTags.Designer.cs">
+      <DependentUpon>201708141225540_addedTags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706281149516_xxx.resx">
       <DependentUpon>201706281149516_xxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708141225540_addedTags.resx">
+      <DependentUpon>201708141225540_addedTags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

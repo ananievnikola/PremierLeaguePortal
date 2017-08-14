@@ -9,6 +9,7 @@ namespace PremierLeaguePortal.Models
     {
         Analysis = 0,
         Transfers = 1,
-        News = 2
+        News = 2,
+        Akashti = 3
     }
 }

@@ -53,5 +53,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
             }
         }
         public ApplicationUser ApplicationUser { get; set; }
+        [DisplayName("Тагове")]
+        public string Tags { get; set; }
     }
 }
