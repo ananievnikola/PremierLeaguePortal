@@ -8,13 +8,13 @@ namespace PremierLeaguePortal.Models
 {
     public class EmailViewModel
     {
-        [Required, Display(Name = "Your name")]
+        [Required, Display(Name = "Име")]
         public string FromName { get; set; }
-        [Required, Display(Name = "Your email"), EmailAddress]
+        [Required, Display(Name = "Email"), EmailAddress]
         public string FromEmail { get; set; }
-        [Required]
+        [Required, Display(Name = "Съобщение")]
         public string Message { get; set; }
-        [Required]
+        [Required, Display(Name = "Тема")]
         public string Subject { get; set; }
     }
 }

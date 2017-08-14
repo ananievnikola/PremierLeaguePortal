@@ -57,20 +57,24 @@
         <aside class="col-lg-3 col-md-3 col-sm-12 col-xs-12">            
             @if (Model.OthersInCategory != null && Model.OthersInCategory.Count > 0)
             {
-                <div class="row plp-row-margin-b-t">
+                <div class="row plp-row-margin-b-t text-center">
                     <h3>Още от категорията</h3>
                     @for (int i = 0; i < Model.OthersInCategory.Count; i++)
                     {
-                        plp_Helpers.RenderImage(Model.OthersInCategory[i].HeaderImage, "text-center image-tumb", Url);
-                        //if (Model.OthersInCategory[i].HeaderImage != null && !string.IsNullOrEmpty(Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath))
-                        //{
-                        //    <img src="@Url.Content("~/" + Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath)" alt="Image"  class="text-center image-tumb" />
-                        //}
-                        //else
-                        //{
-                        //    <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="text-center image-tumb" />
-                        //}
-                        <h5>@Model.OthersInCategory[i].Header</h5>
+                        <a  href="@Url.Action("BlogDetails", "BlogCategory", new { id = Model.OthersInCategory[i].Id })" class="plp-homeAnchor ">
+                            @if (Model.OthersInCategory[i].HeaderImage != null && !string.IsNullOrEmpty(Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath))
+                            {
+                                <img src="@Url.Content("~/" + Model.OthersInCategory[i].HeaderImage.ImagePhysicalPath)" alt="Image" class="text-center image-tumb" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="text-center image-tumb" />
+                            }
+                            <h5>@Model.OthersInCategory[i].Header</h5>
+                        </a>
+                        <br />
+                        //plp_Helpers.RenderImage(Model.OthersInCategory[i].HeaderImage, "text-center image-tumb", Url);
+
                     }
                 </div>
             }

@@ -75,6 +75,29 @@ namespace PremierLeaguePortal.Controllers
             }
             return View(model);
         }
+        public ActionResult Sent()
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    EmailMessage message = Mapper.Map<EmailMessage>(model);
+            //    try
+            //    {
+            //        _emailService.SendMail(message);
+            //    }
+            //    catch (HttpRequestValidationException htmlEx)
+            //    {
+            //        return RedirectToAction("HtmlNotAllowed");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        return RedirectToAction("HtmlNotAllowed");
+            //    }
+
+
+            //    return RedirectToAction("Sent");
+            //}
+            return View();
+        }
 
         public ActionResult HtmlNotAllowed()
         {
