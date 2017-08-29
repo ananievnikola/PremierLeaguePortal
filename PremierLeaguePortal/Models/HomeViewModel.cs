@@ -68,7 +68,7 @@ namespace PremierLeaguePortal.Models
                 return string.Empty;
             }
         }
-        public List<Blog> OthersInCategory
+        public List<HomeViewModel> OthersInCategory
         {
             get;set;
         }

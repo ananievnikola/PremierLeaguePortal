@@ -2,7 +2,6 @@
 using PremierLeaguePortal.DAL.Context;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -49,7 +48,8 @@ namespace PremierLeaguePortal.Controllers
             Blog blog = _unitOfWork.Blogs.GetById((int)id);
 
             HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
-            hvm.OthersInCategory = _unitOfWork.Blogs.GetAllByCategotyExceptCurrent(blog.Category, (int)id).OrderByDescending(b => b.PublishedOn).Take(10).ToList();
+            List<Blog> othersInCat = _unitOfWork.Blogs.GetAllByCategotyExceptCurrent(blog.Category, (int)id).OrderByDescending(b => b.PublishedOn).Take(3).ToList();
+            hvm.OthersInCategory = Mapper.Map<List<HomeViewModel>>(othersInCat);
             return View(hvm);
         }
 
