@@ -38,10 +38,24 @@ img {
     max-width: 100%;
     max-height: 100px;
 }
-.image-tumb-edit {
-    width: 20%;
-    margin-bottom: 20px;
+
+.plp-image-thumb-container {
+    width: 100%;
+    border: 1px solid #839496;
+    border-radius: 25px;
+    padding: 2%;
 }
+
+    .plp-image-thumb-container > img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5%;
+    }
+
+.image-tumb-edit {
+        width: 20%;
+        margin-bottom: 20px;
+    }
 
 .hide-element {
     display: none;

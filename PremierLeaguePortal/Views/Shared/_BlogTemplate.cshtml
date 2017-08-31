@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="row plp-row-margin-b-t">
                 <h1 class="col-md-12 text-center">
                     <strong>@Html.DisplayFor(model => model.Header)</strong>
@@ -48,21 +48,31 @@
                     @plp_Helpers.FacebookShareHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id, Model.Header)
                 </div>
             </div>
+            <div class="row plp-row-margin-b-t">
+                <div class="col-md-12 text-center">
+                    @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
+                </div>
+            </div> 
         </div>
-        <div class="row plp-row-margin-b-t">
-            <div class="col-md-12 text-center">
-                @plp_Helpers.FacebookCommentHelper("http://fantasypremierleague-bg.com/BlogCategory/BlogDetails/" + Model.Id)
-            </div>
-        </div> 
-        <div class="row plp-homeCategory">
-            @*<h2>@plp_Helpers.GenerateParamButton(Url, Model.Category.ToString(), "BlogCategory", PremierLeaguePortal.Models.ELinkType.CREATE, Model.Category.ToString(), null)</h2>*@
-            <h2 class="text-center">Още от категорията (@Model.CategoryText)</h2>
-            @for (int i = 0; i < Model.OthersInCategory.Count; i++)
-            {
-                @plp_Helpers.BlogItemPreview(Model.OthersInCategory[i], Url)
-            }
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="row plp-row-margin-b-t">
+                <h3 class="text-center">Още от категорията (@Model.CategoryText)</h3>
+            </div>                
+                @foreach (var item in Model.OthersInCategory)
+                {
+                    <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = item.Id })" class="plp-homeAnchor">
+                        <div class="row plp-row-margin-b-t">
+                            <h5 class="col-md-12">
+                                @item.Header
+                            </h5>
+                            <div class="plp-image-thumb-container">
+                                @plp_Helpers.RenderImage(item.HeaderImage, "img-thumbnail img-responsive plp-homePageThumb", Url)
+                            </div>
+                        </div>
+                    </a>
+               }
         </div>
-        <div style="clear: both"></div>
-     </div>
+
+    </div>
 </div>
 
