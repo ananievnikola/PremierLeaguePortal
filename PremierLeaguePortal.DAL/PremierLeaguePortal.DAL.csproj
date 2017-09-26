@@ -96,6 +96,26 @@
     <Compile Include="Migrations\201708141225540_addedTags.Designer.cs">
       <DependentUpon>201708141225540_addedTags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709261622483_test.cs" />
+    <Compile Include="Migrations\201709261622483_test.Designer.cs">
+      <DependentUpon>201709261622483_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261623305_tags.cs" />
+    <Compile Include="Migrations\201709261623305_tags.Designer.cs">
+      <DependentUpon>201709261623305_tags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261626293_tagsAdded2.cs" />
+    <Compile Include="Migrations\201709261626293_tagsAdded2.Designer.cs">
+      <DependentUpon>201709261626293_tagsAdded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261628296_tagsRemoved.cs" />
+    <Compile Include="Migrations\201709261628296_tagsRemoved.Designer.cs">
+      <DependentUpon>201709261628296_tagsRemoved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261629079_tagsReadded.cs" />
+    <Compile Include="Migrations\201709261629079_tagsReadded.Designer.cs">
+      <DependentUpon>201709261629079_tagsReadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -134,6 +154,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708141225540_addedTags.resx">
       <DependentUpon>201708141225540_addedTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261622483_test.resx">
+      <DependentUpon>201709261622483_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261623305_tags.resx">
+      <DependentUpon>201709261623305_tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261626293_tagsAdded2.resx">
+      <DependentUpon>201709261626293_tagsAdded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261628296_tagsRemoved.resx">
+      <DependentUpon>201709261628296_tagsRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261629079_tagsReadded.resx">
+      <DependentUpon>201709261629079_tagsReadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
