@@ -35,19 +35,19 @@
 
 @helper RenderImage(Image image, string classes, UrlHelper url)
 {
-    if(image != null)
-    {
+if (image != null)
+{
         <img src="@url.Content("~/" + image.ImagePhysicalPath)" alt="Image" class="@classes" />
-    }
-    else
-    {
+}
+else
+{
         <img src="@url.Content("~/images/sysimages/no-image-available.jpg")" alt="Image" class="@classes" />
-    }
+}
 }
 
 @helper FacebookShareHelper(string urlToShare, string title)
 {
-    <div class="fb-share-button" data-href="@urlToShare" data-layout="button" data-size="large" data-mobile-iframe="true" data-title="@title">    
+    <div class="fb-share-button" data-href="@urlToShare" data-layout="button" data-size="large" data-mobile-iframe="true" data-title="@title">
         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffantasypremierleague-bg.com%2F&amp;src=sdkpreparse">Споделяне</a>
     </div>
 }
