@@ -62,6 +62,24 @@
             </div>
         }
         <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Tags)
+            </div>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Tags)
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.IFrame)
+            </div>
+            <div class="col-md-10">
+                @*@Html.DisplayFor(model => model.IFrame)*@
+                <iframe src="@Model.IFrame" frameborder="0" allowfullscreen></iframe>
+                @*@Html.Raw(Model.IFrame)*@
+            </div>
+        </div>
+        <div class="row plp-row-margin-b-t">
             <div class="col-md-6">
                 @plp_Helpers.GenerateParamButton(Url, "Edit", "Blogs", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", Model.Id)                
             </div>

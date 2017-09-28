@@ -68,9 +68,7 @@ namespace PremierLeaguePortal.Controllers
                 catch (Exception ex)
                 {
                     return RedirectToAction("HtmlNotAllowed");
-                }
-                
-                
+                }   
                 return RedirectToAction("Sent");
             }
             return View(model);

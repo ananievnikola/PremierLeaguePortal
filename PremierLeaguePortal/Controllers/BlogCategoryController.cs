@@ -16,26 +16,22 @@ namespace PremierLeaguePortal.Controllers
 
         public ActionResult Analysis()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Analysis).OrderByDescending(b => b.PublishedOn);
-
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(GetBlogList(EBlogCategory.Analysis)).ToList();
             return View(hvm);
         }
 
         public ActionResult News()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.News).OrderByDescending(b => b.PublishedOn);
-
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(GetBlogList(EBlogCategory.News)).ToList();
             return View(hvm);
         }
 
 
         public ActionResult Transfers()
         {
-            IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers).OrderByDescending(b => b.PublishedOn);
+            //IEnumerable<Blog> blogs = _unitOfWork.Blogs.GetAllByCategoty(EBlogCategory.Transfers).OrderByDescending(b => b.PublishedOn);
 
-            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(blogs).ToList();
+            List<HomeViewModel> hvm = Mapper.Map<List<HomeViewModel>>(GetBlogList(EBlogCategory.Transfers)).ToList();
             return View(hvm);
         }
 
@@ -51,6 +47,11 @@ namespace PremierLeaguePortal.Controllers
             List<Blog> othersInCat = _unitOfWork.Blogs.GetAllByCategotyExceptCurrent(blog.Category, (int)id).OrderByDescending(b => b.PublishedOn).Take(3).ToList();
             hvm.OthersInCategory = Mapper.Map<List<HomeViewModel>>(othersInCat);
             return View(hvm);
+        }
+
+        private IEnumerable<Blog> GetBlogList(EBlogCategory category)
+        {
+            return _unitOfWork.Blogs.GetAllByCategoty(category).OrderByDescending(b => b.PublishedOn);
         }
 
     }

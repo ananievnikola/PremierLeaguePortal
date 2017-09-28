@@ -72,5 +72,7 @@ namespace PremierLeaguePortal.Models
         {
             get;set;
         }
+
+        public string IFrame { get; set; }
     }
 }

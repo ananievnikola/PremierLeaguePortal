@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201709261629079_tagsReadded.Designer.cs">
       <DependentUpon>201709261629079_tagsReadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709280832059_IFrameAdded.cs" />
+    <Compile Include="Migrations\201709280832059_IFrameAdded.Designer.cs">
+      <DependentUpon>201709280832059_IFrameAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -169,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709261629079_tagsReadded.resx">
       <DependentUpon>201709261629079_tagsReadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709280832059_IFrameAdded.resx">
+      <DependentUpon>201709280832059_IFrameAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

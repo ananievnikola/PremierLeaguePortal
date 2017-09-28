@@ -14,5 +14,6 @@ namespace PremierLeaguePortal.Models
         public bool IsPublished { get; set; }
         public DateTime? PublishedOn { get; set; }
         public string Tags { get; set; }
+        public string IFrame { get; set; }
     }
 }

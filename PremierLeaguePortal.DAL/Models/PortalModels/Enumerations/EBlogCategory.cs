@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PremierLeaguePortal.Models
+﻿namespace PremierLeaguePortal.Models
 {
     public enum EBlogCategory
     {
         Analysis = 0,
         Transfers = 1,
         News = 2,
-        Akashti = 3
+        IFrameContent = 3, //temp change the name
+        Akashti = 4
     }
 }
