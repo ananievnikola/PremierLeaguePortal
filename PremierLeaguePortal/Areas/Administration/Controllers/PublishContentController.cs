@@ -38,6 +38,7 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 return HttpNotFound();
             }
             HomeViewModel hvm = Mapper.Map<HomeViewModel>(blog);
+            List<Blog> othersInCat = _unitOfWork.Blogs.GetAllByCategotyExceptCurrent(blog.Category, (int)id).OrderByDescending(b => b.PublishedOn).Take(3).ToList();
             hvm.isPublish = true;
             return View(hvm);
         }

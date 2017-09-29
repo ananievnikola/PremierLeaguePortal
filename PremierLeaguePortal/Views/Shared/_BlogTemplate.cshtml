@@ -18,7 +18,7 @@
             {
                 <div class="row plp-row-margin-b-t">
                     <div class="col-md-12 text-center">
-                        <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%; max-height: 300px;" />
+                        <img src="@Url.Content("~/" + Model.HeaderImage.ImagePhysicalPath)" alt="Image" style="max-width: 100%;" />
                     </div>
                 </div>
             }
@@ -57,8 +57,10 @@
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="row plp-row-margin-b-t">
                 <h3 class="text-center">Още от категорията (@Model.CategoryText)</h3>
-            </div>                
-                @foreach (var item in Model.OthersInCategory)
+            </div>  
+            @if (Model.OthersInCategory != null)
+            {
+                foreach (var item in Model.OthersInCategory)
                 {
                     <a href="@Url.Action("BlogDetails", "BlogCategory", new { id = item.Id })" class="plp-homeAnchor">
                         <div class="row plp-row-margin-b-t">
@@ -70,7 +72,8 @@
                             </div>
                         </div>
                     </a>
-               }
+                }
+            }
         </div>
 
     </div>
