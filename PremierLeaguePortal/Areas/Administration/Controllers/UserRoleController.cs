@@ -22,13 +22,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         public ActionResult Index()
         {
             List<ApplicationUser> users = _unitOfWork.User.GetUsersNotInRole("SuperUser").ToList();
-            //List<UserRoleViewModel> uvm = new List<UserRoleViewModel>();
-            //foreach (var user in users)
-            //{
-            //    UserRoleViewModel vmpi = new UserRoleViewModel();
-            //    vmpi.ApplicationUser = user;
-            //    vmpi.isAuthor = user.Roles.con
-            //}
             return View(users);
         }
 
@@ -38,7 +31,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //_unitOfWork.User.RemoveUserFromRole(Id, "NormalUser");
             _unitOfWork.User.AddUserToRole(Id, "Author");
             _unitOfWork.Save();
             return RedirectToAction("Index");
@@ -49,7 +41,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //_unitOfWork.User.RemoveUserFromRole(Id, "NormalUser");
             _unitOfWork.User.AddUserToRole(Id, "SuperUser");
             _unitOfWork.Save();
             return RedirectToAction("Index");

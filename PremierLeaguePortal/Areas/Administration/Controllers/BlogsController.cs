@@ -158,7 +158,6 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                     {
                         try
                         {
-
                             System.IO.File.Delete(blog.HeaderImage.ImageServerPath);
                         }
                         catch (IOException ex)

@@ -22,7 +22,7 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public string SubHeader { get; set; }
         [UIHint("tinymce_jquery_full"), AllowHtml]
         [Required]
-        [StringLength(20000, ErrorMessage = "Съдържанието трябва да бъде минимум 200 символа дълго", MinimumLength = 200)]
+        [StringLength(200000, ErrorMessage = "Съдържанието трябва да бъде минимум 200 символа дълго", MinimumLength = 200)]
         [DisplayName("Съдържание")]
         public string Content { get; set; }
         [Required]
@@ -55,7 +55,5 @@ namespace PremierLeaguePortal.Areas.Administration.Models
         public ApplicationUser ApplicationUser { get; set; }
         [DisplayName("Тагове")]
         public string Tags { get; set; }
-        [UIHint("iframe"), AllowHtml]
-        public string IFrame { get; set; }
     }
 }

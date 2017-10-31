@@ -127,3 +127,9 @@ img {
 /*social*/
 .plp-fbb-pos {
 }
+
+#plp-headerImage {
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
+}

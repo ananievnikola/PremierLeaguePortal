@@ -5,7 +5,7 @@
         Analysis = 0,
         Transfers = 1,
         News = 2,
-        IFrameContent = 3, //temp change the name
-        Akashti = 4
+        //IFrameContent = 3, //temp change the name
+        Akashti = 3
     }
 }
