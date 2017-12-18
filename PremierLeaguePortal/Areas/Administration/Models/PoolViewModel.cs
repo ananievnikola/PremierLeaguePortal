@@ -1,13 +1,12 @@
-﻿using System;
+﻿using PremierLeaguePortal.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PremierLeaguePortal.Models
+namespace PremierLeaguePortal.Areas.Administration.Models
 {
-    public class Pool : ModelBase
+    public class PoolViewModel
     {
+        public int Id { get; set; }
         public string PoolName { get; set; }
         public bool IsActive { get; set; }
         public bool IsCurrentUserVoted { get; set; }

@@ -7,13 +7,13 @@ namespace PremierLeaguePortal.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class iframerem : IMigrationMetadata
+    public sealed partial class poolitemsAdded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(iframerem));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(poolitemsAdded));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710311235066_iframerem"; }
+            get { return "201712111737156_poolitemsAdded"; }
         }
         
         string IMigrationMetadata.Source

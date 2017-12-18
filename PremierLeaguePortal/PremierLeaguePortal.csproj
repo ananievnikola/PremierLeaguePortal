@@ -172,9 +172,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BlogsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PoolController.cs" />
     <Compile Include="Areas\Administration\Controllers\PublishContentController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Administration\Models\BlogViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\PoolViewModel.cs" />
     <Compile Include="Areas\Administration\Models\UserRoleViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogCategoryController.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\ImageRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\PoolRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -228,6 +231,11 @@
     <Content Include="Areas\Administration\Views\PublishContent\Index.cshtml" />
     <Content Include="Areas\Administration\Views\PublishContent\Publish.cshtml" />
     <Content Include="App_Code\plp-Helpers.cshtml" />
+    <Content Include="Areas\Administration\Views\Pool\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Pool\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Pool\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Pool\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Pool\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

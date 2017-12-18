@@ -1,17 +1,4 @@
-﻿//$(document).ready(function () {
-//    console.log("ready!");
-//    tinymce.init({
-//        selector: 'textarea',
-//        oninit: "setPlainText",
-//        plugins: ["paste link"],
-//        
-//        //plugins: "link",
-//        toolbar: "link",
-//        default_link_target: "_blank"
-//    });
-//});
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     tinymce.init({
         selector: "#blogTA",
         entity_encoding: "raw",
@@ -30,3 +17,21 @@ $(document).ready(function () {
 function disableButton() {
     $('button').prop('disabled', true);
 }
+
+$(function () {
+    $("#plp-add-item").click(function () {
+        //alert("Handler for .click() called.");
+        var itemListEl = $("#plp-pool-item-list");
+        debugger;
+        var lastItemIndex = parseInt(itemListEl.find("input").last().attr('id').match(/\d+/)[0]);
+        var currentItemIndex = lastItemIndex + 1;
+        var newLabelForItem = $("<label>")
+            .text("Label")
+            .addClass("control-label col-md-2")
+            .attr("for", "Items_" + currentItemIndex + "__Label");
+        var newItem = $("<input>").addClass("form-control text-box single-line")
+            .attr("id", "Items_" + currentItemIndex + "__Label").attr("name", "Items[" + currentItemIndex + "].Label");
+        itemListEl.append(newLabelForItem);
+        itemListEl.append(newItem);
+    });
+});

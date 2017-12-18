@@ -120,9 +120,25 @@
     <Compile Include="Migrations\201709280832059_IFrameAdded.Designer.cs">
       <DependentUpon>201709280832059_IFrameAdded.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710311235066_iframerem.cs" />
-    <Compile Include="Migrations\201710311235066_iframerem.Designer.cs">
-      <DependentUpon>201710311235066_iframerem.cs</DependentUpon>
+    <Compile Include="Migrations\201712111737156_poolitemsAdded.cs" />
+    <Compile Include="Migrations\201712111737156_poolitemsAdded.Designer.cs">
+      <DependentUpon>201712111737156_poolitemsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712111738249_poolitemsAddedFinal.cs" />
+    <Compile Include="Migrations\201712111738249_poolitemsAddedFinal.Designer.cs">
+      <DependentUpon>201712111738249_poolitemsAddedFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181422110_test1.cs" />
+    <Compile Include="Migrations\201712181422110_test1.Designer.cs">
+      <DependentUpon>201712181422110_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181426399_votedUsersAdded.cs" />
+    <Compile Include="Migrations\201712181426399_votedUsersAdded.Designer.cs">
+      <DependentUpon>201712181426399_votedUsersAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181503114_addedModifiedOn.cs" />
+    <Compile Include="Migrations\201712181503114_addedModifiedOn.Designer.cs">
+      <DependentUpon>201712181503114_addedModifiedOn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
@@ -183,8 +199,20 @@
     <EmbeddedResource Include="Migrations\201709280832059_IFrameAdded.resx">
       <DependentUpon>201709280832059_IFrameAdded.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710311235066_iframerem.resx">
-      <DependentUpon>201710311235066_iframerem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712111737156_poolitemsAdded.resx">
+      <DependentUpon>201712111737156_poolitemsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111738249_poolitemsAddedFinal.resx">
+      <DependentUpon>201712111738249_poolitemsAddedFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181422110_test1.resx">
+      <DependentUpon>201712181422110_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181426399_votedUsersAdded.resx">
+      <DependentUpon>201712181426399_votedUsersAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181503114_addedModifiedOn.resx">
+      <DependentUpon>201712181503114_addedModifiedOn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

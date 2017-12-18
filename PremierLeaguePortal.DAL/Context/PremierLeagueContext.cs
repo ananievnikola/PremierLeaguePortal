@@ -21,6 +21,9 @@ namespace PremierLeaguePortal.DAL.Context
         /// </summary>
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Pool> Pools { get; set; }
+        public DbSet<PoolItem> PoolItems { get; set; }
+
         //public DbSet<Team> Teams { get; set; }
         //public DbSet<Player> Players { get; set; }
         //public DbSet<Manager> Managers { get; set; }
@@ -42,5 +45,6 @@ namespace PremierLeaguePortal.DAL.Context
         {
             return new PremierLeagueContext();
         }
+
     }
 }

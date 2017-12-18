@@ -3,7 +3,7 @@ namespace PremierLeaguePortal.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class iframerem : DbMigration
+    public partial class poolitemsAdded : DbMigration
     {
         public override void Up()
         {

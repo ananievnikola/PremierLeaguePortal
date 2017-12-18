@@ -211,3 +211,5 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /PremierLeaguePortal/Images/4YOYiYG4258fd86-0cad-41c7-9106-41a38b1aa14f.jpg
+/PremierLeaguePortal/Web.config
+/PremierLeaguePortal.DAL/Migrations/IFrameRemovePoolAdd.sql

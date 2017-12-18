@@ -8,5 +8,14 @@ namespace PremierLeaguePortal.Models
 {
     public class PoolItem : ModelBase
     {
+        /// <summary>
+        /// The index of the actual answer
+        /// </summary>
+        public int Number { get; set; }
+        public string Label { get; set; }
+        /// <summary>
+        /// the users who voted for this item, if any
+        /// </summary>
+        public virtual IList<ApplicationUser> VotedUsersForThisOption { get; set; }
     }
 }

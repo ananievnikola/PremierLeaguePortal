@@ -13,6 +13,7 @@ namespace PremierLeaguePortal.Repository
         private BlogRepository _Blogs;
         private ImageRepository _Image;
         private ApplicationUserRepository _User;
+        private PoolRepository _Pool;
         //private GenericRepository<Course> courseRepository;
         public UnitOfWork(PremierLeagueContext context)
         {
@@ -53,6 +54,19 @@ namespace PremierLeaguePortal.Repository
                     this._User = new ApplicationUserRepository(_Context);
                 }
                 return _User;
+            }
+        }
+
+        public PoolRepository Pool
+        {
+            get
+            {
+
+                if (this._Pool == null)
+                {
+                    this._Pool = new PoolRepository(_Context);
+                }
+                return _Pool;
             }
         }
 

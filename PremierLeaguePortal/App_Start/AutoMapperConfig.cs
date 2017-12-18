@@ -21,6 +21,11 @@
 
                 expression.CreateMap<EmailMessage, EmailViewModel>().ReverseMap();
 
+                expression.CreateMap<Pool, PoolViewModel>()
+                .ForMember(i => i.IsCurrentUserVoted, j => j.MapFrom(ij => ij.IsCurrentUserVoted))
+                .ForMember(i => i.Items, j => j.MapFrom(ij => ij.Items))
+                .ReverseMap();
+
             });
         }
     }
