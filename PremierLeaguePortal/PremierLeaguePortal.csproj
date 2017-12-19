@@ -193,6 +193,7 @@
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\ImageRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\PoolItemRepository.cs" />
     <Compile Include="Repository\PoolRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Startup.cs" />

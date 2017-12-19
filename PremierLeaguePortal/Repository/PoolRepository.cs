@@ -11,6 +11,7 @@ namespace PremierLeaguePortal.Repository
     {
         public PoolRepository(PremierLeagueContext context) : base(context)
         {
+            
         }
     }
 }

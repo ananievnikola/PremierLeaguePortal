@@ -89,14 +89,38 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PoolName,IsActive,IsCurrentUserVoted")] PoolViewModel poolViewModel)
+        public ActionResult Edit(PoolViewModel poolViewModel)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.Entry(poolViewModel).State = EntityState.Modified;
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            //Pool pool = Mapper.Map<Pool>(poolViewModel);
+            
+            //var user = _unitOfWork.User.GetById(User.Identity.GetUserId());
+            if (ModelState.IsValid)
+            {
+                Pool pool = _unitOfWork.Pool.GetById(poolViewModel.Id);
+                
+                if (pool != null)
+                {
+                    pool.ModifiedOn = DateTime.Now;
+                    if (pool.Items != null)
+                    {
+                        int index = pool.Items.Count;
+                        int[] ids = new int[index];
+                        for (int i = 0; i < index; i++)
+                        {
+                            ids[i] = pool.Items[i].Id;
+                        }
+                        for (int i = 0; i < index; i++)
+                        {
+                            _unitOfWork.PoolItem.Delete(ids[i]);
+                        }
+                        pool.Items.Clear();
+                        pool.Items = poolViewModel.Items;
+                    }
+                    _unitOfWork.Save();
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Index");
+            }
             return View();
         }
 

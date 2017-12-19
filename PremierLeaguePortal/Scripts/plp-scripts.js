@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿//Configure tinyMCE
+$(document).ready(function () {
     tinymce.init({
         selector: "#blogTA",
         entity_encoding: "raw",
@@ -14,10 +15,11 @@
 });
 
 
-function disableButton() {
-    $('button').prop('disabled', true);
-}
+//function disableButton() {
+//    $('button').prop('disabled', true);
+//}
 
+//Add new PoolItem field
 $(function () {
     $("#plp-add-item").click(function () {
         //alert("Handler for .click() called.");
@@ -31,7 +33,17 @@ $(function () {
             .attr("for", "Items_" + currentItemIndex + "__Label");
         var newItem = $("<input>").addClass("form-control text-box single-line")
             .attr("id", "Items_" + currentItemIndex + "__Label").attr("name", "Items[" + currentItemIndex + "].Label");
+        //<input type="button" value="add new item" id="plp-add-item"/>
+        var removeButton = $("<input>").attr("type", "button").attr("value", "remove " + currentItemIndex).addClass("plp-remove-item");
+        removeButton.click(removePoolItem);
         itemListEl.append(newLabelForItem);
         itemListEl.append(newItem);
+        itemListEl.append(removeButton);
     });
 });
+
+//remove specific PoolItem field
+var removePoolItem = function (ev) {
+    var indexToRemove = parseInt(ev.currentTarget.value.match(/\d+/)[0]);
+    alert(indexToRemove);
+}
