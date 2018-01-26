@@ -4,42 +4,46 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Анкети</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PoolName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsCurrentUserVoted)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PoolName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCurrentUserVoted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+@Html.ActionLink("Create New", "Create", null, new { @class = "plp-actionlink plp-nopadding btn btn-success btn-block" })
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">@Html.DisplayNameFor(model => model.PoolName)</div>
+        <div class="col-md-6">@Html.DisplayNameFor(model => model.IsActive)</div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">@Html.DisplayFor(modelItem => item.PoolName)</div>
+            @if (item.IsActive)
+            {
+                <div class="col-md-6">Активна анкета</div>
+            }
+            else
+            {
+                <div class="col-md-6">Неактивна анкета</div>
+            }
+        </div>
+        <div class="row plp-row-margin-b-t">
+            <div class="col-md-3">
+                @plp_Helpers.GenerateParamButton(Url, "Details", "Pool", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
+            </div>
+            <div class="col-md-3">
+                @{
+                    bool disabled = item.IsActive;
+                }
+                @plp_Helpers.GenerateParamButton(Url, "Activate", "Pool", PremierLeaguePortal.Models.ELinkType.CREATE, "Activate", item.Id, disabled)
+            </div>
+            <div class="col-md-3">
+                @{
+                    disabled = item.IsActive;
+                }
+                @plp_Helpers.GenerateParamButton(Url, "Deactivate", "Pool", PremierLeaguePortal.Models.ELinkType.CREATE, "Deactivate", item.Id, !disabled)
+            </div>
+            <div class="col-md-3">
+                @plp_Helpers.GenerateParamButton(Url, "Delete", "Pool", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
+            </div>
+        </div>
+     }
+</div>

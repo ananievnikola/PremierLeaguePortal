@@ -60,6 +60,11 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
                 pool.CreatedOn = DateTime.Now;
                 pool.ModifiedOn = DateTime.Now;
                 pool.Author = user;
+                for (int i = 0; i < pool.Items.Count; i++)
+                {
+                    pool.Items[i].CreatedOn = DateTime.Now;
+                    pool.Items[i].Number = i + 1;
+                }
                 _unitOfWork.Pool.Insert(pool);
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
@@ -127,26 +132,49 @@ namespace PremierLeaguePortal.Areas.Administration.Controllers
         // GET: Administration/Pool/Delete/5
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //PoolViewModel poolViewModel = db.PoolViewModels.Find(id);
-            //if (poolViewModel == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pool pool = _unitOfWork.Pool.GetById((int)id);
+            PoolViewModel poolViewModel = Mapper.Map<PoolViewModel>(pool);
+            if (poolViewModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(poolViewModel);
         }
 
+        public ActionResult Activate(int id)
+        {
+            Pool pool = _unitOfWork.Pool.GetById(id);
+            pool.IsActive = true;
+            _unitOfWork.Save();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Deactivate(int id)
+        {
+            Pool pool = _unitOfWork.Pool.GetById(id);
+            pool.IsActive = false;
+            _unitOfWork.Save();
+            return RedirectToAction("Index");
+        }
         // POST: Administration/Pool/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            //PoolViewModel poolViewModel = db.PoolViewModels.Find(id);
-            //db.PoolViewModels.Remove(poolViewModel);
-            //db.SaveChanges();
+            List<PoolItem> items = _unitOfWork.PoolItem.GetAllPoolItemsByParentId(id);
+            if (items != null && items.Count > 0)
+            {
+                foreach (var item in items)
+                {
+                    _unitOfWork.PoolItem.Delete(item.Id);
+                }
+            }                      
+            _unitOfWork.Pool.Delete(id);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
 

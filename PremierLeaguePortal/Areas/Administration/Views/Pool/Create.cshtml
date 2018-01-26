@@ -24,8 +24,15 @@
         <div class="form-group" id="plp-pool-item-list">
             @for (int i = 0; i < 2; i++)
             {
-                @Html.LabelFor(model => model.Items[i].Label, htmlAttributes: new { @class = "control-label col-md-2" })
-                @Html.EditorFor(model => model.Items[i].Label, new { htmlAttributes = new { @class = "form-control col-md-10" } })
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Items[i].Label, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Items[i].Label, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                </div>
             }
         </div>
         <input type="button" value="add new item" id="plp-add-item"/>
@@ -41,14 +48,3 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script>
-
-    //$("#plp-add-item").click(function () {
-    //    alert("Handler for .click() called.");
-    //});
-    //$("#plp-add-item").click(function () {
-    //    var itemListEl = $("#plp-pool-item-list");
-    //    alert('hi');
-    //});
-    
-</script>

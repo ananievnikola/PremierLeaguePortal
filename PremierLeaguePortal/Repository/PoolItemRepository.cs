@@ -13,5 +13,10 @@ namespace PremierLeaguePortal.Repository
         {
 
         }
+
+        public List<PoolItem> GetAllPoolItemsByParentId(int id)
+        {
+            return _Context.Pools.FirstOrDefault(p => p.Id == id).Items.ToList();
+        }
     }
 }

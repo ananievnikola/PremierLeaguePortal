@@ -14,18 +14,13 @@ $(document).ready(function () {
     });
 });
 
-
-//function disableButton() {
-//    $('button').prop('disabled', true);
-//}
-
 //Add new PoolItem field
 $(function () {
     $("#plp-add-item").click(function () {
         //alert("Handler for .click() called.");
         var itemListEl = $("#plp-pool-item-list");
         debugger;
-        var lastItemIndex = parseInt(itemListEl.find("input").last().attr('id').match(/\d+/)[0]);
+        var lastItemIndex = parseInt(itemListEl.find("input.form-control").last().attr('id').match(/\d+/)[0]);
         var currentItemIndex = lastItemIndex + 1;
         var newLabelForItem = $("<label>")
             .text("Label")
@@ -33,7 +28,6 @@ $(function () {
             .attr("for", "Items_" + currentItemIndex + "__Label");
         var newItem = $("<input>").addClass("form-control text-box single-line")
             .attr("id", "Items_" + currentItemIndex + "__Label").attr("name", "Items[" + currentItemIndex + "].Label");
-        //<input type="button" value="add new item" id="plp-add-item"/>
         var removeButton = $("<input>").attr("type", "button").attr("value", "remove " + currentItemIndex).addClass("plp-remove-item");
         removeButton.click(removePoolItem);
         itemListEl.append(newLabelForItem);
@@ -44,6 +38,8 @@ $(function () {
 
 //remove specific PoolItem field
 var removePoolItem = function (ev) {
-    var indexToRemove = parseInt(ev.currentTarget.value.match(/\d+/)[0]);
-    alert(indexToRemove);
+    var indexToRemove = parseInt(ev.currentTarget.value.match(/\d+/)[0]);    
+    $("label[for=Items_" + indexToRemove + "__Label]").remove();
+    $("#" + "Items_" + indexToRemove + "__Label").remove();
+    $(this).remove();
 }
