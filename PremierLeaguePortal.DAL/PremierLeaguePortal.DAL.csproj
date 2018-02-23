@@ -140,6 +140,14 @@
     <Compile Include="Migrations\201712181503114_addedModifiedOn.Designer.cs">
       <DependentUpon>201712181503114_addedModifiedOn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801291642074_validators.cs" />
+    <Compile Include="Migrations\201801291642074_validators.Designer.cs">
+      <DependentUpon>201801291642074_validators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801310936482_removedAnnotations.cs" />
+    <Compile Include="Migrations\201801310936482_removedAnnotations.Designer.cs">
+      <DependentUpon>201801310936482_removedAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotViewModel.cs" />
@@ -213,6 +221,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712181503114_addedModifiedOn.resx">
       <DependentUpon>201712181503114_addedModifiedOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801291642074_validators.resx">
+      <DependentUpon>201801291642074_validators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801310936482_removedAnnotations.resx">
+      <DependentUpon>201801310936482_removedAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

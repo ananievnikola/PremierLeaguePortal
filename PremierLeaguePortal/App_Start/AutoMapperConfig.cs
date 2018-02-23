@@ -11,7 +11,6 @@
         {
             Mapper.Initialize(expression =>
             {
-                //expression.CreateMap<Player, PlayerViewModel>().ReverseMap();
                 expression.CreateMap<Blog, BlogViewModel>().ReverseMap();
                 expression.CreateMap<Blog, HomeViewModel>()
                 .ForMember(i => i.HeaderImage, h => h.MapFrom(hi => hi.HeaderImage))
@@ -25,6 +24,7 @@
                 .ForMember(i => i.IsCurrentUserVoted, j => j.MapFrom(ij => ij.IsCurrentUserVoted))
                 .ForMember(i => i.Items, j => j.MapFrom(ij => ij.Items))
                 .ReverseMap();
+                expression.CreateMap<PoolItem, PoolItemViewModel>().ReverseMap();
 
             });
         }

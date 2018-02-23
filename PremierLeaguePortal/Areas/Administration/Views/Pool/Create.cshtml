@@ -22,6 +22,12 @@
             </div>
         </div>
         <div class="form-group" id="plp-pool-item-list">
+            @if (Model != null && !string.IsNullOrEmpty(Model.PoolItemsValidationMessage))
+            {
+                <div class="row">
+                    <h3>@Model.PoolItemsValidationMessage</h3>
+                </div>
+            }
             @for (int i = 0; i < 2; i++)
             {
                 <div class="row">
