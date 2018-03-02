@@ -1,5 +1,7 @@
 ﻿@using System.Web.Mvc
+@using PremierLeaguePortal.Areas.Administration.Models
 @using PremierLeaguePortal.Models
+
 
 @helper BlogItemPreview(HomeViewModel item, UrlHelper url)
 {
@@ -29,6 +31,34 @@
             </div>
             <br />
             <div>Автор: @item.ApplicationUser.NickName | Дата: @item.PublishedOn</div>
+        </div>
+    </a>
+}
+
+@helper PoolPreview(PoolViewModel item, UrlHelper url)
+{
+    <a href="@url.Action("PoolDetails", "Home", new { id = item.Id })" class="plp-homeAnchor">
+        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="panel panel-success plp-pool-panel">
+                <div class="panel-heading">
+                    @item.PoolName
+                </div>
+                <div class="panel-body">
+                    @*@foreach (var poolItem in item.Items)
+                    {
+                        <div>@poolItem.Label</div>
+                    }*@
+                    @for (int i = 0; i < item.Items.Count; i++)
+                    {
+                        <div>@item.Items[i].Label</div>
+                        if (i == 7)
+	                    {
+                            <div>...</div>
+                            break;
+                        }
+                    }
+                </div>
+            </div>
         </div>
     </a>
 }

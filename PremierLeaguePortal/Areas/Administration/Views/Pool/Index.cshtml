@@ -26,26 +26,29 @@
             }
         </div>
         <div class="row plp-row-margin-b-t">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 @plp_Helpers.GenerateParamButton(Url, "Details", "Pool", PremierLeaguePortal.Models.ELinkType.DETAILS, "Details", item.Id)
             </div>
-            <div class="col-md-2">
+            @*<div class="col-md-2">
                 @plp_Helpers.GenerateParamButton(Url, "Edit", "Pool", PremierLeaguePortal.Models.ELinkType.EDIT, "Edit", item.Id)
-            </div>
-            <div class="col-md-2">
+            </div>*@
+            <div class="col-md-3">
                 @{
                     bool disabled = item.IsActive;
                 }
                 @plp_Helpers.GenerateParamButton(Url, "Activate", "Pool", PremierLeaguePortal.Models.ELinkType.CREATE, "Activate", item.Id, disabled)
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 @{
                     disabled = item.IsActive;
                 }
                 @plp_Helpers.GenerateParamButton(Url, "Deactivate", "Pool", PremierLeaguePortal.Models.ELinkType.CREATE, "Deactivate", item.Id, !disabled)
             </div>
-            <div class="col-md-2">
-                @plp_Helpers.GenerateParamButton(Url, "Delete", "Pool", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id)
+            <div class="col-md-3">
+                @{
+                    disabled = item.IsActive;
+                }
+                @plp_Helpers.GenerateParamButton(Url, "Delete", "Pool", PremierLeaguePortal.Models.ELinkType.DELETE, "Delete", item.Id, disabled)
             </div>
         </div>
      }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PremierLeaguePortal.Areas.Administration.Models;
 using PremierLeaguePortal.DAL.Context;
 using PremierLeaguePortal.Models;
 using PremierLeaguePortal.Repository;
@@ -83,6 +84,31 @@ namespace PremierLeaguePortal.Controllers
             ViewBag.Message = "You nasty...";
 
             return View();
+        }
+
+        public ActionResult Pools()
+        {
+            List<Pool> activePools = _unitOfWork.Pool.GetAllActive().ToList(); 
+            List<PoolViewModel> pvm = Mapper.Map<List<PoolViewModel>>(activePools);
+            return View(pvm);
+        }
+
+        //public ActionResult PoolsArchive() //TODO
+        //{
+        //    List<Pool> activePools = _unitOfWork.Pool.GetAllActive().ToList();
+        //    List<PoolViewModel> pvm = Mapper.Map<List<PoolViewModel>>(activePools);
+        //    return View(pvm);
+        //}
+
+        public ActionResult PoolDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pool currentPool = _unitOfWork.Pool.GetById((int)id);
+            PoolViewModel pvm = Mapper.Map<PoolViewModel>(currentPool);
+            return View(pvm);
         }
     }
 }

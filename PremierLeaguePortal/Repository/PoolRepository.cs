@@ -13,5 +13,12 @@ namespace PremierLeaguePortal.Repository
         {
             
         }
+
+        public IEnumerable<Pool> GetAllActive()
+        {
+            return _Context.Pools
+                .Include("Items")
+                .Where(p => p.IsActive);
+        }
     }
 }

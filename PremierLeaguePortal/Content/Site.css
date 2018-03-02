@@ -133,3 +133,8 @@ img {
     width: 80%;
     margin-left: 10%;
 }
+
+.plp-pool-panel {
+    height: 250px;
+    overflow: hidden;
+}

@@ -18,7 +18,6 @@ $(document).ready(function () {
 $(function () {
     $("#plp-add-item").click(function () {
         var itemListEl = $("#plp-pool-item-list");
-        debugger;
         var lastItemIndex = parseInt(itemListEl.find("input.form-control").last().attr('id').match(/\d+/)[0]);
         var currentItemIndex = lastItemIndex + 1;
         var newLabelForItem = $("<label>")
@@ -37,7 +36,7 @@ $(function () {
 });
 
 var createRemoveButton = function (currentItemIndex) {
-    var removeButton = $("<input>").attr("type", "button").attr("value", "remove " + currentItemIndex).addClass("plp-remove-item");
+    var removeButton = $("<input>").attr("type", "button").attr("value", "remove " + currentItemIndex).addClass("plp-remove-item btn btn-danger");
     removeButton.click(removePoolItem);
     return removeButton;
 }
